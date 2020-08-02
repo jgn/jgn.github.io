@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>7fff</title>
+  <id>http://7fff.com/</id>
+  <link href="http://7fff.com/"/>
+  <link href="http://7fff.com/feed.xml" rel="self"/>
+  <updated>2020-07-31T19:00:00-05:00</updated>
+  <author>
+    <name>jgn</name>
+  </author>
+  <entry>
+    <title>Why does that software contractor cost so much?</title>
+    <link rel="alternate" href="http://7fff.com/2020/08/why-does-that-software-contractor-cost-so-much/"/>
+    <id>http://7fff.com/2020/08/why-does-that-software-contractor-cost-so-much/</id>
+    <published>2020-07-31T19:00:00-05:00</published>
+    <updated>2020-08-01T21:48:46-05:00</updated>
+    <author>
+      <name>jgn</name>
+    </author>
+    <content type="html">&lt;p&gt;[I was listening to &lt;a href="https://www.bikeshed.fm/254"&gt;this podcast&lt;/a&gt; that was talking a bit about
+billing, and it inspired me to go back to this post I drafted in March of 2008. It still seems about
+right, so here it is. Bonus: A bit about invoicing.]&lt;/p&gt;
+
+&lt;h3&gt;The hourly rate&lt;/h3&gt;
+
+&lt;p&gt;I was talking to a friend (a small business owner) recently who felt that $200/hour is too much to
+pay for a software or design contractor. That is indeed not a small hourly rate. But where does that
+number come from?&lt;/p&gt;
+
+&lt;p&gt;Here&amp;#39;s how it works. Software developers and graphic designs are people just like you, with rent or
+ mortgages, possibly a family, and a limited number of hours in the day to get anything done. Let&amp;#39;s
+ say for the sake of argument that a young contractor wants to make on average $125,000 / year (in a
+ lean year, perhaps that would be $85,000 and in a flush year it would be $150,000). This contractor
+ thinks she has 2,000 billable hours per year. That&amp;#39;s really quite a lot of billable hours. It&amp;#39;s
+ assuming one bills out eight hours a day, every work day, every week, except for two weeks of
+ vacation. I.e., 8 hours * 5 days * 50 weeks = 2,000 total hours. Yes, the contractor might
+ occasionally work 14 hours, or on weekends, but you get the idea. Personally I think overwork is a
+ recipe for disaster (because overwork impinges on quality and results in billing weak hours, i.e.,
+ hours made inefficient due to sleeplessness and inefficiency), and furthermore that the contractor
+ should be including time off of at least four weeks off over the year, to recharge, remember one&amp;#39;s
+ family, and so forth.&lt;/p&gt;
+
+&lt;p&gt;Now at first it would seem that if you divided $125,000 by 2,000 hours, you&amp;#39;d get an hourly rate of
+ $62.50. But that&amp;#39;s not the way it works, because the contractor is also engaging in business
+ development, i.e., finding new customers. Business development can take a full 50% of one&amp;#39;s time.
+ You will have to trust me on this, but it&amp;#39;s true. There is also a lot of lost business because you
+ are in an existing contract and have no extra bandwidth. So it&amp;#39;s pretty unlikely that your book
+ would be full. So now the hourly rate is $125/hour. The $125 basic rate also accounts for
+ variability in billing: Such as: Customers who don&amp;#39;t pay; customers who make only partial payment;
+ customers who get a discount for various intangible reasons. This is also why the rate goes down
+ for a longer engagement.&lt;/p&gt;
+
+&lt;p&gt;Then there are various forms of overhead. Independent contractors also need to pay for their own
+ health care and consulting insurance; their taxes can be higher, especially if they don&amp;#39;t have a
+ good accountant; and they have to pay for ongoing self-education, in the form of books,
+ subscriptions, and non-billable hours in open source projects they participate in. So let us say,
+ now, that a &amp;quot;reasonable&amp;quot; rate is $150. They may also have to pay for an office; add $10/hour,
+ at least.&lt;/p&gt;
+
+&lt;p&gt;So why $200? Now we get into questions around quality. You want the best, don&amp;#39;t you? The rate is
+ going to be a bell curve like everything else, with the $150/hour biller in the middle. You are
+ going to be able to find people for $75/hour; and there are going to be great people who are in
+ high demand who require a larger number.&lt;/p&gt;
+
+&lt;p&gt;So have I convinced you that $200 is reasonable for great work?&lt;/p&gt;
+
+&lt;h3&gt;Invoicing&lt;/h3&gt;
+
+&lt;p&gt;The worst thing we do when we build a contract is to make it expensive to stop the work. A good way
+to make it expensive is to torture yourself and the contractor to define all of the work upfront
+with a defined schedule, and then introduce charges for changes. Please, stop it. Define your work
+in two-week sprints that deliver what is most important first. This means that the customer and
+the contractor must talk about priorities and get that right. At the end of two weeks, has anything
+been delivered? Yes: Continue. No: Consider stopping right there.&lt;/p&gt;
+
+&lt;p&gt;I would suggest sending the bill at the end of each sprint. Keep the sprint short enough (two weeks
+or a week) so that if the customer doesn&amp;#39;t pay you haven&amp;#39;t lost too much.&lt;/p&gt;
+
+&lt;p&gt;At the same time, insist on payment. I made the mistake once of letting owed money mount up over
+three months, and the the customer went out of business. Oops. I was out $10,000. I know others
+who have experienced this. It&amp;#39;s not cool and everyone will be unhappy. So insist on prompt payment.
+Be nice, but be persistent.&lt;/p&gt;
+
+&lt;p&gt;Oh, and creating invoices? Use software. When I was doing a lot of billing, I used Freckle which is
+now &lt;a href="https://nokotime.com/"&gt;Noko Time&lt;/a&gt;. You track your hours, and out the other end comes a pretty
+invoice, ready for the customer.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Taking and Passing the CISSP examination</title>
+    <link rel="alternate" href="http://7fff.com/2020/01/taking-and-passing-the-cissp-examination/"/>
+    <id>http://7fff.com/2020/01/taking-and-passing-the-cissp-examination/</id>
+    <published>2020-01-18T09:21:00-06:00</published>
+    <updated>2020-07-21T22:09:29-05:00</updated>
+    <author>
+      <name>jgn</name>
+    </author>
+    <content type="html">&lt;p&gt;This is about why and how I decided to get the &lt;a href="https://www.isc2.org/Certifications/CISSP"&gt;CISSP Certification&lt;/a&gt;, and how
+I studied to pass the exam. I don&amp;#39;t put a lot of stock in certs but I saw
+some strategic reasons to do this one.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;ve been at Iora Health since 2011. When Iora started, our business model
+did not involve the submission of medical claims. Having in those very early days no business relationships
+with insurance companies, we thought for a brief while that we would not be obligated by HIPAA.
+Soon enough, though, our business did start working with insurance companies,
+and that meant we had to stand up a HIPAA program. My colleague Andrew Schutzbank
+became the HIPAA Privacy Officer, and I became the HIPAA Security Officer. We
+wrote all of the initial policies and procedures, trained the staff, and
+began conducting periodic security/privacy reviews and walk-throughs of our practices. &lt;img src="../../../assets/images/cissp-85eb1ee2.jpg" title="CISSP Resources" alt="CISSP" width="1000" height="750" /&gt;&lt;/p&gt;
+
+&lt;p&gt;Over the years I have continued as Security Officer. In 2016 I led up the effort
+to obtain &lt;a href="https://hitrustalliance.net/"&gt;HITRUST Certification&lt;/a&gt; for the company, and that required a complete
+overhaul of our policies, and a new effort to be able to prove, through evidence,
+that we are doing all the things we say we do. As a part of that, we
+started making deeper inquiries with our business partners about their security.
+We obtained our HITRUST Cert in 2017. Over those years security has become
+a top priority for the company and in my personal professional development.&lt;/p&gt;
+
+&lt;p&gt;About this time, I noticed that many of my opposite numbers at other companies
+have the CISSP certification. It occurred to me that just as HITRUST helps the
+company show that we do the right things and take those things seriously,
+we should probably have someone at the company who has proved out competencies
+as tested by the CISSP. In September of 2019 I began to study in earnest. Here&amp;#39;s
+what I did.&lt;/p&gt;
+
+&lt;p&gt;Before 2017 I had obtained the Sybex CISSP Study Guide, 7th edition, because
+I was curious about the CISSP. In September 2019 I bought the Sybex sample exams, and
+quickly noticed that there were questions that weren&amp;#39;t addressed by the 7th
+Edition of the Study Guide. So I acquired the &lt;a href="https://www.amazon.com/Certified-Information-Security-Professional-Official/dp/1119475937/"&gt;8th edition of the Study Guide&lt;/a&gt; and read it cover-to-cover
+(except for the software chapters - more about that below). The lead author
+of that book is Mike Chapple: I also watched all of his CISSP videos on Lynda/LinkedIn
+(until recently, Lynda was free via many public libraries; but apparently no more).
+Coupled with the Sybex books are some online quizzes and tests. I found I could
+pretty easily get an 80% or better on any domain. But I had this nagging suspicion that
+the Sybex book was a little thin.&lt;/p&gt;
+
+&lt;p&gt;In November I started checking in with CISSP communities on Facebook and &lt;a href="https://www.reddit.com/r/cissp/"&gt;Reddit&lt;/a&gt;.
+(There&amp;#39;s also a nice group on Discord.)
+Based on what I was reading there, I discovered that the CISSP examination is
+pretty well understood to have questions that are qualitatively different from
+many of the electronic practice exams. The CISSP tends to ask more sophisticated
+questions, and often turns on subtle wording or qualification of the main question.
+For example, a prompt may be prefaced by: &amp;quot;With regard to risk analysis . . .&amp;quot;
+and then ask a question that might have a pretty obvious answer in the general
+case, but perhaps not so obvious when thinking narrowly about risk analysis.
+When you take the CISSP you sign an NDA, so I can&amp;#39;t write very freely about
+my own experience: Suffice to say that the guidance from Reddit and elsewhere
+is pretty good.&lt;/p&gt;
+
+&lt;p&gt;There was also a lot of talk online about the &lt;a href="https://www.boson.com/practice-exam/cissp-isc2-practice-exam"&gt;CISSP prep exams from Boson&lt;/a&gt;. 
+The big difference with Boson is that you can read their rather lengthy
+rationale for the correct answer, coupled with an enumeration of the reasons
+the wrong answers don&amp;#39;t work. After some Boson prep in December, I found that
+I could pretty reliably score 80-100% in most domains for questions I&amp;#39;d
+never seen. The one I had trouble with? Software development, where I have
+the most professional experience.&lt;/p&gt;
+
+&lt;p&gt;I think that the problem with the software development domain for the CISSP is that it&amp;#39;s
+hard to test. What you want in a software developer (or perhaps more pertinantly in a
+software developer manager with a focus on information security) is a very broad ability to exercise the sniff test
+on what is going on. For instance, you have to have some sensitivity to the
+idea that a two-tier web app with unsanitized database queries and no input
+validation might expose you to SQL injection. Well obviously I know that.
+But how do you test it? A question seemingly beloved by the electronic prep
+exams is along the lines of: What is the top vulnerability according to the &lt;a href="https://owasp.org/www-project-top-ten/"&gt;OWASP Top Ten&lt;/a&gt;?
+Well, in 2017 it was injection. But the problem here is that the question
+is geared to what is easy to test. So presumably some people are going to
+memorize the whole OWASP Top Ten because it occurs on a prep exam. In my
+experience, there were a lot of prep questions that were too granular for a commonsense
+approach to secure software development. In any case, it was clear that I had
+to learn about managing secure software development &amp;quot;the CISSP way.&amp;quot; What I
+did for this was to pay close attention to what I got wrong, and then read
+in the late Shon Harris&amp;#39;s book &lt;a href="https://www.amazon.com/CISSP-All-One-Guide-Eighth/dp/1260142655/"&gt;CISSP All-in-One Exam Guide, Eighth Edition&lt;/a&gt;.
+This rather amazing book can serve as a nice desktop reference/refresher for
+most topics in IT Security, from what I can tell. Another great resource
+for cleaning up weak areas is the (free) series of videos on the CISSP by
+&lt;a href="https://www.cybrary.it/course/cissp/"&gt;Kelly Handerhan at Cybrary&lt;/a&gt;. Handerhan
+also has has some great videos on individual topics: For instance, I don&amp;#39;t
+think I would have understood Kerberos very well without &lt;a href="https://www.cybrary.it/s3ss10n/kerberos-in-depth/"&gt;her walk-through&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Of course there&amp;#39;s no one-size-fits-all study plan, but I think what I did
+makes a lot of sense, in retrospect:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt; I read systematically (virtually cover-to-cover) in the newest official study guide.
+I underlined and added notes in this volume, and kept my own separate
+notes as a personal study guide.
+I also watched
+the videos on Lynda/LinkedIn because I have found over the years that I
+learn better if I cover the materials in more than one mode (reading &lt;em&gt;and&lt;/em&gt; videos).
+You need this breadth before you can selectively go deeper.&lt;/li&gt;
+&lt;li&gt; The Boson prep was essential, because it helps you differentiate between
+the different acronyms, use cases, and contexts for questions.&lt;/li&gt;
+&lt;li&gt; Finally, for touch-ups I used Shon Harris and to a lesser extent various
+Kelly Handerhan videos. For me, if I&amp;#39;m weak in an area,
+I have to go deeper so that the shallow stuff becomes just background.&lt;/li&gt;
+&lt;li&gt; The day before I reviewed the so-called &lt;a href="https://www.sunflower-cissp.com/"&gt;&amp;quot;Sunflower&amp;quot; CISSP summary&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;As to the value of the CISSP? I&amp;#39;m not sure. The exam is now adaptive, and I
+passed it after the minimum number of questions (100), apparently satisfying
+a 95% confidence internal suggesting I&amp;#39;d pass with the full 150 questions. Online,
+people counseled: &amp;quot;Think like a manager&amp;quot;; &amp;quot;remember the
+information security triad (Confidentiality, Integrity, Availability)&amp;quot;;
+watch carefully for questions that are driven by budget, not necessarily
+what is most secure. Those are excellent guidelines for the test experience,
+but it is a shame that few of the practice questions, from what I can tell,
+work at that level. One book that doesn&amp;#39;t seem to
+be used much by people prepping for the exam is the &lt;a href="https://www.amazon.com/Official-ISC-Guide-CISSP-CBK/dp/1119423341/"&gt;CISSP &amp;quot;body of knowledge&amp;quot;
+book&lt;/a&gt;. I&amp;#39;m going to be using that to get some further depth, because unlike
+the other books, it seems to be much better at citing source documents on
+which the CISSP knowledge is based.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>A Second Visit to Bates College</title>
+    <link rel="alternate" href="http://7fff.com/2019/10/a-second-visit-to-bates-college/"/>
+    <id>http://7fff.com/2019/10/a-second-visit-to-bates-college/</id>
+    <published>2019-10-01T05:50:00-05:00</published>
+    <updated>2020-07-21T22:09:29-05:00</updated>
+    <author>
+      <name>jgn</name>
+    </author>
+    <content type="html">&lt;p&gt;Oops. This has been unpublished in draft since October. But since then, my daughter &lt;em&gt;did&lt;/em&gt;
+apply to Bates early decision, and was admitted to the class of 2024!&lt;/p&gt;
+
+&lt;p&gt;But here&amp;#39;s my take from back in October.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;On September 26-28, we returned to New England to continue our visits to colleges,
+and a key aspect of this trip was to see if my daughter&amp;#39;s very strong interest
+in Bates is still solid. Why? Because she might apply there &amp;quot;early decision.&amp;quot;
+We also visited Middlebury, Mount Holyoke, and Amherst. I may get to
+these in later posts. Oh, and we had a couple
+of quick drive-bys: Hampshire and Goddard Colleges. I wish we could have lingered,
+but we had some car trouble that made our schedules tight.&lt;/p&gt;
+
+&lt;p&gt;In this post, I want say a few words about Bates . . . then bloviate a bit on
+early decision.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="/2018/08/visits-to-bates-college/"&gt;Bates was the third college I blogged about&lt;/a&gt; in &lt;a href="/category/college-visits/"&gt;this series&lt;/a&gt;,
+and back in August of last year, I concluded that it&amp;#39;s a &amp;quot;A great school that
+has perhaps had to be a bit more cunning and creative about costs than their
+cohort.&amp;quot; &lt;img src="../../../assets/images/2019-10-bates-01.JPG" title="Bates 2019 1" alt="bates-2019-01" width="800" height="949" /&gt; Everything we saw and experienced at Bates confirmed that opinion. C is still bullish on Bates. Me, too. I&amp;#39;ll just pick out a few things.&lt;/p&gt;
+
+&lt;p&gt;This time we skipped the tour. Instead, we snooped around the
+campus on our own, which was quite rewarding. The best modern building at
+Bates is Pettengill Hall. &lt;img src="../../../assets/images/2019-10-bates-02-4745dae7.png" title="Bates 2019 2" alt="bates-2019-02" width="791" height="1054" /&gt; On the tour last year, we got to see the main
+floor; the tour guide said that in winter it&amp;#39;s like a &amp;quot;snow globe&amp;quot; with its
+big windows and pretty views. This time we discovered that on the upper
+floors, there are cozy lounges and great views of the interior.&lt;/p&gt;
+
+&lt;p&gt;Another feature of Bates that really impressed me is that seemingly every
+department has a lounge. &lt;img src="../../../assets/images/2019-10-bates-05-b3a576be.png" title="Bates 2019 3" alt="bates-2019-05" width="800" height="808" /&gt; I like the idea that each department has a little
+retreat where they can show off some collections related to the field and
+provide a shelf of faculty-authored books. So, for instance, in the German
+and Russian Department, we saw a case with some old Samovars. It&amp;#39;s a nice touch.
+I have seen a bit of that at Grinnell, but at Bates it seemed to be systematic.
+We were there while Bates was in session, but I don&amp;#39;t think we saw anyone hanging
+out in a lounge. I can tell you that were I a student again, I&amp;#39;d surely be
+a denizen of the English Department&amp;#39;s lounge!
+The
+most interesting space we saw was the French department, which has decorated
+the walls with sentences from famous works of literature. &lt;img src="../../../assets/images/2019-10-bates-04-204831d6.png" title="Bates 2019 4" alt="bates-2019-04" width="800" height="728" /&gt; One felt that one
+was &amp;quot;inside&amp;quot; French. I recall that Montaigne decorated his reading room with
+snippets of Latin from the ancients; maybe the department was echoing that.&lt;/p&gt;
+
+&lt;p&gt;Last time I worried a bit about the endowment. I have come to believe that this
+is a non-issue for a couple of reasons. First off, &lt;a href="https://www.bates.edu/campaign/"&gt;Bates has apparently been
+quite successful with their current capital campaign&lt;/a&gt;.
+Another sign that their budgets are not constraining them is that there is
+a new science building going up, due to open when my daughter would be in
+her sophomore year. For Bates, this is important, because judging from the
+existing buildings, they don&amp;#39;t have the powerhouse labs you see at, say,
+Grinnell, Amherst, and Mount Holyoke. But &amp;quot;new&amp;quot; will help, and what I expect to see is not
+quite the obsession with research you see at these other schools, but rather
+an even stronger integration of the sciences into the liberal arts. Bates tends
+to do things in their own way, such as their strategic naming of their new
+department, &amp;quot;Digital and Computational Studies.&amp;quot; My prediction is that a new
+science builidng at Bates will be very accomodating to the current debates
+around ethics in the sciences as well as the history of science, both areas
+where you need that liberal arts approach to get the most integrative educational
+experience.
+The fact that Bates doesn&amp;#39;t have money to blow means that they have to be
+ever more clever in spending what they have.&lt;/p&gt;
+
+&lt;h5&gt;Early Decision&lt;/h5&gt;
+
+&lt;p&gt;So this whole &amp;quot;early decision&amp;quot; thing . . . The idea is that if a kid is sure that
+Somewhere College is the exact right place, then the kid applies &amp;quot;early decision&amp;quot;
+to that one school. If accepted, attendance is required. You can&amp;#39;t then apply to Someother College and
+get in there and rescind your attendance from the school to which you
+applied early decision. No. ED is binding.&lt;/p&gt;
+
+&lt;p&gt;So I just want to jump to the &lt;em&gt;cui bono&lt;/em&gt;. Clearly colleges benefit big time.
+Here&amp;#39;s what Wikipedia says:&lt;/p&gt;
+&lt;blockquote class="blockquote"&gt;&lt;p&gt;Schools which offer an ED admission plan look to benefit from a near certainty
+that the admitted applicant will attend. As a result, the admission yield is
+increased by admitting more students at the ED stage. The timing of the ED
+process also helps admissions offices spread the work of sifting through
+applications throughout more of the school year. [...] Many schools offering ED
+regularly fill over 50% of their class through ED admits. &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Got that? So colleges get a better handle on class makeup and can effectively
+&amp;quot;lock in&amp;quot; their student body earlier. The chances of being admitted ED are higher
+than for the regular admissions process. What&amp;#39;s more, as James Fallows writes in
+&lt;a href="https://www.theatlantic.com/magazine/archive/2001/09/the-early-decision-racket/302280/"&gt;a seminal article on ED in &lt;em&gt;The Atlantic&lt;/em&gt;&lt;/a&gt;, &amp;quot;The more freshmen a college admits under a binding ED plan, the fewer acceptances it needs from the regular pool to fill its class—and the better it will look statistically.&amp;quot; No
+college would admit the following, but if the college is &amp;quot;need aware,&amp;quot; meaning
+that the college can look at the income of the parents as a part of the consideration
+to admit, then the college might also lock in more cash instead of competing for
+students later on through the offering of aid and scholarships. Which students
+benefit from this? The logic means that
+the early decision kids are the rich kids, because they don&amp;#39;t care as much about the variety of aid packages they might get.&lt;/p&gt;
+
+&lt;p&gt;Remember that I noted that the admit percentage is higher for ED. So if you&amp;#39;re
+a student who really wants to lock in a school, you&amp;#39;re going to apply ED to
+get that advantage.
+What is really worrisome here is that ED may be prone to gaming, and it distorts the
+very proposition that your ED school is the one you &lt;em&gt;really&lt;/em&gt; want to go to. &lt;a href="https://www.washingtonpost.com/news/grade-point/wp/2016/03/31/a-college-admissions-edge-for-the-wealthy-early-decision/"&gt;An
+article in the Washington Post&lt;/a&gt; notes:&lt;/p&gt;
+&lt;blockquote class="blockquote"&gt;&lt;p&gt;Sometimes admission to that first-choice school is so tough to obtain, even in an early application, that it makes more sense to apply early decision to a second choice, or even a third choice. “You’ve got one chip,” Reider said. “One card to play. It’s an absolutely crazy system.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Doesn&amp;#39;t that seem a bit off? So my daughter, at least, will likely apply ED to what seems
+like her favorite school, and may have a higher liklihood of getting in. But
+one does wonder about increasing the chances by going for, say, Mount Holyoke (and
+I&amp;#39;m not knocking Mount Holyoke, just noting their statistics for ED).
+I suppose that Washington Post article, though, is about the kids who want to
+go to a &lt;em&gt;really&lt;/em&gt; selective school like Harvard or Princeton. My daughter decided
+long ago that she&amp;#39;d rather go to a smaller place, and while still very selective,
+it&amp;#39;s a different world from the top 5-10 most selective institutions.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>A Visit to Grinnell College</title>
+    <link rel="alternate" href="http://7fff.com/2019/09/a-visit-to-grinnell-college/"/>
+    <id>http://7fff.com/2019/09/a-visit-to-grinnell-college/</id>
+    <published>2019-09-29T09:46:00-05:00</published>
+    <updated>2020-07-21T22:09:29-05:00</updated>
+    <author>
+      <name>jgn</name>
+    </author>
+    <content type="html">&lt;p&gt;On September 13th my daughter, my wife, and I flew from the Twin Cities to Des Moines to take my daughter
+(I&amp;#39;ll call her C)
+on a college visit to &lt;a href="https://www.grinnell.edu/"&gt;Grinnell College&lt;/a&gt; in Grinnell, Iowa. This would be an
+interesting visit, because I graduated from Grinnell in 1982, and then worked
+there for two years, and have been
+back to campus numerous times to give talks and go to reunion. Our &amp;quot;blink&amp;quot;
+was that Grinnell might not be a great fit for C, but she was game to check
+it out. I have 
+friends there: Some with whom I went to college, others who are from the
+younger generation of faculty (i.e., people my own age). I&amp;#39;ll say a word or two about C&amp;#39;s experience, and will
+also reflect on the differences between Grinnell then and Grinnell now.&lt;/p&gt;
+
+&lt;p&gt;But first we got in
+our rental car and drove to Montour, Iowa, to have dinner at &lt;a href="https://www.rubessteakhouse-montour.com/"&gt;Rube&amp;#39;s Steakhouse&lt;/a&gt;,
+where &lt;em&gt;you grill your own steak&lt;/em&gt;. We visited with my friends Harriett and Jeff
+who after living elsewhere in the country settled in Grinnell. They have a lovely
+life, and it was great to catch up but also to learn a bit about their daughter&amp;#39;s
+college choice--she went to Smith College. What I remember about the conversation
+was that their daughter just felt the vibe. This seems to be the most real
+thing about picking a college: something just grabs you. Honestly, picking
+a college is the United States&amp;#39; version of the &amp;quot;sorting hat&amp;quot; in Harry Potter,
+am I right?&lt;/p&gt;
+
+&lt;p&gt;The steak was great, but without
+my meat thermometer I overcooked a bit. &lt;img src="../../../assets/images/2019-09-rubes1-b034095a.jpg" title="Rubes 1" alt="rubes11" width="601" height="597" /&gt; &lt;img src="../../../assets/images/2019-09-rubes2-6d0cca1f.jpg" title="Rubes 2" alt="rubes12" width="467" height="368" /&gt; My theory of Rube&amp;#39;s is that because the
+lighting on the grill is so dark people tend to cook it more rare than they
+would usually . . . and that&amp;#39;s why they like their steak so much! But this
+time I foiled my own theory.&lt;/p&gt;
+
+&lt;p&gt;Then we drove on to Grinnell and stayed at the new &lt;a href="https://www.hotelgrinnell.com/"&gt;Hotel Grinnell&lt;/a&gt;, which is in
+the building that was formerly the junior high, and long ago the high school.
+We had a big room with two beds. The place was pretty funky: Our room had a
+photo of a stack of 80s-era albums in the bathroom, and there was the
+predictable (the first album by the English Beat), and the -- really? -- whut?
+(&amp;quot;Too Drunk to F---&amp;quot; by the Dead Kennedys.)&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;d share some photos but it would seem that I took only one picture while I
+was in Grinnell. Hmm. I guess I was so involved in the moment taking pictures
+with my mind that I neglected to take pictures with my phone. I grabbed some
+from my wife&amp;#39;s phone.&lt;/p&gt;
+
+&lt;p&gt;Friday, September 13, showed a really big harvest moon, which we noticed on
+our drive from Montour to Grinnell. C and I decided to walk up to
+campus to see it and also check out the campus at night when it&amp;#39;s especially
+pretty. Grinnell has done a good job of situating buildings so that they have
+a nice glow when it&amp;#39;s dark. There are now about four key nighttime visual beacons.
+First there is the Forum, which in my day was the student center. It&amp;#39;s a glass,
+wood, and metal modernist structure designed by Walter Netsch (who is famous
+for the Air Force Academy building in Colorado Springs). &lt;img src="../../../assets/images/2019-09-gc4-e43d75b5.jpg" title="Grinnell College 4" alt="gc4" width="800" height="817" /&gt; Netsch also designed
+Burling Library and the Arts building. I read in an old piece of his (that
+I have unsuccessfully strived to find online) that the rooflines of the Forum,
+Library, and Theater were designed to align horizontally. You can still see that, but
+unfortunately the library was defaced in the 1980s by a grotesque popup on the top to provide
+for extra stacks. In any case, C could see the visual harmony across
+these buildings. Then we walked over to South Campus. Grinnell&amp;#39;s dormitories
+are small but connected via loggias into three campuses, South, North, and
+East. This creates a really appealing view with lights glowing out of the loggias.
+The third visual beacon is the Joe Rosenfield Center (JRC), which is the new 
+(since 2007) student center. It&amp;#39;s a multi-use building that contains the single
+dining hall. (In my day, there were two places to eat: Quad, which still stands on South
+Campus and would fit right in at Hogwarts, and the more utilitarian Cowles on North Campus.
+When I was a student I liked the choice, but now after many campus visits, I
+see that many colleges are coalescing their dining experiences into one larger hall in order
+to facilitate a common experience.)
+The JRC had people coming in and going out and seemed warm and inviting. The last
+visual beacon I want to pick out is the brand new Humanities and Social Studies
+Center (popularly now known as the HSSC, pronounced &amp;quot;husk&amp;quot;). &lt;img src="../../../assets/images/2019-09-gc1-63232b47.jpg" title="Grinnell College 1" alt="gc1" width="800" height="1067" /&gt; It&amp;#39;s quite a
+behemoth, and partially encloses the old Alumni Recitation Hall (ARH). A lot
+of alumni were pretty worried about this construction. It&amp;#39;s huge and
+transformative. It is so big that it closes off the central campus and eliminates
+the view from there to the north. However, I&amp;#39;d count it as a total
+success. The main thing that is does is increase the coziness and warmth of
+the central campus. It makes that core feel even more &amp;quot;safe&amp;quot; (a theme to which
+I will return).&lt;/p&gt;
+
+&lt;p&gt;C felt the warmth: It&amp;#39;s a very &amp;quot;managed&amp;quot; space with everything
+conveniently within walking distance. Now that I&amp;#39;ve visited a lot of campuses
+where things seem a little too spread out (Middlebury; Amherst; etc.) I think
+Grinnell has something pretty neat. The college owns a lot of acres but
+they have situated the core buildings elegantly.&lt;/p&gt;
+
+&lt;p&gt;The next day we had the info session, tour, and then C had an
+interview. &lt;img src="../../../assets/images/2019-09-gc3-aef858e8.jpg" title="Grinnell College 3" alt="gc3" width="1000" height="750" /&gt;&lt;/p&gt;
+
+&lt;p&gt;One of the things I&amp;#39;ve discovered in all of these campus visits is that the
+top tier of small liberal arts colleges all have pretty much the same core
+elements: a great faculty, fantastic resources, and an inviting student culture:
+so the visit tends to turn on the little differences (sometimes not so little).
+Here are a few things about Grinnell that stood out in the visit:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Grinnell College is in the middle of Iowa, in the town of Grinnell (pop. 9,000,
+not including the students). This is apparently perceived by some as &amp;quot;remote&amp;quot; so the
+college has to address it in various ways. (Honestly, it&amp;#39;s no more remote from
+larger urban areas than, say, Middlebury, which doesn&amp;#39;t seem to get this critique). It&amp;#39;s about a one hour drive from Des Moines (to 
+the west) or Iowa City (to the east). Like a lot of high-performing small colleges,
+Grinnell attracts students from all over the world, and is not shy
+telling that story. Most Grinnell students do at least a semester abroad. So, yeah,
+the college is in Iowa, but it is very much &amp;quot;of the world&amp;quot; as well. I&amp;#39;d say the college is
+entirely successful promoting its international character; yet they have to be careful
+not to sound apologetic for being in the cornfields.&lt;/p&gt;
+
+&lt;p&gt;Meanwhile, the college
+promotes its &lt;a href="https://www.grinnell.edu/academics/centers-programs/prairie-studies"&gt;Center for Prairie Studies&lt;/a&gt;.
+Some years ago in 2013-2014, Grinnell engaged what was then known as Crane
+Meta Marketing to provide some insights on the college&amp;#39;s identity.&lt;sup&gt;&lt;a id="ref1" href="#note1"&gt;1&lt;/a&gt;&lt;/sup&gt;
+I read
+a lot of their research and like all consultancies, they produced a feeling
+of anxiety by identifying paradoxes about the college; they presented a couple
+of &amp;quot;solutions&amp;quot; to these paradoxes. I think one was the idea of centering
+Grinnell&amp;#39;s image on the idea of the prairie. But here&amp;#39;s the thing. Yes, there is
+history around the prairie and there is some nearby restored prairie, but you know what?
+Grinnell&amp;#39;s farming country. Really. I don&amp;#39;t think the college has every &lt;em&gt;truly&lt;/em&gt;
+taken that to heart as a component of the college identity (you could probably
+argue that it&amp;#39;s been in [intentional?] denial about that since founding). I learned in &lt;a href="https://www.amazon.com/Mentor-Life-Legacy-Joe-Rosenfield/dp/0998652857/ref=sr_1_1?keywords=george+drake+rosenfield&amp;amp;qid=1569772518&amp;amp;s=gateway&amp;amp;sr=8-1"&gt;George Drake&amp;#39;s book on Joe Rosenfield&lt;/a&gt;
+that for many years until the 1940s a chief source of income for the college was from
+local farms it owned (p. 162). But despite the geographical location, there is no Farm Studies Concentration on campus.
+I would guess a name like &amp;quot;Farm Studies&amp;quot; would be too pedestrian for a national
+elite college,&lt;sup&gt;&lt;a id="ref2" href="#note2"&gt;2&lt;/a&gt;&lt;/sup&gt; but it would certainly respect the surrounding reality and
+given the lively Iowa interest in artisanal produce, it would be hip. (Though see &lt;a href="https://www.grinnell.edu/news/grinnell-farms-0"&gt;this&lt;/a&gt; nice piece.)
+&lt;a href="https://en.wikipedia.org/wiki/White_Americans#Geographic_distribution"&gt;Iowa is also among the &amp;quot;whitest&amp;quot; states in the USA&lt;/a&gt;: The curriculum has many courses
+that critique whiteness and/or study other populations in the spirit of area
+studies, languages, or arts, but there&amp;#39;s no &amp;quot;Midwest Studies&amp;quot; to my knowledge (when
+I was a student, then professor Liahna Babener taught a course on the
+literature and culture of the American midwest but I don&amp;#39;t think it really
+had a slot in the course list the way, say, English Literature did).
+Yet Iowa is not as uniform as its image: Waterloo, Iowa, is more
+than 15% African American. &lt;a href="https://www.thegazette.com/iowaideas/stories/iowa-changing-demographics"&gt;Projections suggest that Iowa will decrease from
+something like 90% white-non-Hispanic to about 75% by 2050&lt;/a&gt;, so there&amp;#39;s a lot
+to think about. Maybe &amp;quot;Iowa Studies&amp;quot;? Joseph Wall, a key Grinnell College history
+professor, wrote &lt;a href="https://www.amazon.com/Iowa-Bicentennial-Joseph-Frazier-Wall/dp/B002K7X9CC"&gt;a standard brief history of Iowa&lt;/a&gt;; maybe that&amp;#39;s the way to incorporate a scholarly involvement with &amp;quot;place.&amp;quot; My point is simply that there&amp;#39;s something for the college
+to examine in the ongoing transformation of Iowa. The college &lt;em&gt;does&lt;/em&gt;
+strongly emphasize &lt;a href="https://www.grinnell.edu/campus-life/grinnell"&gt;the town of Grinnell&lt;/a&gt;.
+There are some who are going to argue that, yes, the college does a lot with
+the nearby area and the local ethnic patterns and folkways; I&amp;#39;m just saying that the emphasis on
+&amp;quot;place&amp;quot; isn&amp;#39;t as profound as you see in the &amp;quot;sell&amp;quot; you get from institutions like
+Bates (strongly argues for the college&amp;#39;s relationship to the class structure of Lewiston/Auburn and to the
+local francophone communities) or Middlebury (which wears its Vermontness like
+a pair of overalls).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Now that I&amp;#39;ve seen a lot of campuses, I have to say that the resources in
+the sciences are truly amazing. It seems that most if not all science faculty
+have their own lab or space that is dedicated to research, and, critically,
+research with undergraduate collaboration. The Noyce Science Building is quite utilitarian but
+I like that -- it looks like a place where real science happens. The embedded Science Library has a lot of windows
+overlooking the JRC: It&amp;#39;s a pleasant
+place to study on a cold winter night.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The new HSSC is astounding. It has not only more space for the humanities
+and social sciences, but it seems designed as a sort of agora for the free
+flow of ideas, with whiteboards everywhere and what looks like an outdoor
+classroom. The building has a lot of network connectivity and the college
+now has even more opportunities for real-time video classroom sharing with
+other institutions.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So those are just some differentiators. The tour was great, clear, and non-braggy.
+For C, Grinnell seemed a little &amp;quot;light&amp;quot; on college traditions and customs, with which she
+is fascinated. After the tour and interview, C placed Grinnell in the &amp;quot;plausible&amp;quot;
+category for application. For her, it didn&amp;#39;t make the grade as a potential
+early decision commitment, but it&amp;#39;s viable for the regular round of applications.&lt;/p&gt;
+
+&lt;p&gt;How is Grinnell different in 2019 from what I experienced in the 1980s? When I entered
+Grinnell in 1978, there was still a remnant of hippie culture. In central Iowa,
+I think the cultural movement of the coastal &amp;quot;sixties&amp;quot; was delayed by maybe three years
+(even though &lt;a href="http://www.thesandb.com/arts/1966-jefferson-airplane-lands-in-grinnell.html"&gt;the Jefferson Airplane played Grinnell in 1966&lt;/a&gt;), and lingered by that much as well. So students who were about to graduate in 1979 would have
+started in 1975, and would have overlapped with the tail end of the sixties
+kids -- among them, young men who were still subject to the draft (which ended
+in 1973). So there was in my day the circumambient smell of pot and I would say that the campus was
+pretty laid back, with a student-called &amp;quot;skip day&amp;quot; and a &amp;quot;Grinnell Relays&amp;quot; which was
+a parody of the Drake Relays. There was in 1978 a new law raising the drinking age to
+19, but many students admitted in 1978 were grandfathered in to be allowed to
+drink at 18. I think this younger drinking age actually de-emphasized the role of alcohol on campus.
+As the years proceeded and alcohol became illegal for more students, it became
+more of a forbidden fruit, and I believe the preferred inebriant on campus switched
+from pot to beer. Meanwhile in 1980 Reagan was elected, and I swear to you
+that the college culture became a little more straight; some incoming students seemed
+a bit more free to show their relative wealth. George Drake became
+President of the college in 1979, and he revived the idea of athletics as
+a key component of the college experience. Then in the mid-1980s Grinnell students,
+as on a lot of campuses, organized to promote divestment of college funds from
+companies doing business in South Africa. My point is simply that it was a
+complicated time, but, essentially, laid back enough that students didn&amp;#39;t
+feel a lot of pressure to excel in any conventional way. Additionally, my
+guess is that Grinnell was an oddball compared to the schools it compared itself
+to back then: Its (apparent) isolation made it a place that could just &lt;em&gt;do
+its thing&lt;/em&gt;. There were fewer articles like this trying to compare and contrast.&lt;/p&gt;
+
+&lt;p&gt;Today: I think Grinnell has evolved into a school where academics and academic
+achievement really are at the center of the experience. Grinnell seems not
+quite a &amp;quot;grind&amp;quot; school (as I think may be the case at Carleton), but it is certainly a college where everything is
+intentional. In my time, Grinnell was more haphazard . . . less professional . . .
+more bespoke . . . more weird. Is Grinnell now really &lt;em&gt;that different&lt;/em&gt; from its &lt;a href="https://www.grinnell.edu/about-grinnell/leadership-and-administration/offices-and-services/analytic-support-and-0"&gt;peer institutions&lt;/a&gt; these
+days? I&amp;#39;m not so sure (more about this in a later blog post).&lt;/p&gt;
+
+&lt;p&gt;Oh yeah, I promised to say something about the feeling of &amp;quot;safety&amp;quot; at Grinnell.
+A few years ago I was talking to someone at Reunion and we were comparing notes
+about coming to Grinnell. Her parents had been going through a divorce. (Mine, too.)
+She was from the Twin Cities, and didn&amp;#39;t really enjoy the bustle of the city. (Me, too.)
+So when she visited Grinnell in its carefully-placed setting, she immediately
+felt &amp;quot;safe.&amp;quot; This was a big deal for me as well: A jewel of the prairie where
+I could study what I wanted, be what I wanted, become what I wanted, and grow and thrive.
+It was a great thing.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;Endnotes&lt;/p&gt;
+
+&lt;p&gt;&lt;a id="note1" href="#ref1"&gt;1.&lt;/a&gt; N.b.,
+these kinds of branding exercises in higher education really bugs me:
+they are corporatist, and the very notion that colleges have to hire outsiders
+to tell them who they are seems pretty sad.&lt;/p&gt;
+
+&lt;p&gt;&lt;a id="note2" href="#ref2"&gt;2.&lt;/a&gt; Grinnell is an important player in the town,
+but it&amp;#39;s interesting to me that some colleges with a national reputation don&amp;#39;t
+participate in local events. For instance, Macalester College never has a booth
+at the Minnesota State Fair or, say, at the Selby Jazz Festival, while other
+Minnesota-/Twin Cities-based institutions do.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Nudge your staff to get TSA Pre</title>
+    <link rel="alternate" href="http://7fff.com/2019/09/nudge-your-staff-to-get-tsa-pre/"/>
+    <id>http://7fff.com/2019/09/nudge-your-staff-to-get-tsa-pre/</id>
+    <published>2019-09-17T19:39:00-05:00</published>
+    <updated>2020-07-21T22:09:29-05:00</updated>
+    <author>
+      <name>jgn</name>
+    </author>
+    <content type="html">&lt;p&gt;As I write this, the Minneapolis/St. Paul airport (MSP) is really screwed up.
+&lt;a href="http://tcbmag.com/news/articles/2019/august/msp-airport-renovations-prompt-checkpoint-changes"&gt;They&amp;#39;re renovating one of the two major entry points for security lanes.&lt;/a&gt;
+Hoi polloi must use the North checkpoint: It&amp;#39;s slow! Really slow!! But if you have TSA
+Pre you can use the South checkpoint. &lt;em&gt;Believe me, you want the South checkpoint.&lt;/em&gt; It&amp;#39;s fast! Really fast!!
+It&amp;#39;s going to be maybe 10 minutes, max. Otherwise, right now, it&amp;#39;s like a 45
+minute wait. It can be even worse in the morning.&lt;/p&gt;
+
+&lt;p&gt;If you pay someone $140K/year, that&amp;#39;s an hourly wage of about $70.
+&lt;a href="https://www.tsa.gov/travel/frequently-asked-questions/what-difference-between-global-entry-tsa-precheck-and-other-trusted"&gt;The fee for TSA Pre is only $85. Throw in Global Entry, and it&amp;#39;s $100&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;So let&amp;#39;s see. Your employee doesn&amp;#39;t have TSA Pre. On each end of a trip, she&amp;#39;s
+going to spend 45 minus 10, or 35 minutes in line without TSA Pre. Round-trip, that&amp;#39;s 70 minutes, or
+more than an hour. If you paid that mere $85, your $140K employee wouldn&amp;#39;t waste
+those 70 minutes, so it&amp;#39;s a wash in terms of your budget. You spend a whopping
+$85, and after about one trip, you get it back in time not wasted on standing
+in line. Spend $100 (oh my!) and now the employee can do Global Entry and blast
+through customs and immigration. So, yeah, your employee doesn&amp;#39;t do much
+international travel for work . . . But she&amp;#39;s going to love you if you can
+expedite dealing with all that crap at the border.&lt;/p&gt;
+
+&lt;p&gt;I personally implore my colleagues to sign up for TSA Pre. Do they do it? Nope. It&amp;#39;s a bit
+of a hassle, and in the default situation, everyone wears the tinfoil hat and
+is paranoid about sharing personal biometrics such as fingerprints. But I think
+a cash &lt;a href="https://www.amazon.com/Nudge-Improving-Decisions-Health-Happiness/dp/014311526X/ref=sr_1_1?gclid=EAIaIQobChMIssrR9ZXZ5AIVFarsCh0dcgg0EAAYASAAEgIlFvD_BwE&amp;amp;hvadid=241594665112&amp;amp;hvdev=c&amp;amp;hvlocphy=9019537&amp;amp;hvnetw=g&amp;amp;hvpos=1t1&amp;amp;hvqmt=e&amp;amp;hvrand=9001107170725452048&amp;amp;hvtargid=kwd-337408379473&amp;amp;hydadcr=15493_10339808&amp;amp;keywords=nudge+the+book&amp;amp;qid=1568768462&amp;amp;sr=8-1"&gt;nudge&lt;/a&gt;
+can overcome this objection pretty quickly. So . . . why not offer to reimburse your staff for their TSA Pre bill? You
+won&amp;#39;t lose much cash, and you will gain in reputation as being a considerate and
+supportive employer. Indeed, after a couple of trips, you&amp;#39;ll start to get
+hours that might have otherwise been wasted.&lt;/p&gt;
+
+&lt;p&gt;What are you waiting for?&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>The Sadness of Paperback Book Sizes</title>
+    <link rel="alternate" href="http://7fff.com/2019/03/the-sadness-of-paperback-book-sizes/"/>
+    <id>http://7fff.com/2019/03/the-sadness-of-paperback-book-sizes/</id>
+    <published>2019-03-11T04:48:00-05:00</published>
+    <updated>2020-07-21T22:09:29-05:00</updated>
+    <author>
+      <name>jgn</name>
+    </author>
+    <content type="html">&lt;p&gt;A couple of weeks ago I was in London. Even though I am trying to switch to
+all digital for my reading, I can&amp;#39;t visit London without stopping in at Foyle&amp;#39;s,
+Waterstones, and some boutique bookstores. And I can&amp;#39;t make it out without
+buying something that is printed. While I was in Waterstones I noticed a
+table with smaller books on it, along with a sign saying &amp;quot;Pocket Perfection.&amp;quot;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="../../../assets/images/waterstones-pocket-perfection-c7fc90ed.jpg" title="Waterstones Pocket Perfection table" alt="waterstones" width="1536" height="2048" /&gt;&lt;/p&gt;
+
+&lt;p&gt;And it reminded me of the fact that years ago, you could get almost any book
+in the mass market format. When I was in graduate school, I had a paperback
+copy of Erich Auerbach&amp;#39;s &lt;em&gt;Mimesis&lt;/em&gt;, which is a history of how reality is
+represented in European literature. (You should read it.) My paperback was the one on Princeton
+University Press. I think I got it because it was assigned in a class and
+it was the edition that the bookstore had ordered. It was in what was called
+&amp;quot;Trade Paperback&amp;quot; format, measuring perhaps &lt;a href="https://kunzonpublishing.com/2017/07/mass-market-paperback-books-vs-trade-paperback-books-a-guide-for-self-publishers/"&gt;some nine inches tall and six
+inches wide&lt;/a&gt;. It was a hefty book. &lt;img src="../../../assets/images/mimesis-trade-26379751.jpg" title="Mimesis in trade paperback format" alt="mimesis-trade" width="1535" height="2048" /&gt; A lot of pages, and with
+a few more books of that size, one&amp;#39;s backpack would be heavy and pretty full.
+But one day I was browsing around in a used bookstore, and, amazingly, found
+this serious tome in a much smaller package. I was surprised. I had a lot of
+Penguins, Anchor Books, Tor, etc., in mass market size (typically 6.75&amp;quot; x 4.25&amp;quot;),
+but hadn&amp;#39;t really seen a lot of academic books in that size. I decided to look
+more seriously at the shelves at the good secondhand bookstores, and it seems
+that in the 1960s, you could get pretty much any serious book in mass market
+size. As you can see, this version of &lt;em&gt;Mimesis&lt;/em&gt; was published by Anchor Books. &lt;img src="../../../assets/images/mimesis-mass-market-afe40471.jpg" title="Mimesis in mass market paperback format" alt="mimesis-mass-market" width="1289" height="2136" /&gt;
+Anchor was founded in 1953, and the &lt;a href="http://knopfdoubleday.com/imprint/anchor/"&gt;&amp;quot;goal was to make inexpensive editions of modern classics widely available to college students and the adult public.&amp;quot;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This was great, because you could get more into your backpack. You might even
+be able to squeeze a copy into your actual pocket. And they were cheaper.
+And used less paper, so less hard on the environment. To be sure, the paper
+was cheaper quality. But many of the mass market paperback versions of academic
+texts had the same pagination -- so you could quote from a book and your
+citations would still make sense to someone who owned the hardcover.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;#39;t know if I could still read the reduced print of a mass market paperback,
+but I&amp;#39;d sure like to have the option.&lt;/p&gt;
+
+&lt;p&gt;Every now and then you see an article (&lt;a href="https://www.nytimes.com/2011/09/03/business/media/mass-market-paperbacks-fading-from-shelves.html"&gt;example&lt;/a&gt;; &lt;a href="https://www.publishersweekly.com/pw/by-topic/industry-news/bookselling/article/73668-is-mass-market-dying-or-just-evolving-again.html"&gt;another&lt;/a&gt;) about the demise of the mass market
+paperback, but rarely from what I can tell about the loss of this entire
+category: The easy-to-carry more academic book. Why is it gone? Well, publishers
+can charge more for a trade-sized paperback. Perhaps students in the college marketplace for
+these more serious books can afford more nowadays.&lt;/p&gt;
+
+&lt;p&gt;I think it&amp;#39;s a loss. As I reflect on the many articles recently that &lt;a href="https://www.scientificamerican.com/article/reading-paper-screens/"&gt;talk about
+one&amp;#39;s ability to (possibly) read more deeply with a paper book compared to a screen&lt;/a&gt;, I
+wonder if readers are missing out without this smaller, more portable, cheaper,
+cognitively sound,
+and more environmentally-friendly format.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.tradera.com/item/1131/341647595/mimesis-the-representation-of-reality-in-western-literature-by-erich-auerbach?itm_source=vip&amp;amp;itm_medium=more-from-category"&gt;Image source for the trade edition of Mimesis.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.amazon.com/Mimesis-Representation-Reality-Western-Literature/dp/B000O056H8"&gt;Image source for the mass market edition of Mimesis.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+</feed>
