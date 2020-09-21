@@ -91,7 +91,7 @@
     <loc>https://7fff.com/2007/10/one-way-to-get-a-twitter-ticker-for-lecture</loc>
   </url>
   <url>
-    <loc>https://7fff.com/2007/11/sigh-converting-from-habtm-to-has_many-through-is-easier-than-i-thought</loc>
+    <loc>https://7fff.com/2007/11/sigh-converting-from-habtm-to-has-many-through-is-easier-than-i-thought</loc>
   </url>
   <url>
     <loc>https://7fff.com/2007/10/rightscale-and-amazon-s-ec2-s3-etc</loc>
@@ -124,7 +124,7 @@
     <loc>https://7fff.com/2007/10/the-red-seat-gets-some-recognition</loc>
   </url>
   <url>
-    <loc>https://7fff.com/2007/10/activerecord-migrating-habtm-to-model-table-suitable-for-has_many-through</loc>
+    <loc>https://7fff.com/2007/10/activerecord-migrating-habtm-to-model-table-suitable-for-has-many-through</loc>
   </url>
   <url>
     <loc>https://7fff.com/2009/01/juliana-hatfield-when-i-grow-up-book-review</loc>
@@ -211,7 +211,7 @@
     <loc>https://7fff.com/2008/02/knowing-what-your-competitors-are-up-to</loc>
   </url>
   <url>
-    <loc>https://7fff.com/2007/10/google-feedfetcher-please-get-http-twitter-com-statuses-user_timeline-3474891-rss-more-frequently</loc>
+    <loc>https://7fff.com/2007/10/google-feedfetcher-please-get-http-twitter-com-statuses-user-timeline-3474891-rss-more-frequently</loc>
   </url>
   <url>
     <loc>https://7fff.com/2010/06/bruegger-s-free-wifi-terms-of-service-usenet</loc>
@@ -359,6 +359,9 @@
   </url>
   <url>
     <loc>https://7fff.com/2008/02/obama-on-sort-algorithms</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2020/09/does-the-apple-watch-6-oximeter-matter</loc>
   </url>
   <url>
     <loc>https://7fff.com/2009/06/trip-on-the-empire-builder-what-i-m-taking</loc>
@@ -598,7 +601,7 @@
     <loc>https://7fff.com/2008/03/fascinating-article-on-cybersyn-in-the-new-york-times</loc>
   </url>
   <url>
-    <loc>https://7fff.com/2008/05/worst-ph-in-boston</loc>
+    <loc>https://7fff.com/2008/05/worst-phở-in-boston</loc>
   </url>
   <url>
     <loc>https://7fff.com/2010/07/new-kindle-dx-annoyances</loc>
@@ -662,6 +665,9 @@
   </url>
   <url>
     <loc>https://7fff.com/category/getting-rid-of-old-drafts-series</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/category/health</loc>
   </url>
   <url>
     <loc>https://7fff.com/category/iora</loc>
@@ -731,6 +737,15 @@
   </url>
   <url>
     <loc>https://7fff.com/category/management</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/tag/apple</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/tag/watch</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/tag/apple-watch</loc>
   </url>
   <url>
     <loc>https://7fff.com/tag/billing</loc>
@@ -806,6 +821,9 @@
   </url>
   <url>
     <loc>https://7fff.com/2020</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2020/09</loc>
   </url>
   <url>
     <loc>https://7fff.com/2020/08</loc>

@@ -4,10 +4,82 @@
   <id>http://7fff.com/</id>
   <link href="http://7fff.com/"/>
   <link href="http://7fff.com/feed" rel="self"/>
-  <updated>2020-07-31T19:00:00-05:00</updated>
+  <updated>2020-09-21T06:46:00-05:00</updated>
   <author>
     <name>jgn</name>
   </author>
+  <entry>
+    <title>Does the Apple Watch 6 oximeter matter?</title>
+    <link rel="alternate" href="http://7fff.com/2020/09/does-the-apple-watch-6-oximeter-matter/"/>
+    <id>http://7fff.com/2020/09/does-the-apple-watch-6-oximeter-matter/</id>
+    <published>2020-09-21T06:46:00-05:00</published>
+    <updated>2020-09-21T08:00:01-05:00</updated>
+    <author>
+      <name>jgn</name>
+    </author>
+    <content type="html">&lt;p&gt;I&amp;#39;m not sure people realize what a boon the Apple Watch&amp;#39;s oximeter (blood oxygen app) may be to
+one&amp;#39;s tracking of personal health, so I thought I&amp;#39;d provide some example data to provide a feel for
+what you&amp;#39;ll be able to monitor. Of course, a lot will depend on what people discover about the
+watch&amp;#39;s oxygen monitoring: Accuracy, the granularity of data, etc. But I think it&amp;#39;s going to be
+a great help for people who want to understand better the relationship between blood oxygen levels
+and heart health.&lt;/p&gt;
+
+&lt;p&gt;The TL;DR on this is that with oximeter readings and metrics for heart rate variability, you can
+get some insights into possible sleep apnea that can increase heart rate variability and potentially
+cause atrial fibrillation (which can in turn provoke stroke or heart failure).&lt;/p&gt;
+
+&lt;p&gt;All graphs and charts are shared with the permission of the person who originated the data.&lt;/p&gt;
+
+&lt;p&gt;So the first image shows the overnight blood oxygen this person has on a typical night using a CPAP
+machine. This looks good. All SpO2 (peripheral oxygen saturation) values are above 90%. The person&amp;#39;s
+pulse is low. &lt;a href="(https://www.webmd.com/lung/pulse-oximetry-test)"&gt;WebMD&lt;/a&gt; says: &amp;quot;A blood oxygen level
+lower than 89% means you may not have enough oxygen in your blood to meet your body&amp;#39;s needs. This
+could be because there’s a problem with your heart or lungs.&amp;quot; These values were collected with a
+&lt;a href="https://getwellue.com/pages/o2ring-oxygen-monitor"&gt;Wellue O2Ring&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="../../../assets/images/pulseox1-6d1be445.jpg" title="Normal pulse ox readings" alt="pulseox1" width="750" height="1334" /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, one way you might be starving your brain and body for oxygen is if you have sleep apnea.
+This person uses a CPAP device every night, but recently when traveling did not have the CPAP.
+Here&amp;#39;s what can go wrong.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="../../../assets/images/pulseox2-d625e53c.jpg" title="pulse ox readings slowing sleep apnea" alt="pulseox2" width="750" height="1334" /&gt;&lt;/p&gt;
+
+&lt;p&gt;As you can see in the second image, during sleep apnea, one&amp;#39;s blood oxygen level can spike way down.&lt;/p&gt;
+
+&lt;p&gt;Prolonged episodes of sleep apnea can cause a lot of problems. The
+&lt;a href="https://www.mayoclinic.org/diseases-conditions/sleep-apnea/symptoms-causes/syc-20377631"&gt;Mayo Clinic&lt;/a&gt;
+says: &amp;quot;Sudden drops in blood oxygen levels that occur during sleep apnea increase blood pressure and
+strain the cardiovascular system. Having obstructive sleep apnea increases your risk of high blood
+pressure (hypertension). Obstructive sleep apnea might also increase your risk of recurrent heart
+attack, stroke and abnormal heartbeats, such as atrial fibrillation. If you have heart disease,
+multiple episodes of low blood oxygen (hypoxia or hypoxemia) can lead to sudden death from an
+irregular heartbeat.&amp;quot;&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;m not a doctor, but there are articles
+(&lt;a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3306298/"&gt;example&lt;/a&gt;) suggesting that prolonged sleep
+apnea with its impact on blood oxygen can affect heart rate variability (HRV), which would seem to
+be a leading indicator for issues such as atrial fibrillation (afib) which is a form of cardiac
+arrhythmia that can lead to a stroke or heart failure. The Apple Watch can track this. Here are
+three examples of HRV readings from the Apple Health app. The first one shows relatively normal HRV
+for this person; the second shows elevate readings; and then the third image shows HRV leading up to
+the onset of afib.&lt;/p&gt;
+
+&lt;p&gt;Once this person started using a CPAP, the HRV settled down, and the heart reverted from afib to
+normal &amp;quot;sinus&amp;quot; rhythm.&lt;/p&gt;
+
+&lt;p&gt;In short, had this person known his or her oxygen levels, there might have been an earlier
+conversation with a physician leading to some controls (such as better diet, reduced caffiene and
+alcohol consumption, more exercise, the use of a CPAP machine . . .) that might have reduced the
+likelihood of afib occurring.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="../../../assets/images/hrv1-916829e7.png" title="normal heart rate variability for this person" alt="hrv1" width="742" height="830" /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="../../../assets/images/hrv2-017b02c9.png" title="increased heart rate variability for this person" alt="hrv2" width="742" height="833" /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="../../../assets/images/hrv3-eaa53feb.png" title="heart rate variability leading up to afib" alt="hrv3" width="745" height="832" /&gt;&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Why does that software contractor cost so much?</title>
     <link rel="alternate" href="http://7fff.com/2020/08/why-does-that-software-contractor-cost-so-much/"/>
@@ -597,71 +669,6 @@ supportive employer. Indeed, after a couple of trips, you&amp;#39;ll start to ge
 hours that might have otherwise been wasted.&lt;/p&gt;
 
 &lt;p&gt;What are you waiting for?&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>The Sadness of Paperback Book Sizes</title>
-    <link rel="alternate" href="http://7fff.com/2019/03/the-sadness-of-paperback-book-sizes/"/>
-    <id>http://7fff.com/2019/03/the-sadness-of-paperback-book-sizes/</id>
-    <published>2019-03-11T04:48:00-05:00</published>
-    <updated>2020-07-21T22:09:29-05:00</updated>
-    <author>
-      <name>jgn</name>
-    </author>
-    <content type="html">&lt;p&gt;A couple of weeks ago I was in London. Even though I am trying to switch to
-all digital for my reading, I can&amp;#39;t visit London without stopping in at Foyle&amp;#39;s,
-Waterstones, and some boutique bookstores. And I can&amp;#39;t make it out without
-buying something that is printed. While I was in Waterstones I noticed a
-table with smaller books on it, along with a sign saying &amp;quot;Pocket Perfection.&amp;quot;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="../../../assets/images/waterstones-pocket-perfection-c7fc90ed.jpg" title="Waterstones Pocket Perfection table" alt="waterstones" width="1536" height="2048" /&gt;&lt;/p&gt;
-
-&lt;p&gt;And it reminded me of the fact that years ago, you could get almost any book
-in the mass market format. When I was in graduate school, I had a paperback
-copy of Erich Auerbach&amp;#39;s &lt;em&gt;Mimesis&lt;/em&gt;, which is a history of how reality is
-represented in European literature. (You should read it.) My paperback was the one on Princeton
-University Press. I think I got it because it was assigned in a class and
-it was the edition that the bookstore had ordered. It was in what was called
-&amp;quot;Trade Paperback&amp;quot; format, measuring perhaps &lt;a href="https://kunzonpublishing.com/2017/07/mass-market-paperback-books-vs-trade-paperback-books-a-guide-for-self-publishers/"&gt;some nine inches tall and six
-inches wide&lt;/a&gt;. It was a hefty book. &lt;img src="../../../assets/images/mimesis-trade-26379751.jpg" title="Mimesis in trade paperback format" alt="mimesis-trade" width="1535" height="2048" /&gt; A lot of pages, and with
-a few more books of that size, one&amp;#39;s backpack would be heavy and pretty full.
-But one day I was browsing around in a used bookstore, and, amazingly, found
-this serious tome in a much smaller package. I was surprised. I had a lot of
-Penguins, Anchor Books, Tor, etc., in mass market size (typically 6.75&amp;quot; x 4.25&amp;quot;),
-but hadn&amp;#39;t really seen a lot of academic books in that size. I decided to look
-more seriously at the shelves at the good secondhand bookstores, and it seems
-that in the 1960s, you could get pretty much any serious book in mass market
-size. As you can see, this version of &lt;em&gt;Mimesis&lt;/em&gt; was published by Anchor Books. &lt;img src="../../../assets/images/mimesis-mass-market-afe40471.jpg" title="Mimesis in mass market paperback format" alt="mimesis-mass-market" width="1289" height="2136" /&gt;
-Anchor was founded in 1953, and the &lt;a href="http://knopfdoubleday.com/imprint/anchor/"&gt;&amp;quot;goal was to make inexpensive editions of modern classics widely available to college students and the adult public.&amp;quot;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;This was great, because you could get more into your backpack. You might even
-be able to squeeze a copy into your actual pocket. And they were cheaper.
-And used less paper, so less hard on the environment. To be sure, the paper
-was cheaper quality. But many of the mass market paperback versions of academic
-texts had the same pagination -- so you could quote from a book and your
-citations would still make sense to someone who owned the hardcover.&lt;/p&gt;
-
-&lt;p&gt;I don&amp;#39;t know if I could still read the reduced print of a mass market paperback,
-but I&amp;#39;d sure like to have the option.&lt;/p&gt;
-
-&lt;p&gt;Every now and then you see an article (&lt;a href="https://www.nytimes.com/2011/09/03/business/media/mass-market-paperbacks-fading-from-shelves.html"&gt;example&lt;/a&gt;; &lt;a href="https://www.publishersweekly.com/pw/by-topic/industry-news/bookselling/article/73668-is-mass-market-dying-or-just-evolving-again.html"&gt;another&lt;/a&gt;) about the demise of the mass market
-paperback, but rarely from what I can tell about the loss of this entire
-category: The easy-to-carry more academic book. Why is it gone? Well, publishers
-can charge more for a trade-sized paperback. Perhaps students in the college marketplace for
-these more serious books can afford more nowadays.&lt;/p&gt;
-
-&lt;p&gt;I think it&amp;#39;s a loss. As I reflect on the many articles recently that &lt;a href="https://www.scientificamerican.com/article/reading-paper-screens/"&gt;talk about
-one&amp;#39;s ability to (possibly) read more deeply with a paper book compared to a screen&lt;/a&gt;, I
-wonder if readers are missing out without this smaller, more portable, cheaper,
-cognitively sound,
-and more environmentally-friendly format.&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://www.tradera.com/item/1131/341647595/mimesis-the-representation-of-reality-in-western-literature-by-erich-auerbach?itm_source=vip&amp;amp;itm_medium=more-from-category"&gt;Image source for the trade edition of Mimesis.&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.amazon.com/Mimesis-Representation-Reality-Western-Literature/dp/B000O056H8"&gt;Image source for the mass market edition of Mimesis.&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </content>
   </entry>
 </feed>
