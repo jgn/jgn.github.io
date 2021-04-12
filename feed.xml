@@ -4,25 +4,285 @@
   <id>http://7fff.com/</id>
   <link href="http://7fff.com/"/>
   <link href="http://7fff.com/feed.xml" rel="self"/>
-  <updated>2020-09-21T06:46:00-05:00</updated>
+  <updated>2021-04-09T09:01:00-05:00</updated>
   <author>
     <name>jgn</name>
   </author>
+  <entry>
+    <title>The perils of rounding; or, Careful with that Axe, Eugene</title>
+    <link rel="alternate" href="http://7fff.com/2021/04/the-perils-of-rounding-or-careful-with-that-axe-eugene/"/>
+    <id>http://7fff.com/2021/04/the-perils-of-rounding-or-careful-with-that-axe-eugene/</id>
+    <published>2021-04-09T09:01:00-05:00</published>
+    <updated>2021-04-12T08:03:55-05:00</updated>
+    <author>
+      <name>jgn</name>
+    </author>
+    <content type="html">&lt;p&gt;In the image you&amp;#39;ll see two displays for a single weight measurement I conducted recently on a
+&lt;a href="https://www.getqardio.com/qardiobase-smart-scale-iphone-android/"&gt;Qardio Base scale&lt;/a&gt;. Qardio sells
+a number of devices that can measure various things and report those measurements to your phone. I
+have a Qardio Base for my weight, and a Qardio Arm for blood pressure. The first Qardio Base I had
+was flaky, and fortunately Qardio replaced it. Yay, Qardio! The new one seems to work pretty well --
+except that is does weird things with my measurements, which is the purpose of this post. I use
+these devices with my IPhone. These products will save the measurements to Apple Health. But I also
+manually copy the measurements over into a spreadsheet so I can see a lot of different data in one
+place and analyze them.&lt;/p&gt;
+
+&lt;p&gt;Check the image. This is &lt;em&gt;the very same measurement&lt;/em&gt;, only the second display is taking place a
+minute later. Note the BMI values. When I stood on the scale and took the measurement, the BMI is
+reported as 24.9. &lt;img src="../../../assets/images/rounding-0ea5c86e.png" title="Rounding" alt="rounding.png" width="1520" height="1344" /&gt;&lt;/p&gt;
+
+&lt;p&gt;However, a minute later, the measurement is 25.0.&lt;/p&gt;
+
+&lt;p&gt;This is especially annoying because 24.9 is in the &amp;quot;normal&amp;quot; range, while 25.0 is in the &amp;quot;overweight&amp;quot;
+range. So I notice that. I&amp;#39;ve been trying to lose weight recently, and this discrepenacy drives me
+pretty crazy. Which is it, Qardio? Get your story straight!&lt;/p&gt;
+
+&lt;p&gt;Thus, I have noticed that the BMI calculation will sometimes change within a few minutes of the
+original measurement. The discrepancy can be triggered by completely shutting down the app and
+restarting it -- and then looking at your last measurement from the History rather than the live
+view. This is a chronic issue. I just saw a fluctuation again this morning.&lt;/p&gt;
+
+&lt;p&gt;I first reported this issue to Qardio on September 20, 2020. On Oct. 13 I was told: &amp;quot;Our engineering
+team has not closed this issue and is still investigating into what may be causing this issue.&amp;quot;
+That&amp;#39;s cool. Anyway, it was never fixed. I reported it again on Nov. 20, 2020. I reported it again
+on Dec. 5, 2020. I reported it again on April 2, 2021. Every time they suggest updating the app --
+which I do. But I think it&amp;#39;s still broken; we&amp;#39;ll see how the latest upgrade goes.&lt;/p&gt;
+
+&lt;p&gt;So this is actually a really terrible bug. Here&amp;#39;s why: &lt;em&gt;You can&amp;#39;t depend on the display of the
+value&lt;/em&gt;. Sometimes it changes. This erodes one&amp;#39;s faith in the idea that the device is making an
+accurate measurement. It&amp;#39;s an especially bad bug because, really, &lt;em&gt;that&amp;#39;s all the system is supposed
+to do&lt;/em&gt;!: Measure a value and report it. It would seem, though, that: (1) Qardio is not able to
+recognize that this is a serious bug that undermines one&amp;#39;s faith in their system; and/or (2) they
+can&amp;#39;t fix it.&lt;/p&gt;
+
+&lt;p&gt;Why?&lt;/p&gt;
+
+&lt;p&gt;Smells like a rounding error to me, and maybe they don&amp;#39;t have control over part of their ecosystem.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;#39;s my theory. Let&amp;#39;s say that the original measurement is . . . &lt;code&gt;24.9499&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;When it&amp;#39;s displayed, it is rounded to a precision of 1 digit. So &lt;code&gt;24.9499&lt;/code&gt; rounded to the nearest
+fractional digit is &lt;code&gt;24.9&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;I think, then, that Qardio saves that reading, &lt;code&gt;24.9499&lt;/code&gt;. But when they save it, they save it
+rounded to two digits. This rounding might happen locally on the phone, or on their server or in
+Apple Health. Anyway, rounded to two fractional digits, it&amp;#39;s &lt;code&gt;24.95&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now the next time the value is displayed, they look up the saved value (&lt;code&gt;24.95&lt;/code&gt;). They then display
+the saved value rounded to one fractional digit. And what is &lt;code&gt;24.95&lt;/code&gt; rounded to one fractional
+digit? It&amp;#39;s &lt;code&gt;25.0&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Oops.&lt;/p&gt;
+
+&lt;p&gt;Before I close, I suppose I should belabor what &amp;quot;rounding&amp;quot; a number can mean. The Ruby documentation
+says that a number rounded to &lt;code&gt;ndigits&lt;/code&gt; means &amp;quot;Returns float rounded to the nearest value with a
+precision of ndigits decimal digits.&amp;quot; Here&amp;#39;s how one implementation of Ruby does it (I&amp;#39;m looking at
+the code from Rubinus
+&lt;a href="https://github.com/rubinius/rubinius/blob/master/core/float.rb#L90-L91"&gt;here&lt;/a&gt; and
+&lt;a href="https://github.com/rubinius/rubinius/blob/master/machine/class/float.cpp#L373-L385"&gt;here&lt;/a&gt;, which is
+easy to read):&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Multiply the given value &lt;code&gt;a&lt;/code&gt; by &lt;code&gt;10**n&lt;/code&gt;, giving &lt;code&gt;a1&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Get rid of the fractional digits in &lt;code&gt;a1&lt;/code&gt;, giving &lt;code&gt;a2&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;If &lt;code&gt;a1&lt;/code&gt; minus &lt;code&gt;a2&lt;/code&gt; &amp;gt;= &lt;code&gt;0.5&lt;/code&gt;, set &lt;code&gt;a2&lt;/code&gt; to &lt;code&gt;a2&lt;/code&gt; + &lt;code&gt;1.0&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Return &lt;code&gt;a2&lt;/code&gt; / &lt;code&gt;10**n&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;So let&amp;#39;s try this with &lt;code&gt;a&lt;/code&gt; set to &lt;code&gt;24.9499&lt;/code&gt; and &lt;code&gt;n&lt;/code&gt; set to &lt;code&gt;1&lt;/code&gt;:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;a1&lt;/code&gt; is &lt;code&gt;249.499&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;a2&lt;/code&gt; is &lt;code&gt;249&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;(&lt;code&gt;a1&lt;/code&gt; minus &lt;code&gt;a2&lt;/code&gt; is &lt;code&gt;0.499&lt;/code&gt; which is not greater than &lt;code&gt;0.5&lt;/code&gt; so do nothing)&lt;/li&gt;
+&lt;li&gt;return &lt;code&gt;249&lt;/code&gt; / &lt;code&gt;10**1&lt;/code&gt;, or &lt;code&gt;24.9&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;And here&amp;#39;s the case with &lt;code&gt;a&lt;/code&gt; set to &lt;code&gt;24.9599&lt;/code&gt; and &lt;code&gt;n&lt;/code&gt; set to &lt;code&gt;1&lt;/code&gt;:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;a1&lt;/code&gt; is &lt;code&gt;249.599&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;a2&lt;/code&gt; is &lt;code&gt;249&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;(&lt;code&gt;a1&lt;/code&gt; minus &lt;code&gt;a2&lt;/code&gt; is &lt;code&gt;0.599&lt;/code&gt; which is greater than &lt;code&gt;0.5&lt;/code&gt; so set &lt;code&gt;a2&lt;/code&gt; to &lt;code&gt;a2&lt;/code&gt; + &lt;code&gt;1.0&lt;/code&gt; (&lt;code&gt;250&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;return &lt;code&gt;250&lt;/code&gt; / &lt;code&gt;10**1&lt;/code&gt;, or &lt;code&gt;25.0&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Maybe this will help Qardio fix their bug.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Stanford's Machine Learning Course</title>
+    <link rel="alternate" href="http://7fff.com/2020/10/stanford-s-machine-learning-course/"/>
+    <id>http://7fff.com/2020/10/stanford-s-machine-learning-course/</id>
+    <published>2020-10-27T19:15:00-05:00</published>
+    <updated>2021-04-12T08:12:23-05:00</updated>
+    <author>
+      <name>jgn</name>
+    </author>
+    <content type="html">&lt;p&gt;With the pandemic, my wife grading like crazy because of an increased load owing to academic
+calendar changes, and my daughter gone off to college, I&amp;#39;ve had a lot of time on my hands. In a
+late night moment of weakness, I not only signed up for
+&lt;a href="https://www.coursera.org/learn/machine-learning"&gt;Stanford&amp;#39;s famous Machine Learning course&lt;/a&gt; (videos
+by Andrew Ng) on Coursera, but paid for it so as to get a certificate. The next day, I regretted a
+bit the expense and time commitment, but paying for it has kept me honest and diligent. My repo
+suggests that I started it in September 19th and I finished it at the end of October, passing
+everything with 100% (which is not too difficult because you can resubmit until your work is
+correct). Now it&amp;#39;s time for a little reflection.&lt;/p&gt;
+
+&lt;p&gt;I took this course because I wanted to be familiar with the vocabulary -- and I also wanted to get a
+feel for the kinds of problems basic machine learning can address. And I&amp;#39;ve learned a lot. So with
+regard to those outcomes, the course is a good one. I&amp;#39;m pretty late to the party: based on what I&amp;#39;ve
+learned I wish I had taken this some years ago when the course was new. Andrew Ng is of course one
+of the leading lights of productionizing machine learning at scale, having founded Google Brain and
+then for awhile being the Chief Scientist at Baidu.&lt;/p&gt;
+
+&lt;p&gt;One great aspect of the course is the way Ng has designed it so that certain concepts come back
+later. For instance, linear regression and gradient descent are worked up in the first lectures, and
+then return in a discussion of content-based recommendation systems. I love that kind of
+reinforcement.&lt;/p&gt;
+
+&lt;p&gt;The course, though, is starting to show its age. It really needs a refresh. I guess Ng never went
+back to it because he now has a more holistic learning venture,
+&lt;a href="https://www.deeplearning.ai/"&gt;deeplearning.ai&lt;/a&gt; (which is still delivered through Coursera).&lt;/p&gt;
+
+&lt;p&gt;The awkward stuff: Every lecture has a number of errata
+(&lt;a href="https://www.coursera.org/learn/machine-learning/resources/UWXuL"&gt;example&lt;/a&gt;) -- part of that is
+because of the sharp eyes of the millions of students who have enrolled in the course. But the thing
+that really gives one pause is the inconsistency of the presentation. In early weeks the slides are
+punctuated with &amp;quot;Readings&amp;quot; that summarize the lecture material in a condensed form
+(&lt;a href="https://www.coursera.org/learn/machine-learning/resources/RmTEz"&gt;example&lt;/a&gt;), which is great for
+review. Later weeks don&amp;#39;t have that. At some point a graduate student contributed some fantastic
+lecture notes, but they seem a little uneven. There are some really useful things here: For
+instance, each programming assignment has a tutorial to coach students over some of the bumps --
+and, most critically, there is test data for each part of the assignment. I wrote tests in code to
+verify against the test data that my actual code produces the expected results: This is essentially
+what the automatic grader does, but the grader is a black box. The reason the test data is so great
+is because sometimes your assignment solution misses some cases that the automatic grader checks:
+But the test data has good coverage, so by verifying your code against the test data, you can have
+more confidence that your code will pass the grader. And it&amp;#39;s faster: The test data is really pared
+down. Anyway, the upshot of this is that to get a full understanding, sometimes impacting the way
+you would do the coding assignments, you have to scramble over the assignment&amp;#39;s PDF, the web page
+regarding programming the assignment, errata, tutorials, and test cases. At one point in a &lt;a href="https://www.coursera.org/learn/machine-learning/resources/Uuxg6"&gt;tutorial
+for Programming Exercise 4&lt;/a&gt;, the
+author says: &amp;quot;This tutorial outlines the process of accomplishing the goals for Programming Exercise
+4. The purpose is to create a collection of all the useful yet scattered and obscure knowledge that
+otherwise would require hours of frustrating searches.This tutorial is targeted solely at vectorized
+implementations.&amp;quot; It just isn&amp;#39;t as unified as it might be. Another thing that is kind of weird is
+that it&amp;#39;s entirely clear from the lectures that students should strive for vectorized implementations,
+but the tutorials and assignments suggest that some students write loops and don&amp;#39;t get to take
+advantage of the speed of Octave&amp;#39;s libraries. It&amp;#39;s kind of incredible to me that looping solutions
+are even permitted.&lt;/p&gt;
+
+&lt;p&gt;Ng&amp;#39;s style is very soft-spoken if not modest. At the end of the earlier lectures on linear and
+logistic regression, he notes to the audience that at this point one probably knows more about
+machine learning than a lot of people doing it in Silicon Valley, which is pretty funny and kind of
+nice take-down of the Valley. He has some tics, for instance, he likes to say &amp;quot;concretely&amp;quot; which I
+guess is math talk for &amp;quot;now I&amp;#39;m going to get down to a case.&amp;quot; Another moment is when Ng will say
+that he&amp;#39;s not going to prove something or derive something: This is almost always followed by an
+appeal to intuition where he says &amp;quot;you know&amp;quot; how something is -- and I would say he&amp;#39;s compelling in
+explaining without a lot of math. There are some interesting pedagogical tricks. For instance, about
+2/3 of the way through a given video lecture, there will be a pause for a quick single-question
+quiz. These quizzes frequently check for knowledge that is conveyed immediately after. In other
+words, you have to draw out the implications of what Ng has just taught. Some of these are hard. But
+the experience of failing a quiz or guessing for a correct answer, then to see Ng&amp;#39;s walkthrough,
+produces a solid learning memory.&lt;/p&gt;
+
+&lt;p&gt;The graded assignments come in two forms: First, a 5-question quiz. In my experience, these can be
+quite hard. Frequently they turn on drawing something out from the lecture. One extremely painful
+aspect of the 5-question quizzes is that there may be a question where the rubric is to &amp;quot;pick all
+answers that are correct.&amp;quot; So with five possible answers, you may have to do some hard thinking
+because one of the answers may be a bit non-obvious. In Coursera, you can re-do quizzes. A couple of
+times I found I had to write down the questions and then go back to the lectures to see what I had
+missed. On occasion the lecture provided the underpinning for an answer, but you had to figure out
+the implication yourself.&lt;/p&gt;
+
+&lt;p&gt;The programming assignments are top-notch. An early assignment is about recognizing hand-written
+digits, and you feel this definite jaw-drop / &amp;quot;oh my god&amp;quot; when it turns out to work. I know that
+this work was done years and years ago, but it is still really cool. Another example is about spam
+classification. I think after going through the assignments, almost anyone will have thoughts about
+problems in his or her own domain. Generally you fill in code for a missing function and then a test
+harness runs the data. When you submit, your results are validated by a server at Coursera. About my
+only gripe here is that there&amp;#39;s a bit of a &amp;quot;so what&amp;quot; at the end of an assignment because it doesn&amp;#39;t
+really sum up what you would do with the technique when presented with a fresh problem, starting
+from nothing. These programming assignments are also a treasure-trove of supporting code -- for
+instance, nice plots of contours that would be useful in your own work to provide a view into your
+data.&lt;/p&gt;
+
+&lt;p&gt;The programming assignments use Matlab or Octave (open source Matlab) and solutions using
+vectorization are preferred (rather than writing your own for-loops to find solutions by iteration).
+I found it pretty easy to find vectorized solutions but I imagine that trips up others who have been
+programming for a long time.&lt;/p&gt;
+
+&lt;p&gt;The last thing I want to say is that there is a high cognitive bar in this course because you really
+have to learn the material in three ways: First there are the equations: It&amp;#39;s not hard but of course
+it&amp;#39;s its own language (Ng doesn&amp;#39;t turn the crank very much on the calculus and partial derivitives
+that make a lot of it work). Then there is the linear algebra. (So, for example, there may be
+something that is expressed as multiplication in the equation but you have to pick up the fact that
+it is a dot product or an element-wise multiplication, based on context.) And, finally, there is the
+expression of the algorithms in code (in Octave). So you are translating between three different
+languages. I found this to be very difficult, and not, I think, because the last time I did linear
+algebra in earnest was 40 years ago. There are some moments when you are translating between the
+linear algebra and the code in Octave, and you find that you have to transpose a matrix or vector to
+get it to work. I found this pretty frustrating: It didn&amp;#39;t seem to have much rhyme or reason why,
+when going through a solution, you would find something in the form of a row vector rather than a
+column vector, or vice versa. The TAs know this, and advise students to display the dimensions of
+the variables in Octave to help with debugging, but it seems like there&amp;#39;s an impedance mismatch
+between the different languages.&lt;/p&gt;
+
+&lt;p&gt;I was impressed with Octave. It makes it very easy to manipulate and run operations on matrices.
+There are some missing data structures, though: It would be helpful to have a proper hash or
+dictionary: You can do dictionary operations with an associative array, but the syntax is obtuse.
+Still, the pleasure of having matrix operations embedded in syntax is nice. No need to create
+objects and run methods to do basic matrix arithmetic.&lt;/p&gt;
+
+&lt;p&gt;In sum: Great course but it&amp;#39;s showing its age. I think the next course for me might be the one
+on beginning TensorFlow (too bad the assignments aren&amp;#39;t in Ruby!).&lt;/p&gt;
+
+&lt;p&gt;Having completed the course, I do have some advice for learning the material and getting the
+assignments finished:&lt;/p&gt;
+
+&lt;h4&gt;Learning&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt; Professor Ng&amp;#39;s walkthroughs of how to understand your data via visualizations is incredibly
+helpful and a useful way to understand fundamental concepts like bias and variance (and how to
+correct for high bias or high variance).)&lt;/li&gt;
+&lt;li&gt; Any time Professor Ng discusses tradeoffs between algorithms: pay attention -- for example,
+why principal component analysis (PCA) is not linear regression.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4&gt;Assignments&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt; The highest quality information comes from the videos, but pay chose attention to the errata
+(&lt;a href="https://www.coursera.org/learn/machine-learning/resources/UWXuL"&gt;example&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt; Try to solve the programming based just on the assignment PDF. But if you get stuck, consult the
+tutorials. There seem to be two types of tutorials. First there are the ones that in the
+Resources section, labeled, for example,
+&lt;a href="https://www.coursera.org/learn/machine-learning/resources/O756o"&gt;Progrmaming Ex. 1&lt;/a&gt;. Then
+there&amp;#39;s a second page of tutorials
+&lt;a href="https://www.coursera.org/learn/machine-learning/discussions/all/threads/m0ZdvjSrEeWddiIAC9pDDA"&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt; If you want a simplified data set, check out the
+&lt;a href="https://www.coursera.org/learn/machine-learning/discussions/all/threads/0SxufTSrEeWPACIACw4G5w"&gt;test cases&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+  </entry>
   <entry>
     <title>Does the Apple Watch 6 oximeter matter?</title>
     <link rel="alternate" href="http://7fff.com/2020/09/does-the-apple-watch-6-oximeter-matter/"/>
     <id>http://7fff.com/2020/09/does-the-apple-watch-6-oximeter-matter/</id>
     <published>2020-09-21T06:46:00-05:00</published>
-    <updated>2020-09-21T08:00:01-05:00</updated>
+    <updated>2020-10-10T19:13:30-05:00</updated>
     <author>
       <name>jgn</name>
     </author>
     <content type="html">&lt;p&gt;I&amp;#39;m not sure people realize what a boon the Apple Watch&amp;#39;s oximeter (blood oxygen app) may be to
 one&amp;#39;s tracking of personal health, so I thought I&amp;#39;d provide some example data to provide a feel for
 what you&amp;#39;ll be able to monitor. Of course, a lot will depend on what people discover about the
-watch&amp;#39;s oxygen monitoring: Accuracy, the granularity of data, etc. But I think it&amp;#39;s going to be
-a great help for people who want to understand better the relationship between blood oxygen levels
-and heart health.&lt;/p&gt;
+watch&amp;#39;s oxygen monitoring: Accuracy, the granularity of data, etc. But I think it&amp;#39;s going to be a
+great help for people who want to understand better the relationship between blood oxygen levels and
+heart health. Additionally, some people use oximeters to measure their oxygen out of concern for
+hypoxia that is induced by the novel coronavirus.&lt;/p&gt;
 
 &lt;p&gt;The TL;DR on this is that with oximeter readings and metrics for heart rate variability, you can
 get some insights into possible sleep apnea that can increase heart rate variability and potentially
@@ -401,274 +661,6 @@ I suppose that Washington Post article, though, is about the kids who want to
 go to a &lt;em&gt;really&lt;/em&gt; selective school like Harvard or Princeton. My daughter decided
 long ago that she&amp;#39;d rather go to a smaller place, and while still very selective,
 it&amp;#39;s a different world from the top 5-10 most selective institutions.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>A Visit to Grinnell College</title>
-    <link rel="alternate" href="http://7fff.com/2019/09/a-visit-to-grinnell-college/"/>
-    <id>http://7fff.com/2019/09/a-visit-to-grinnell-college/</id>
-    <published>2019-09-29T09:46:00-05:00</published>
-    <updated>2020-07-21T22:09:29-05:00</updated>
-    <author>
-      <name>jgn</name>
-    </author>
-    <content type="html">&lt;p&gt;On September 13th my daughter, my wife, and I flew from the Twin Cities to Des Moines to take my daughter
-(I&amp;#39;ll call her C)
-on a college visit to &lt;a href="https://www.grinnell.edu/"&gt;Grinnell College&lt;/a&gt; in Grinnell, Iowa. This would be an
-interesting visit, because I graduated from Grinnell in 1982, and then worked
-there for two years, and have been
-back to campus numerous times to give talks and go to reunion. Our &amp;quot;blink&amp;quot;
-was that Grinnell might not be a great fit for C, but she was game to check
-it out. I have 
-friends there: Some with whom I went to college, others who are from the
-younger generation of faculty (i.e., people my own age). I&amp;#39;ll say a word or two about C&amp;#39;s experience, and will
-also reflect on the differences between Grinnell then and Grinnell now.&lt;/p&gt;
-
-&lt;p&gt;But first we got in
-our rental car and drove to Montour, Iowa, to have dinner at &lt;a href="https://www.rubessteakhouse-montour.com/"&gt;Rube&amp;#39;s Steakhouse&lt;/a&gt;,
-where &lt;em&gt;you grill your own steak&lt;/em&gt;. We visited with my friends Harriett and Jeff
-who after living elsewhere in the country settled in Grinnell. They have a lovely
-life, and it was great to catch up but also to learn a bit about their daughter&amp;#39;s
-college choice--she went to Smith College. What I remember about the conversation
-was that their daughter just felt the vibe. This seems to be the most real
-thing about picking a college: something just grabs you. Honestly, picking
-a college is the United States&amp;#39; version of the &amp;quot;sorting hat&amp;quot; in Harry Potter,
-am I right?&lt;/p&gt;
-
-&lt;p&gt;The steak was great, but without
-my meat thermometer I overcooked a bit. &lt;img src="../../../assets/images/2019-09-rubes1-b034095a.jpg" title="Rubes 1" alt="rubes11" width="601" height="597" /&gt; &lt;img src="../../../assets/images/2019-09-rubes2-6d0cca1f.jpg" title="Rubes 2" alt="rubes12" width="467" height="368" /&gt; My theory of Rube&amp;#39;s is that because the
-lighting on the grill is so dark people tend to cook it more rare than they
-would usually . . . and that&amp;#39;s why they like their steak so much! But this
-time I foiled my own theory.&lt;/p&gt;
-
-&lt;p&gt;Then we drove on to Grinnell and stayed at the new &lt;a href="https://www.hotelgrinnell.com/"&gt;Hotel Grinnell&lt;/a&gt;, which is in
-the building that was formerly the junior high, and long ago the high school.
-We had a big room with two beds. The place was pretty funky: Our room had a
-photo of a stack of 80s-era albums in the bathroom, and there was the
-predictable (the first album by the English Beat), and the -- really? -- whut?
-(&amp;quot;Too Drunk to F---&amp;quot; by the Dead Kennedys.)&lt;/p&gt;
-
-&lt;p&gt;I&amp;#39;d share some photos but it would seem that I took only one picture while I
-was in Grinnell. Hmm. I guess I was so involved in the moment taking pictures
-with my mind that I neglected to take pictures with my phone. I grabbed some
-from my wife&amp;#39;s phone.&lt;/p&gt;
-
-&lt;p&gt;Friday, September 13, showed a really big harvest moon, which we noticed on
-our drive from Montour to Grinnell. C and I decided to walk up to
-campus to see it and also check out the campus at night when it&amp;#39;s especially
-pretty. Grinnell has done a good job of situating buildings so that they have
-a nice glow when it&amp;#39;s dark. There are now about four key nighttime visual beacons.
-First there is the Forum, which in my day was the student center. It&amp;#39;s a glass,
-wood, and metal modernist structure designed by Walter Netsch (who is famous
-for the Air Force Academy building in Colorado Springs). &lt;img src="../../../assets/images/2019-09-gc4-e43d75b5.jpg" title="Grinnell College 4" alt="gc4" width="800" height="817" /&gt; Netsch also designed
-Burling Library and the Arts building. I read in an old piece of his (that
-I have unsuccessfully strived to find online) that the rooflines of the Forum,
-Library, and Theater were designed to align horizontally. You can still see that, but
-unfortunately the library was defaced in the 1980s by a grotesque popup on the top to provide
-for extra stacks. In any case, C could see the visual harmony across
-these buildings. Then we walked over to South Campus. Grinnell&amp;#39;s dormitories
-are small but connected via loggias into three campuses, South, North, and
-East. This creates a really appealing view with lights glowing out of the loggias.
-The third visual beacon is the Joe Rosenfield Center (JRC), which is the new 
-(since 2007) student center. It&amp;#39;s a multi-use building that contains the single
-dining hall. (In my day, there were two places to eat: Quad, which still stands on South
-Campus and would fit right in at Hogwarts, and the more utilitarian Cowles on North Campus.
-When I was a student I liked the choice, but now after many campus visits, I
-see that many colleges are coalescing their dining experiences into one larger hall in order
-to facilitate a common experience.)
-The JRC had people coming in and going out and seemed warm and inviting. The last
-visual beacon I want to pick out is the brand new Humanities and Social Studies
-Center (popularly now known as the HSSC, pronounced &amp;quot;husk&amp;quot;). &lt;img src="../../../assets/images/2019-09-gc1-63232b47.jpg" title="Grinnell College 1" alt="gc1" width="800" height="1067" /&gt; It&amp;#39;s quite a
-behemoth, and partially encloses the old Alumni Recitation Hall (ARH). A lot
-of alumni were pretty worried about this construction. It&amp;#39;s huge and
-transformative. It is so big that it closes off the central campus and eliminates
-the view from there to the north. However, I&amp;#39;d count it as a total
-success. The main thing that is does is increase the coziness and warmth of
-the central campus. It makes that core feel even more &amp;quot;safe&amp;quot; (a theme to which
-I will return).&lt;/p&gt;
-
-&lt;p&gt;C felt the warmth: It&amp;#39;s a very &amp;quot;managed&amp;quot; space with everything
-conveniently within walking distance. Now that I&amp;#39;ve visited a lot of campuses
-where things seem a little too spread out (Middlebury; Amherst; etc.) I think
-Grinnell has something pretty neat. The college owns a lot of acres but
-they have situated the core buildings elegantly.&lt;/p&gt;
-
-&lt;p&gt;The next day we had the info session, tour, and then C had an
-interview. &lt;img src="../../../assets/images/2019-09-gc3-aef858e8.jpg" title="Grinnell College 3" alt="gc3" width="1000" height="750" /&gt;&lt;/p&gt;
-
-&lt;p&gt;One of the things I&amp;#39;ve discovered in all of these campus visits is that the
-top tier of small liberal arts colleges all have pretty much the same core
-elements: a great faculty, fantastic resources, and an inviting student culture:
-so the visit tends to turn on the little differences (sometimes not so little).
-Here are a few things about Grinnell that stood out in the visit:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Grinnell College is in the middle of Iowa, in the town of Grinnell (pop. 9,000,
-not including the students). This is apparently perceived by some as &amp;quot;remote&amp;quot; so the
-college has to address it in various ways. (Honestly, it&amp;#39;s no more remote from
-larger urban areas than, say, Middlebury, which doesn&amp;#39;t seem to get this critique). It&amp;#39;s about a one hour drive from Des Moines (to 
-the west) or Iowa City (to the east). Like a lot of high-performing small colleges,
-Grinnell attracts students from all over the world, and is not shy
-telling that story. Most Grinnell students do at least a semester abroad. So, yeah,
-the college is in Iowa, but it is very much &amp;quot;of the world&amp;quot; as well. I&amp;#39;d say the college is
-entirely successful promoting its international character; yet they have to be careful
-not to sound apologetic for being in the cornfields.&lt;/p&gt;
-
-&lt;p&gt;Meanwhile, the college
-promotes its &lt;a href="https://www.grinnell.edu/academics/centers-programs/prairie-studies"&gt;Center for Prairie Studies&lt;/a&gt;.
-Some years ago in 2013-2014, Grinnell engaged what was then known as Crane
-Meta Marketing to provide some insights on the college&amp;#39;s identity.&lt;sup&gt;&lt;a id="ref1" href="#note1"&gt;1&lt;/a&gt;&lt;/sup&gt;
-I read
-a lot of their research and like all consultancies, they produced a feeling
-of anxiety by identifying paradoxes about the college; they presented a couple
-of &amp;quot;solutions&amp;quot; to these paradoxes. I think one was the idea of centering
-Grinnell&amp;#39;s image on the idea of the prairie. But here&amp;#39;s the thing. Yes, there is
-history around the prairie and there is some nearby restored prairie, but you know what?
-Grinnell&amp;#39;s farming country. Really. I don&amp;#39;t think the college has every &lt;em&gt;truly&lt;/em&gt;
-taken that to heart as a component of the college identity (you could probably
-argue that it&amp;#39;s been in [intentional?] denial about that since founding). I learned in &lt;a href="https://www.amazon.com/Mentor-Life-Legacy-Joe-Rosenfield/dp/0998652857/ref=sr_1_1?keywords=george+drake+rosenfield&amp;amp;qid=1569772518&amp;amp;s=gateway&amp;amp;sr=8-1"&gt;George Drake&amp;#39;s book on Joe Rosenfield&lt;/a&gt;
-that for many years until the 1940s a chief source of income for the college was from
-local farms it owned (p. 162). But despite the geographical location, there is no Farm Studies Concentration on campus.
-I would guess a name like &amp;quot;Farm Studies&amp;quot; would be too pedestrian for a national
-elite college,&lt;sup&gt;&lt;a id="ref2" href="#note2"&gt;2&lt;/a&gt;&lt;/sup&gt; but it would certainly respect the surrounding reality and
-given the lively Iowa interest in artisanal produce, it would be hip. (Though see &lt;a href="https://www.grinnell.edu/news/grinnell-farms-0"&gt;this&lt;/a&gt; nice piece.)
-&lt;a href="https://en.wikipedia.org/wiki/White_Americans#Geographic_distribution"&gt;Iowa is also among the &amp;quot;whitest&amp;quot; states in the USA&lt;/a&gt;: The curriculum has many courses
-that critique whiteness and/or study other populations in the spirit of area
-studies, languages, or arts, but there&amp;#39;s no &amp;quot;Midwest Studies&amp;quot; to my knowledge (when
-I was a student, then professor Liahna Babener taught a course on the
-literature and culture of the American midwest but I don&amp;#39;t think it really
-had a slot in the course list the way, say, English Literature did).
-Yet Iowa is not as uniform as its image: Waterloo, Iowa, is more
-than 15% African American. &lt;a href="https://www.thegazette.com/iowaideas/stories/iowa-changing-demographics"&gt;Projections suggest that Iowa will decrease from
-something like 90% white-non-Hispanic to about 75% by 2050&lt;/a&gt;, so there&amp;#39;s a lot
-to think about. Maybe &amp;quot;Iowa Studies&amp;quot;? Joseph Wall, a key Grinnell College history
-professor, wrote &lt;a href="https://www.amazon.com/Iowa-Bicentennial-Joseph-Frazier-Wall/dp/B002K7X9CC"&gt;a standard brief history of Iowa&lt;/a&gt;; maybe that&amp;#39;s the way to incorporate a scholarly involvement with &amp;quot;place.&amp;quot; My point is simply that there&amp;#39;s something for the college
-to examine in the ongoing transformation of Iowa. The college &lt;em&gt;does&lt;/em&gt;
-strongly emphasize &lt;a href="https://www.grinnell.edu/campus-life/grinnell"&gt;the town of Grinnell&lt;/a&gt;.
-There are some who are going to argue that, yes, the college does a lot with
-the nearby area and the local ethnic patterns and folkways; I&amp;#39;m just saying that the emphasis on
-&amp;quot;place&amp;quot; isn&amp;#39;t as profound as you see in the &amp;quot;sell&amp;quot; you get from institutions like
-Bates (strongly argues for the college&amp;#39;s relationship to the class structure of Lewiston/Auburn and to the
-local francophone communities) or Middlebury (which wears its Vermontness like
-a pair of overalls).&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Now that I&amp;#39;ve seen a lot of campuses, I have to say that the resources in
-the sciences are truly amazing. It seems that most if not all science faculty
-have their own lab or space that is dedicated to research, and, critically,
-research with undergraduate collaboration. The Noyce Science Building is quite utilitarian but
-I like that -- it looks like a place where real science happens. The embedded Science Library has a lot of windows
-overlooking the JRC: It&amp;#39;s a pleasant
-place to study on a cold winter night.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;The new HSSC is astounding. It has not only more space for the humanities
-and social sciences, but it seems designed as a sort of agora for the free
-flow of ideas, with whiteboards everywhere and what looks like an outdoor
-classroom. The building has a lot of network connectivity and the college
-now has even more opportunities for real-time video classroom sharing with
-other institutions.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;So those are just some differentiators. The tour was great, clear, and non-braggy.
-For C, Grinnell seemed a little &amp;quot;light&amp;quot; on college traditions and customs, with which she
-is fascinated. After the tour and interview, C placed Grinnell in the &amp;quot;plausible&amp;quot;
-category for application. For her, it didn&amp;#39;t make the grade as a potential
-early decision commitment, but it&amp;#39;s viable for the regular round of applications.&lt;/p&gt;
-
-&lt;p&gt;How is Grinnell different in 2019 from what I experienced in the 1980s? When I entered
-Grinnell in 1978, there was still a remnant of hippie culture. In central Iowa,
-I think the cultural movement of the coastal &amp;quot;sixties&amp;quot; was delayed by maybe three years
-(even though &lt;a href="http://www.thesandb.com/arts/1966-jefferson-airplane-lands-in-grinnell.html"&gt;the Jefferson Airplane played Grinnell in 1966&lt;/a&gt;), and lingered by that much as well. So students who were about to graduate in 1979 would have
-started in 1975, and would have overlapped with the tail end of the sixties
-kids -- among them, young men who were still subject to the draft (which ended
-in 1973). So there was in my day the circumambient smell of pot and I would say that the campus was
-pretty laid back, with a student-called &amp;quot;skip day&amp;quot; and a &amp;quot;Grinnell Relays&amp;quot; which was
-a parody of the Drake Relays. There was in 1978 a new law raising the drinking age to
-19, but many students admitted in 1978 were grandfathered in to be allowed to
-drink at 18. I think this younger drinking age actually de-emphasized the role of alcohol on campus.
-As the years proceeded and alcohol became illegal for more students, it became
-more of a forbidden fruit, and I believe the preferred inebriant on campus switched
-from pot to beer. Meanwhile in 1980 Reagan was elected, and I swear to you
-that the college culture became a little more straight; some incoming students seemed
-a bit more free to show their relative wealth. George Drake became
-President of the college in 1979, and he revived the idea of athletics as
-a key component of the college experience. Then in the mid-1980s Grinnell students,
-as on a lot of campuses, organized to promote divestment of college funds from
-companies doing business in South Africa. My point is simply that it was a
-complicated time, but, essentially, laid back enough that students didn&amp;#39;t
-feel a lot of pressure to excel in any conventional way. Additionally, my
-guess is that Grinnell was an oddball compared to the schools it compared itself
-to back then: Its (apparent) isolation made it a place that could just &lt;em&gt;do
-its thing&lt;/em&gt;. There were fewer articles like this trying to compare and contrast.&lt;/p&gt;
-
-&lt;p&gt;Today: I think Grinnell has evolved into a school where academics and academic
-achievement really are at the center of the experience. Grinnell seems not
-quite a &amp;quot;grind&amp;quot; school (as I think may be the case at Carleton), but it is certainly a college where everything is
-intentional. In my time, Grinnell was more haphazard . . . less professional . . .
-more bespoke . . . more weird. Is Grinnell now really &lt;em&gt;that different&lt;/em&gt; from its &lt;a href="https://www.grinnell.edu/about-grinnell/leadership-and-administration/offices-and-services/analytic-support-and-0"&gt;peer institutions&lt;/a&gt; these
-days? I&amp;#39;m not so sure (more about this in a later blog post).&lt;/p&gt;
-
-&lt;p&gt;Oh yeah, I promised to say something about the feeling of &amp;quot;safety&amp;quot; at Grinnell.
-A few years ago I was talking to someone at Reunion and we were comparing notes
-about coming to Grinnell. Her parents had been going through a divorce. (Mine, too.)
-She was from the Twin Cities, and didn&amp;#39;t really enjoy the bustle of the city. (Me, too.)
-So when she visited Grinnell in its carefully-placed setting, she immediately
-felt &amp;quot;safe.&amp;quot; This was a big deal for me as well: A jewel of the prairie where
-I could study what I wanted, be what I wanted, become what I wanted, and grow and thrive.
-It was a great thing.&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;Endnotes&lt;/p&gt;
-
-&lt;p&gt;&lt;a id="note1" href="#ref1"&gt;1.&lt;/a&gt; N.b.,
-these kinds of branding exercises in higher education really bugs me:
-they are corporatist, and the very notion that colleges have to hire outsiders
-to tell them who they are seems pretty sad.&lt;/p&gt;
-
-&lt;p&gt;&lt;a id="note2" href="#ref2"&gt;2.&lt;/a&gt; Grinnell is an important player in the town,
-but it&amp;#39;s interesting to me that some colleges with a national reputation don&amp;#39;t
-participate in local events. For instance, Macalester College never has a booth
-at the Minnesota State Fair or, say, at the Selby Jazz Festival, while other
-Minnesota-/Twin Cities-based institutions do.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Nudge your staff to get TSA Pre</title>
-    <link rel="alternate" href="http://7fff.com/2019/09/nudge-your-staff-to-get-tsa-pre/"/>
-    <id>http://7fff.com/2019/09/nudge-your-staff-to-get-tsa-pre/</id>
-    <published>2019-09-17T19:39:00-05:00</published>
-    <updated>2020-07-21T22:09:29-05:00</updated>
-    <author>
-      <name>jgn</name>
-    </author>
-    <content type="html">&lt;p&gt;As I write this, the Minneapolis/St. Paul airport (MSP) is really screwed up.
-&lt;a href="http://tcbmag.com/news/articles/2019/august/msp-airport-renovations-prompt-checkpoint-changes"&gt;They&amp;#39;re renovating one of the two major entry points for security lanes.&lt;/a&gt;
-Hoi polloi must use the North checkpoint: It&amp;#39;s slow! Really slow!! But if you have TSA
-Pre you can use the South checkpoint. &lt;em&gt;Believe me, you want the South checkpoint.&lt;/em&gt; It&amp;#39;s fast! Really fast!!
-It&amp;#39;s going to be maybe 10 minutes, max. Otherwise, right now, it&amp;#39;s like a 45
-minute wait. It can be even worse in the morning.&lt;/p&gt;
-
-&lt;p&gt;If you pay someone $140K/year, that&amp;#39;s an hourly wage of about $70.
-&lt;a href="https://www.tsa.gov/travel/frequently-asked-questions/what-difference-between-global-entry-tsa-precheck-and-other-trusted"&gt;The fee for TSA Pre is only $85. Throw in Global Entry, and it&amp;#39;s $100&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;So let&amp;#39;s see. Your employee doesn&amp;#39;t have TSA Pre. On each end of a trip, she&amp;#39;s
-going to spend 45 minus 10, or 35 minutes in line without TSA Pre. Round-trip, that&amp;#39;s 70 minutes, or
-more than an hour. If you paid that mere $85, your $140K employee wouldn&amp;#39;t waste
-those 70 minutes, so it&amp;#39;s a wash in terms of your budget. You spend a whopping
-$85, and after about one trip, you get it back in time not wasted on standing
-in line. Spend $100 (oh my!) and now the employee can do Global Entry and blast
-through customs and immigration. So, yeah, your employee doesn&amp;#39;t do much
-international travel for work . . . But she&amp;#39;s going to love you if you can
-expedite dealing with all that crap at the border.&lt;/p&gt;
-
-&lt;p&gt;I personally implore my colleagues to sign up for TSA Pre. Do they do it? Nope. It&amp;#39;s a bit
-of a hassle, and in the default situation, everyone wears the tinfoil hat and
-is paranoid about sharing personal biometrics such as fingerprints. But I think
-a cash &lt;a href="https://www.amazon.com/Nudge-Improving-Decisions-Health-Happiness/dp/014311526X/ref=sr_1_1?gclid=EAIaIQobChMIssrR9ZXZ5AIVFarsCh0dcgg0EAAYASAAEgIlFvD_BwE&amp;amp;hvadid=241594665112&amp;amp;hvdev=c&amp;amp;hvlocphy=9019537&amp;amp;hvnetw=g&amp;amp;hvpos=1t1&amp;amp;hvqmt=e&amp;amp;hvrand=9001107170725452048&amp;amp;hvtargid=kwd-337408379473&amp;amp;hydadcr=15493_10339808&amp;amp;keywords=nudge+the+book&amp;amp;qid=1568768462&amp;amp;sr=8-1"&gt;nudge&lt;/a&gt;
-can overcome this objection pretty quickly. So . . . why not offer to reimburse your staff for their TSA Pre bill? You
-won&amp;#39;t lose much cash, and you will gain in reputation as being a considerate and
-supportive employer. Indeed, after a couple of trips, you&amp;#39;ll start to get
-hours that might have otherwise been wasted.&lt;/p&gt;
-
-&lt;p&gt;What are you waiting for?&lt;/p&gt;
 </content>
   </entry>
 </feed>

@@ -154,6 +154,9 @@
     <loc>https://7fff.com/2015/02/moving-from-wordpress-to-middleman-part-ii-mulitple-categories-per-post</loc>
   </url>
   <url>
+    <loc>https://7fff.com/2020/10/stanford-s-machine-learning-course</loc>
+  </url>
+  <url>
     <loc>https://7fff.com/2014/12/books-of-2014</loc>
   </url>
   <url>
@@ -206,6 +209,9 @@
   </url>
   <url>
     <loc>https://7fff.com/2011/12/asus-aiguru-sv1t-skype-videophone-worst-consumer-electronics-product-of-2011-and-2010-and-maybe-2009</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2021/04/the-perils-of-rounding-or-careful-with-that-axe-eugene</loc>
   </url>
   <url>
     <loc>https://7fff.com/2008/02/knowing-what-your-competitors-are-up-to</loc>
@@ -658,6 +664,9 @@
     <loc>https://7fff.com/category/consulting</loc>
   </url>
   <url>
+    <loc>https://7fff.com/category/data</loc>
+  </url>
+  <url>
     <loc>https://7fff.com/category/dining</loc>
   </url>
   <url>
@@ -737,6 +746,12 @@
   </url>
   <url>
     <loc>https://7fff.com/category/management</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/tag/qardio</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/tag/coursera</loc>
   </url>
   <url>
     <loc>https://7fff.com/tag/apple</loc>
@@ -820,7 +835,16 @@
     <loc>https://7fff.com/tag/virtualbox</loc>
   </url>
   <url>
+    <loc>https://7fff.com/2021</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2021/04</loc>
+  </url>
+  <url>
     <loc>https://7fff.com/2020</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2020/10</loc>
   </url>
   <url>
     <loc>https://7fff.com/2020/09</loc>
