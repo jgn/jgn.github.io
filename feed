@@ -4,10 +4,95 @@
   <id>http://7fff.com/</id>
   <link href="http://7fff.com/"/>
   <link href="http://7fff.com/feed" rel="self"/>
-  <updated>2023-12-26T10:31:00-06:00</updated>
+  <updated>2024-03-30T11:37:00-05:00</updated>
   <author>
     <name>jgn</name>
   </author>
+  <entry>
+    <title>The New York Times' mobile 'Today's Paper' could be a lot better</title>
+    <link rel="alternate" href="http://7fff.com/2024/03/the-new-york-times-mobile-today-s-paper-could-be-a-lot-better/"/>
+    <id>http://7fff.com/2024/03/the-new-york-times-mobile-today-s-paper-could-be-a-lot-better/</id>
+    <published>2024-03-30T11:37:00-05:00</published>
+    <updated>2024-03-30T12:23:07-05:00</updated>
+    <author>
+      <name>jgn</name>
+    </author>
+    <content type="html">&lt;p&gt;I like to read the paper. On paper. I like to read a paper with a lot of news, if not the most
+news (compared to other papers). That would seem to be the New
+York Times. I subscribe to home delivery with a Friday, Saturday, Sunday 
+subscription which also gets me the online/mobile experience. What I like about the printed
+edition is that the importance of articles is indicated by size and placement, and I can scan
+more headlines at a glance. The pictures are bigger. Oh, and it&amp;#39;s not online. I spend most of
+my week looking at a computer screen, and it&amp;#39;s a nice treat to do some old-fashioned reading
+from print.&lt;/p&gt;
+
+&lt;p&gt;Recently, however, my eyes have gotten worse, and for whatever
+reason, the print seems to be lighter. I think the paper is printed here in Minnesota and sometimes
+the print is light enough that it&amp;#39;s hard to read, even when under a bright light. This has made
+me wonder about switching to the mobile edition, where I can control brightness (and font size,
+though I&amp;#39;m satisfied with the default font size on mobile).&lt;/p&gt;
+
+&lt;p&gt;But remember that I like the print edition&amp;#39;s sequencing of articles, the size of headlines, and
+so forth. This has made me wonder whether I would really be satisfied with the Today&amp;#39;s Paper
+feature. You can see the web version of this by going to &lt;a href="https://www.nytimes.com/section/todayspaper"&gt;&lt;a href="https://www.nytimes.com/section/todayspaper"&gt;https://www.nytimes.com/section/todayspaper&lt;/a&gt;&lt;/a&gt;. There are subtle differences between the web and mobile
+experiences which I will touch on. Also, I should note that there was an old site called
+app.nytimes.com, which has been discontinued. This was an earlier attempt by the Times to simulate
+the day&amp;#39;s paper. I think it failed because it would re-render the articles into print + pictures,
+and thus didn&amp;#39;t have some of the really cool digital features that the Times has created over the
+years. There&amp;#39;s also the replica edition, which I don&amp;#39;t like because the user experience
+is awkward and requires a lot of clicks. Also, I want to note that there are distinct advantages
+to the electronic editions: It&amp;#39;s easier to share an article; and you can read and participate
+in the comment section.&lt;/p&gt;
+
+&lt;p&gt;So here I want to describe some of the differences between the printed version of the Times, and
+the Today&amp;#39;s Paper version, in particular the mobile version on an iPad. For this comparison,
+I&amp;#39;ll be comparing the print and mobile editions for March 30, 2024.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;First off, when you get the printed Times, you can just start reading it immediately. On the
+web, you could bookmark the Today&amp;#39;s Paper page. In the mobile experience, you have to navigate
+through the Sections button, then scroll to near the bottom, and select Today&amp;#39;s Paper. &lt;strong&gt;Suggestion:
+Make it much easier to get to Today&amp;#39;s Paper, and see the articles right away. If you have to, package it as a separate app.&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;In the web version, the date is shown in a dropdown, and you can navigate to another day.
+&lt;strong&gt;Suggestions: (1) Show the date in the app on the mobile edition; (2) Bring the ability to see Today&amp;#39;s Paper
+for any date to the mobile edition.&lt;/strong&gt; This latter point is more important than it might seem. When
+I&amp;#39;m traveling for work or on vacation, sometimes I miss a day or two. I&amp;#39;d like to be able to catch up easily -- but I
+can&amp;#39;t.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Here&amp;#39;s the top headline in the print edition: &amp;quot;Pandemic Effect: Absence From Schools is Soaring.&amp;quot;
+Mobile: &amp;quot;Why School Absences have &amp;#39;Exploded&amp;#39; Almost Everywhere.&amp;quot; &lt;strong&gt;Suggestion: Make the headlines
+the same.&lt;/strong&gt; While I&amp;#39;m at it, have the URL slug be the same. Why? So that I can be assured that
+I am talking about the same article as it was titled in print. Look, you&amp;#39;re calling this feature
+Today&amp;#39;s &lt;em&gt;Paper&lt;/em&gt;. Do us a favor, and support those semantics -- follow the paper version. If you
+like, call it Today&amp;#39;s Edition instead of Today&amp;#39;s Paper. But at present, it&amp;#39;s not Today&amp;#39;s &lt;em&gt;Paper&lt;/em&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Here is my number one most critical concern: It is not easy to read the Times &lt;em&gt;in its print sequence&lt;/em&gt;
+in the mobile edition.&lt;/strong&gt; The main issue is that to get to the next article as offered in the
+print edition, you have to&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Scroll down so as to expose the back button (&amp;lt;).&lt;/li&gt;
+&lt;li&gt;Tap the back button.&lt;/li&gt;
+&lt;li&gt;Tap the next article (or scroll to it if it&amp;#39;s below -- note that the iPad and iPhone
+experiences are a bit different in that on the phone all of the articles are on a list,
+while on the iPad the &amp;quot;next&amp;quot; article might be to the right of the one you just read.
+In any case, I don&amp;#39;t want to scroll, tap, and tap.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Suggestion: Please make it easier for me. Either
+   add a Next button (that means the next button in the Today&amp;#39;s Paper sequence), or let me
+   swipe for the next article.&lt;/strong&gt; Would this be so hard? The Washington Post supports a
+   swipe (I doubt it&amp;#39;s in the print edition order, though). Even the pretty crappy app for
+   my local paper, the Minneapolis Star-Tribune, provides for a swipe. The BBC app doesn&amp;#39;t
+   seem to support swipe. Perhaps there&amp;#39;s some issue getting feature parity between the Times
+   iOS and Android versions. I don&amp;#39;t really care -- I think that on the iOS versions of
+   Today&amp;#39;s Paper, it should be super easy to get to the next article in print order.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Last thing. The mobile edition seems incomplete, at least compared to the print edition. I am
+looking at p. 10 in Section C, which is the Cooking section with the headline &amp;quot;What to Make
+Next Week.&amp;quot; &lt;strong&gt;Suggestion: Please, include it all. It&amp;#39;s simply not Today&amp;#39;s Paper unless everything
+is there.&lt;/strong&gt; By the same token, p. A22 is the Weather. Similarly,
+where&amp;#39;s the 36 Hours piece on Cape Town, South Africa? &lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+  </entry>
   <entry>
     <title>Books I read in 2022 and 2023</title>
     <link rel="alternate" href="http://7fff.com/2023/12/books-i-read-in-2022-and-2023/"/>
@@ -623,84 +708,6 @@ likelihood of afib occurring.&lt;/p&gt;
 &lt;p&gt;&lt;img src="../../../assets/images/hrv2-017b02c9.png" title="increased heart rate variability for this person" alt="hrv2" width="742" height="833" /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src="../../../assets/images/hrv3-eaa53feb.png" title="heart rate variability leading up to afib" alt="hrv3" width="745" height="832" /&gt;&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Why does that software contractor cost so much?</title>
-    <link rel="alternate" href="http://7fff.com/2020/08/why-does-that-software-contractor-cost-so-much/"/>
-    <id>http://7fff.com/2020/08/why-does-that-software-contractor-cost-so-much/</id>
-    <published>2020-07-31T19:00:00-05:00</published>
-    <updated>2020-08-01T21:48:46-05:00</updated>
-    <author>
-      <name>jgn</name>
-    </author>
-    <content type="html">&lt;p&gt;[I was listening to &lt;a href="https://www.bikeshed.fm/254"&gt;this podcast&lt;/a&gt; that was talking a bit about
-billing, and it inspired me to go back to this post I drafted in March of 2008. It still seems about
-right, so here it is. Bonus: A bit about invoicing.]&lt;/p&gt;
-
-&lt;h3&gt;The hourly rate&lt;/h3&gt;
-
-&lt;p&gt;I was talking to a friend (a small business owner) recently who felt that $200/hour is too much to
-pay for a software or design contractor. That is indeed not a small hourly rate. But where does that
-number come from?&lt;/p&gt;
-
-&lt;p&gt;Here&amp;#39;s how it works. Software developers and graphic designs are people just like you, with rent or
- mortgages, possibly a family, and a limited number of hours in the day to get anything done. Let&amp;#39;s
- say for the sake of argument that a young contractor wants to make on average $125,000 / year (in a
- lean year, perhaps that would be $85,000 and in a flush year it would be $150,000). This contractor
- thinks she has 2,000 billable hours per year. That&amp;#39;s really quite a lot of billable hours. It&amp;#39;s
- assuming one bills out eight hours a day, every work day, every week, except for two weeks of
- vacation. I.e., 8 hours * 5 days * 50 weeks = 2,000 total hours. Yes, the contractor might
- occasionally work 14 hours, or on weekends, but you get the idea. Personally I think overwork is a
- recipe for disaster (because overwork impinges on quality and results in billing weak hours, i.e.,
- hours made inefficient due to sleeplessness and inefficiency), and furthermore that the contractor
- should be including time off of at least four weeks off over the year, to recharge, remember one&amp;#39;s
- family, and so forth.&lt;/p&gt;
-
-&lt;p&gt;Now at first it would seem that if you divided $125,000 by 2,000 hours, you&amp;#39;d get an hourly rate of
- $62.50. But that&amp;#39;s not the way it works, because the contractor is also engaging in business
- development, i.e., finding new customers. Business development can take a full 50% of one&amp;#39;s time.
- You will have to trust me on this, but it&amp;#39;s true. There is also a lot of lost business because you
- are in an existing contract and have no extra bandwidth. So it&amp;#39;s pretty unlikely that your book
- would be full. So now the hourly rate is $125/hour. The $125 basic rate also accounts for
- variability in billing: Such as: Customers who don&amp;#39;t pay; customers who make only partial payment;
- customers who get a discount for various intangible reasons. This is also why the rate goes down
- for a longer engagement.&lt;/p&gt;
-
-&lt;p&gt;Then there are various forms of overhead. Independent contractors also need to pay for their own
- health care and consulting insurance; their taxes can be higher, especially if they don&amp;#39;t have a
- good accountant; and they have to pay for ongoing self-education, in the form of books,
- subscriptions, and non-billable hours in open source projects they participate in. So let us say,
- now, that a &amp;quot;reasonable&amp;quot; rate is $150. They may also have to pay for an office; add $10/hour,
- at least.&lt;/p&gt;
-
-&lt;p&gt;So why $200? Now we get into questions around quality. You want the best, don&amp;#39;t you? The rate is
- going to be a bell curve like everything else, with the $150/hour biller in the middle. You are
- going to be able to find people for $75/hour; and there are going to be great people who are in
- high demand who require a larger number.&lt;/p&gt;
-
-&lt;p&gt;So have I convinced you that $200 is reasonable for great work?&lt;/p&gt;
-
-&lt;h3&gt;Invoicing&lt;/h3&gt;
-
-&lt;p&gt;The worst thing we do when we build a contract is to make it expensive to stop the work. A good way
-to make it expensive is to torture yourself and the contractor to define all of the work upfront
-with a defined schedule, and then introduce charges for changes. Please, stop it. Define your work
-in two-week sprints that deliver what is most important first. This means that the customer and
-the contractor must talk about priorities and get that right. At the end of two weeks, has anything
-been delivered? Yes: Continue. No: Consider stopping right there.&lt;/p&gt;
-
-&lt;p&gt;I would suggest sending the bill at the end of each sprint. Keep the sprint short enough (two weeks
-or a week) so that if the customer doesn&amp;#39;t pay you haven&amp;#39;t lost too much.&lt;/p&gt;
-
-&lt;p&gt;At the same time, insist on payment. I made the mistake once of letting owed money mount up over
-three months, and the the customer went out of business. Oops. I was out $10,000. I know others
-who have experienced this. It&amp;#39;s not cool and everyone will be unhappy. So insist on prompt payment.
-Be nice, but be persistent.&lt;/p&gt;
-
-&lt;p&gt;Oh, and creating invoices? Use software. When I was doing a lot of billing, I used Freckle which is
-now &lt;a href="https://nokotime.com/"&gt;Noko Time&lt;/a&gt;. You track your hours, and out the other end comes a pretty
-invoice, ready for the customer.&lt;/p&gt;
 </content>
   </entry>
 </feed>
