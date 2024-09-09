@@ -4,10 +4,48 @@
   <id>http://7fff.com/</id>
   <link href="http://7fff.com/"/>
   <link href="http://7fff.com/feed" rel="self"/>
-  <updated>2024-03-30T11:37:00-05:00</updated>
+  <updated>2024-09-09T09:08:00-05:00</updated>
   <author>
     <name>jgn</name>
   </author>
+  <entry>
+    <title>Using Google Apps Script to convert a Word document to Google Docs</title>
+    <link rel="alternate" href="http://7fff.com/2024/09/using-google-apps-script-to-convert-a-word-document-to-google-docs/"/>
+    <id>http://7fff.com/2024/09/using-google-apps-script-to-convert-a-word-document-to-google-docs/</id>
+    <published>2024-09-09T09:08:00-05:00</published>
+    <updated>2024-09-09T09:14:10-05:00</updated>
+    <author>
+      <name>jgn</name>
+    </author>
+    <content type="html">&lt;p&gt;I recently wanted to write code to convert a Microsoft Word document to a Google Doc. (In fact,
+I wanted to convert many such Word docs.)&lt;/p&gt;
+
+&lt;p&gt;This turned out to be pretty obscure. Here&amp;#39;s how to do it (ids changed):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;function go() {
+  convertWordDocToGoogleDoc(
+    "15qYN30uJAsMhKxUb1nbCoE09NT7-FPZs",
+    "Converted",
+    "1-Grx_yhWWOA73-1dnbEI6JlfHkDXxzr6"
+  );
+}
+
+function convertWordDocToGoogleDoc(sourceFileId, targetFileName, targetFolderId) {
+  // Convert a Word doc to a Google doc
+  // (this was a royal pain to figure out)
+  let targetResource = {
+    'name':     targetFileName,
+    'mimeType': MimeType.GOOGLE_DOCS,
+    'parents':  [targetFolderId]
+  };
+  // Notice: This is done with the *Drive* service, not the DocumentApp
+  // To add the Drive Service, click the "+" by Services in the left-hand
+  // pane and select Drive API.
+  let targetFile = Drive.Files.copy(targetResource, sourceFileId);
+
+  return targetFile.id;
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+  </entry>
   <entry>
     <title>The New York Times' mobile 'Today's Paper' could be a lot better</title>
     <link rel="alternate" href="http://7fff.com/2024/03/the-new-york-times-mobile-today-s-paper-could-be-a-lot-better/"/>
@@ -635,79 +673,6 @@ there&amp;#39;s a second page of tutorials
 &lt;li&gt; If you want a simplified data set, check out the
 &lt;a href="https://www.coursera.org/learn/machine-learning/discussions/all/threads/0SxufTSrEeWPACIACw4G5w"&gt;test cases&lt;/a&gt;.&lt;/li&gt;
 &lt;/ol&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Does the Apple Watch 6 oximeter matter?</title>
-    <link rel="alternate" href="http://7fff.com/2020/09/does-the-apple-watch-6-oximeter-matter/"/>
-    <id>http://7fff.com/2020/09/does-the-apple-watch-6-oximeter-matter/</id>
-    <published>2020-09-21T06:46:00-05:00</published>
-    <updated>2020-10-10T19:13:30-05:00</updated>
-    <author>
-      <name>jgn</name>
-    </author>
-    <content type="html">&lt;p&gt;I&amp;#39;m not sure people realize what a boon the Apple Watch&amp;#39;s oximeter (blood oxygen app) may be to
-one&amp;#39;s tracking of personal health, so I thought I&amp;#39;d provide some example data to provide a feel for
-what you&amp;#39;ll be able to monitor. Of course, a lot will depend on what people discover about the
-watch&amp;#39;s oxygen monitoring: Accuracy, the granularity of data, etc. But I think it&amp;#39;s going to be a
-great help for people who want to understand better the relationship between blood oxygen levels and
-heart health. Additionally, some people use oximeters to measure their oxygen out of concern for
-hypoxia that is induced by the novel coronavirus.&lt;/p&gt;
-
-&lt;p&gt;The TL;DR on this is that with oximeter readings and metrics for heart rate variability, you can
-get some insights into possible sleep apnea that can increase heart rate variability and potentially
-cause atrial fibrillation (which can in turn provoke stroke or heart failure).&lt;/p&gt;
-
-&lt;p&gt;All graphs and charts are shared with the permission of the person who originated the data.&lt;/p&gt;
-
-&lt;p&gt;So the first image shows the overnight blood oxygen this person has on a typical night using a CPAP
-machine. This looks good. All SpO2 (peripheral oxygen saturation) values are above 90%. The person&amp;#39;s
-pulse is low. &lt;a href="(https://www.webmd.com/lung/pulse-oximetry-test)"&gt;WebMD&lt;/a&gt; says: &amp;quot;A blood oxygen level
-lower than 89% means you may not have enough oxygen in your blood to meet your body&amp;#39;s needs. This
-could be because there’s a problem with your heart or lungs.&amp;quot; These values were collected with a
-&lt;a href="https://getwellue.com/pages/o2ring-oxygen-monitor"&gt;Wellue O2Ring&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="../../../assets/images/pulseox1-6d1be445.jpg" title="Normal pulse ox readings" alt="pulseox1" width="750" height="1334" /&gt;&lt;/p&gt;
-
-&lt;p&gt;Now, one way you might be starving your brain and body for oxygen is if you have sleep apnea.
-This person uses a CPAP device every night, but recently when traveling did not have the CPAP.
-Here&amp;#39;s what can go wrong.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="../../../assets/images/pulseox2-d625e53c.jpg" title="pulse ox readings slowing sleep apnea" alt="pulseox2" width="750" height="1334" /&gt;&lt;/p&gt;
-
-&lt;p&gt;As you can see in the second image, during sleep apnea, one&amp;#39;s blood oxygen level can spike way down.&lt;/p&gt;
-
-&lt;p&gt;Prolonged episodes of sleep apnea can cause a lot of problems. The
-&lt;a href="https://www.mayoclinic.org/diseases-conditions/sleep-apnea/symptoms-causes/syc-20377631"&gt;Mayo Clinic&lt;/a&gt;
-says: &amp;quot;Sudden drops in blood oxygen levels that occur during sleep apnea increase blood pressure and
-strain the cardiovascular system. Having obstructive sleep apnea increases your risk of high blood
-pressure (hypertension). Obstructive sleep apnea might also increase your risk of recurrent heart
-attack, stroke and abnormal heartbeats, such as atrial fibrillation. If you have heart disease,
-multiple episodes of low blood oxygen (hypoxia or hypoxemia) can lead to sudden death from an
-irregular heartbeat.&amp;quot;&lt;/p&gt;
-
-&lt;p&gt;I&amp;#39;m not a doctor, but there are articles
-(&lt;a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3306298/"&gt;example&lt;/a&gt;) suggesting that prolonged sleep
-apnea with its impact on blood oxygen can affect heart rate variability (HRV), which would seem to
-be a leading indicator for issues such as atrial fibrillation (afib) which is a form of cardiac
-arrhythmia that can lead to a stroke or heart failure. The Apple Watch can track this. Here are
-three examples of HRV readings from the Apple Health app. The first one shows relatively normal HRV
-for this person; the second shows elevate readings; and then the third image shows HRV leading up to
-the onset of afib.&lt;/p&gt;
-
-&lt;p&gt;Once this person started using a CPAP, the HRV settled down, and the heart reverted from afib to
-normal &amp;quot;sinus&amp;quot; rhythm.&lt;/p&gt;
-
-&lt;p&gt;In short, had this person known his or her oxygen levels, there might have been an earlier
-conversation with a physician leading to some controls (such as better diet, reduced caffiene and
-alcohol consumption, more exercise, the use of a CPAP machine . . .) that might have reduced the
-likelihood of afib occurring.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="../../../assets/images/hrv1-916829e7.png" title="normal heart rate variability for this person" alt="hrv1" width="742" height="830" /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="../../../assets/images/hrv2-017b02c9.png" title="increased heart rate variability for this person" alt="hrv2" width="742" height="833" /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="../../../assets/images/hrv3-eaa53feb.png" title="heart rate variability leading up to afib" alt="hrv3" width="745" height="832" /&gt;&lt;/p&gt;
 </content>
   </entry>
 </feed>
