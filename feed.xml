@@ -4,16 +4,181 @@
   <id>http://7fff.com/</id>
   <link href="http://7fff.com/"/>
   <link href="http://7fff.com/feed.xml" rel="self"/>
-  <updated>2024-09-09T09:08:00-05:00</updated>
+  <updated>2024-12-02T09:28:00-06:00</updated>
   <author>
     <name>jgn</name>
   </author>
+  <entry>
+    <title>Arrays are rarely the natural choice in bash; use files</title>
+    <link rel="alternate" href="http://7fff.com/2024/12/arrays-are-rarely-the-natural-choice-in-bash-use-files/"/>
+    <id>http://7fff.com/2024/12/arrays-are-rarely-the-natural-choice-in-bash-use-files/</id>
+    <published>2024-12-02T09:28:00-06:00</published>
+    <updated>2024-12-02T09:43:58-06:00</updated>
+    <author>
+      <name>jgn</name>
+    </author>
+    <content type="html">&lt;p&gt;So I wanted to format some text whereby I specify a width and a utility fills and wraps the
+lines.&lt;/p&gt;
+
+&lt;p&gt;Example input text:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;The output for `ls-files` is incredibly limited, right? That's because the
+typical use case is to list files of a certain type.
+
+You can do
+
+  ls-files -c  # show cached (tracked)
+  ls-files -d  # show unstaged deletions
+  ls-files -u  # show unmerged
+
+There is also an option -t that shows status tag (though the tags are weird:
+for instance, the tag for a tracked file is: H).
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Fortunately there&amp;#39;s a nice tool called &lt;code&gt;fmt&lt;/code&gt; that can do pretty much what we want.&lt;/p&gt;
+
+&lt;p&gt;You can do &lt;code&gt;fmt -w 50 &amp;lt;text.txt&lt;/code&gt; and get the following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;The output for `ls-files` is incredibly limited,
+right? That's because the typical use case is to
+list files of a certain type.
+
+You can do
+
+  ls-files -c  # show cached (tracked) ls-files -d
+  # show unstaged deletions ls-files -u  # show
+  unmerged
+
+There is also an option -t that shows status tag
+(though the tags are weird: for instance, the tag
+for a tracked file is: H).
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Well that&amp;#39;s not right. I would like it to leave lines alone that have fewer characters than
+the specified width. In other words, I want:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;The output for `ls-files` is incredibly limited,
+right? That's because the typical use case is to
+list files of a certain type.
+
+You can do
+
+  ls-files -c  # show cached (tracked)
+  ls-files -d  # show unstaged deletions
+  ls-files -u  # show unmerged
+
+There is also an option -t that shows status tag
+(though the tags are weird: for instance, the tag
+for a tracked file is: H).
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I could do this pretty fast in Ruby, but in this case, I needed it in shell (for bash), and
+I didn&amp;#39;t want to incur the startup time of a Ruby script called from a bash script.&lt;/p&gt;
+
+&lt;p&gt;My first instinct was to use arrays, because that feels natural to me as a programmer -- I might
+split on newlines and do something with the result.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;#39;s what I came up with. Note that on my target, the Mac, the latest version of bash is 3.2
+(for licensing reasons). This means I couldn&amp;#39;t use some of the newer array functions from bash 4.&lt;/p&gt;
+
+&lt;p&gt;(By the way, I do know the bash convention of using all uppercase for environment variable
+names, but that&amp;#39;s just too ugly. Sorry.)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight shell"&gt;&lt;code&gt;&lt;span class="c"&gt;#!/usr/bin/env bash&lt;/span&gt;
+
+&lt;span class="nv"&gt;width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+&lt;span class="nb"&gt;shift
+&lt;/span&gt;&lt;span class="nv"&gt;text&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+
+&lt;span class="nv"&gt;output&lt;/span&gt;&lt;span class="o"&gt;=()&lt;/span&gt;
+&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="o"&gt;=()&lt;/span&gt;
+&lt;span class="nv"&gt;line&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;""&lt;/span&gt;
+&lt;span class="nv"&gt;last_index&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;0
+
+&lt;span class="nv"&gt;format_command&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"fmt"&lt;/span&gt;    &lt;span class="c"&gt;# or `par -j`&lt;/span&gt;
+
+format &lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+  &lt;span class="nb"&gt;local &lt;/span&gt;formatted
+
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-gt&lt;/span&gt; 1 &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then
+    &lt;/span&gt;&lt;span class="nv"&gt;formatted&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s1"&gt;'%s'&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; | &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$format_command&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-w&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;width&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;)&lt;/span&gt;
+    output+&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$formatted&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;fi
+  &lt;/span&gt;output+&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;""&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+  &lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="o"&gt;=()&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;for &lt;/span&gt;line &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;text&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+  &lt;span class="c"&gt;# hit a newline; format everything accumulated in the buffer&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;line&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;""&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then
+    &lt;/span&gt;format
+  &lt;span class="c"&gt;# hit a short line; add it to the output unformatted&lt;/span&gt;
+  &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-eq&lt;/span&gt; 0 &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;line&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="s2"&gt;""&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;line&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-le&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;width&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then
+    &lt;/span&gt;output+&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+  &lt;span class="c"&gt;# a regular line; add it to the buffer for later formatting.&lt;/span&gt;
+  &lt;span class="k"&gt;else
+    &lt;/span&gt;buffer+&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt; "&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;fi
+done
+
+&lt;/span&gt;format
+
+&lt;span class="nv"&gt;last_index&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$((&lt;/span&gt; &lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;output&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="k"&gt;))&lt;/span&gt;
+&lt;span class="nb"&gt;unset&lt;/span&gt; &lt;span class="s2"&gt;"output[&lt;/span&gt;&lt;span class="nv"&gt;$last_index&lt;/span&gt;&lt;span class="s2"&gt;]"&lt;/span&gt;
+
+&lt;span class="c"&gt;# Split elements in original on newline&lt;/span&gt;
+&lt;span class="nv"&gt;split_on_newline&lt;/span&gt;&lt;span class="o"&gt;=()&lt;/span&gt;
+&lt;span class="k"&gt;while &lt;/span&gt;&lt;span class="nv"&gt;IFS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;read&lt;/span&gt; &lt;span class="nt"&gt;-r&lt;/span&gt; line&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do
+    &lt;/span&gt;split_on_newline+&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s1"&gt;'%s\n'&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;output&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+&lt;span class="nv"&gt;output&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;split_on_newline&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So as you can see, there&amp;#39;s rather a lot of wrangling of arrays: getting lines added from a file.
+There&amp;#39;s also the syntax burden of bash arrays, which is non-trivial. I kept looking at this,
+and after awhile it just seemed dumb. Why not write a more routine bash command that reads
+from STDIN and writes to STDOUT?&lt;/p&gt;
+
+&lt;p&gt;So I came up with this, which is shorter and seems more natural:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight shell"&gt;&lt;code&gt;&lt;span class="c"&gt;#!/usr/bin/env bash&lt;/span&gt;
+
+&lt;span class="nv"&gt;width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;30
+&lt;span class="nb"&gt;command&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"fmt"&lt;/span&gt;
+&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;""&lt;/span&gt;
+
+&lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="nt"&gt;-n&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;
+&lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="nt"&gt;-n&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$2&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;command&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$2&lt;/span&gt;
+
+&lt;span class="k"&gt;while &lt;/span&gt;&lt;span class="nv"&gt;IFS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;read&lt;/span&gt; &lt;span class="nt"&gt;-r&lt;/span&gt; line&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do
+  if&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="nt"&gt;-z&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-ne&lt;/span&gt; 0 &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then
+    &lt;/span&gt;&lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s1"&gt;'%s\n'&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$buffer&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; | &lt;span class="nv"&gt;$command&lt;/span&gt; &lt;span class="nt"&gt;-w&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$width&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+    &lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+    &lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;""&lt;/span&gt;
+  &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-eq&lt;/span&gt; 0 &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;line&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-lt&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$width&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then
+    &lt;/span&gt;&lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s1"&gt;'%s\n'&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+  &lt;span class="k"&gt;else
+    &lt;/span&gt;buffer+&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+    buffer+&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;" "&lt;/span&gt;
+  &lt;span class="k"&gt;fi
+done
+&lt;/span&gt;&lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s1"&gt;'%s\n'&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$buffer&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; | &lt;span class="nv"&gt;$command&lt;/span&gt; &lt;span class="nt"&gt;-w&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$width&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This one takes two parameters, the first being the width, and the second being the command
+to use (if one doesn&amp;#39;t want to use the default, &lt;code&gt;fmt&lt;/code&gt;). So if you like, you can use &lt;code&gt;par&lt;/code&gt; to
+justify the text. For example: ./wrap 50 &amp;quot;par -j&amp;quot; gets you:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;The output  for `ls-files` is  incredibly limited,
+right? That's  because the typical use  case is to
+list files of a certain type.
+
+You can do
+
+  ls-files -c  # show cached (tracked)
+  ls-files -d  # show unstaged deletions
+  ls-files -u  # show unmerged
+
+There is also  an option -t that  shows status tag
+(though the tags are  weird: for instance, the tag
+for a tracked file is: H).
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+  </entry>
   <entry>
     <title>Using Google Apps Script to convert a Word document to Google Docs</title>
     <link rel="alternate" href="http://7fff.com/2024/09/using-google-apps-script-to-convert-a-word-document-to-google-docs/"/>
     <id>http://7fff.com/2024/09/using-google-apps-script-to-convert-a-word-document-to-google-docs/</id>
     <published>2024-09-09T09:08:00-05:00</published>
-    <updated>2024-09-09T09:14:10-05:00</updated>
+    <updated>2024-12-02T08:46:56-06:00</updated>
     <author>
       <name>jgn</name>
     </author>
@@ -516,163 +681,6 @@ easy to read):&lt;/p&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;Maybe this will help Qardio fix their bug.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Stanford's Machine Learning Course</title>
-    <link rel="alternate" href="http://7fff.com/2020/10/stanford-s-machine-learning-course/"/>
-    <id>http://7fff.com/2020/10/stanford-s-machine-learning-course/</id>
-    <published>2020-10-27T19:15:00-05:00</published>
-    <updated>2021-04-12T08:12:23-05:00</updated>
-    <author>
-      <name>jgn</name>
-    </author>
-    <content type="html">&lt;p&gt;With the pandemic, my wife grading like crazy because of an increased load owing to academic
-calendar changes, and my daughter gone off to college, I&amp;#39;ve had a lot of time on my hands. In a
-late night moment of weakness, I not only signed up for
-&lt;a href="https://www.coursera.org/learn/machine-learning"&gt;Stanford&amp;#39;s famous Machine Learning course&lt;/a&gt; (videos
-by Andrew Ng) on Coursera, but paid for it so as to get a certificate. The next day, I regretted a
-bit the expense and time commitment, but paying for it has kept me honest and diligent. My repo
-suggests that I started it in September 19th and I finished it at the end of October, passing
-everything with 100% (which is not too difficult because you can resubmit until your work is
-correct). Now it&amp;#39;s time for a little reflection.&lt;/p&gt;
-
-&lt;p&gt;I took this course because I wanted to be familiar with the vocabulary -- and I also wanted to get a
-feel for the kinds of problems basic machine learning can address. And I&amp;#39;ve learned a lot. So with
-regard to those outcomes, the course is a good one. I&amp;#39;m pretty late to the party: based on what I&amp;#39;ve
-learned I wish I had taken this some years ago when the course was new. Andrew Ng is of course one
-of the leading lights of productionizing machine learning at scale, having founded Google Brain and
-then for awhile being the Chief Scientist at Baidu.&lt;/p&gt;
-
-&lt;p&gt;One great aspect of the course is the way Ng has designed it so that certain concepts come back
-later. For instance, linear regression and gradient descent are worked up in the first lectures, and
-then return in a discussion of content-based recommendation systems. I love that kind of
-reinforcement.&lt;/p&gt;
-
-&lt;p&gt;The course, though, is starting to show its age. It really needs a refresh. I guess Ng never went
-back to it because he now has a more holistic learning venture,
-&lt;a href="https://www.deeplearning.ai/"&gt;deeplearning.ai&lt;/a&gt; (which is still delivered through Coursera).&lt;/p&gt;
-
-&lt;p&gt;The awkward stuff: Every lecture has a number of errata
-(&lt;a href="https://www.coursera.org/learn/machine-learning/resources/UWXuL"&gt;example&lt;/a&gt;) -- part of that is
-because of the sharp eyes of the millions of students who have enrolled in the course. But the thing
-that really gives one pause is the inconsistency of the presentation. In early weeks the slides are
-punctuated with &amp;quot;Readings&amp;quot; that summarize the lecture material in a condensed form
-(&lt;a href="https://www.coursera.org/learn/machine-learning/resources/RmTEz"&gt;example&lt;/a&gt;), which is great for
-review. Later weeks don&amp;#39;t have that. At some point a graduate student contributed some fantastic
-lecture notes, but they seem a little uneven. There are some really useful things here: For
-instance, each programming assignment has a tutorial to coach students over some of the bumps --
-and, most critically, there is test data for each part of the assignment. I wrote tests in code to
-verify against the test data that my actual code produces the expected results: This is essentially
-what the automatic grader does, but the grader is a black box. The reason the test data is so great
-is because sometimes your assignment solution misses some cases that the automatic grader checks:
-But the test data has good coverage, so by verifying your code against the test data, you can have
-more confidence that your code will pass the grader. And it&amp;#39;s faster: The test data is really pared
-down. Anyway, the upshot of this is that to get a full understanding, sometimes impacting the way
-you would do the coding assignments, you have to scramble over the assignment&amp;#39;s PDF, the web page
-regarding programming the assignment, errata, tutorials, and test cases. At one point in a &lt;a href="https://www.coursera.org/learn/machine-learning/resources/Uuxg6"&gt;tutorial
-for Programming Exercise 4&lt;/a&gt;, the
-author says: &amp;quot;This tutorial outlines the process of accomplishing the goals for Programming Exercise
-4. The purpose is to create a collection of all the useful yet scattered and obscure knowledge that
-otherwise would require hours of frustrating searches.This tutorial is targeted solely at vectorized
-implementations.&amp;quot; It just isn&amp;#39;t as unified as it might be. Another thing that is kind of weird is
-that it&amp;#39;s entirely clear from the lectures that students should strive for vectorized implementations,
-but the tutorials and assignments suggest that some students write loops and don&amp;#39;t get to take
-advantage of the speed of Octave&amp;#39;s libraries. It&amp;#39;s kind of incredible to me that looping solutions
-are even permitted.&lt;/p&gt;
-
-&lt;p&gt;Ng&amp;#39;s style is very soft-spoken if not modest. At the end of the earlier lectures on linear and
-logistic regression, he notes to the audience that at this point one probably knows more about
-machine learning than a lot of people doing it in Silicon Valley, which is pretty funny and kind of
-nice take-down of the Valley. He has some tics, for instance, he likes to say &amp;quot;concretely&amp;quot; which I
-guess is math talk for &amp;quot;now I&amp;#39;m going to get down to a case.&amp;quot; Another moment is when Ng will say
-that he&amp;#39;s not going to prove something or derive something: This is almost always followed by an
-appeal to intuition where he says &amp;quot;you know&amp;quot; how something is -- and I would say he&amp;#39;s compelling in
-explaining without a lot of math. There are some interesting pedagogical tricks. For instance, about
-2/3 of the way through a given video lecture, there will be a pause for a quick single-question
-quiz. These quizzes frequently check for knowledge that is conveyed immediately after. In other
-words, you have to draw out the implications of what Ng has just taught. Some of these are hard. But
-the experience of failing a quiz or guessing for a correct answer, then to see Ng&amp;#39;s walkthrough,
-produces a solid learning memory.&lt;/p&gt;
-
-&lt;p&gt;The graded assignments come in two forms: First, a 5-question quiz. In my experience, these can be
-quite hard. Frequently they turn on drawing something out from the lecture. One extremely painful
-aspect of the 5-question quizzes is that there may be a question where the rubric is to &amp;quot;pick all
-answers that are correct.&amp;quot; So with five possible answers, you may have to do some hard thinking
-because one of the answers may be a bit non-obvious. In Coursera, you can re-do quizzes. A couple of
-times I found I had to write down the questions and then go back to the lectures to see what I had
-missed. On occasion the lecture provided the underpinning for an answer, but you had to figure out
-the implication yourself.&lt;/p&gt;
-
-&lt;p&gt;The programming assignments are top-notch. An early assignment is about recognizing hand-written
-digits, and you feel this definite jaw-drop / &amp;quot;oh my god&amp;quot; when it turns out to work. I know that
-this work was done years and years ago, but it is still really cool. Another example is about spam
-classification. I think after going through the assignments, almost anyone will have thoughts about
-problems in his or her own domain. Generally you fill in code for a missing function and then a test
-harness runs the data. When you submit, your results are validated by a server at Coursera. About my
-only gripe here is that there&amp;#39;s a bit of a &amp;quot;so what&amp;quot; at the end of an assignment because it doesn&amp;#39;t
-really sum up what you would do with the technique when presented with a fresh problem, starting
-from nothing. These programming assignments are also a treasure-trove of supporting code -- for
-instance, nice plots of contours that would be useful in your own work to provide a view into your
-data.&lt;/p&gt;
-
-&lt;p&gt;The programming assignments use Matlab or Octave (open source Matlab) and solutions using
-vectorization are preferred (rather than writing your own for-loops to find solutions by iteration).
-I found it pretty easy to find vectorized solutions but I imagine that trips up others who have been
-programming for a long time.&lt;/p&gt;
-
-&lt;p&gt;The last thing I want to say is that there is a high cognitive bar in this course because you really
-have to learn the material in three ways: First there are the equations: It&amp;#39;s not hard but of course
-it&amp;#39;s its own language (Ng doesn&amp;#39;t turn the crank very much on the calculus and partial derivitives
-that make a lot of it work). Then there is the linear algebra. (So, for example, there may be
-something that is expressed as multiplication in the equation but you have to pick up the fact that
-it is a dot product or an element-wise multiplication, based on context.) And, finally, there is the
-expression of the algorithms in code (in Octave). So you are translating between three different
-languages. I found this to be very difficult, and not, I think, because the last time I did linear
-algebra in earnest was 40 years ago. There are some moments when you are translating between the
-linear algebra and the code in Octave, and you find that you have to transpose a matrix or vector to
-get it to work. I found this pretty frustrating: It didn&amp;#39;t seem to have much rhyme or reason why,
-when going through a solution, you would find something in the form of a row vector rather than a
-column vector, or vice versa. The TAs know this, and advise students to display the dimensions of
-the variables in Octave to help with debugging, but it seems like there&amp;#39;s an impedance mismatch
-between the different languages.&lt;/p&gt;
-
-&lt;p&gt;I was impressed with Octave. It makes it very easy to manipulate and run operations on matrices.
-There are some missing data structures, though: It would be helpful to have a proper hash or
-dictionary: You can do dictionary operations with an associative array, but the syntax is obtuse.
-Still, the pleasure of having matrix operations embedded in syntax is nice. No need to create
-objects and run methods to do basic matrix arithmetic.&lt;/p&gt;
-
-&lt;p&gt;In sum: Great course but it&amp;#39;s showing its age. I think the next course for me might be the one
-on beginning TensorFlow (too bad the assignments aren&amp;#39;t in Ruby!).&lt;/p&gt;
-
-&lt;p&gt;Having completed the course, I do have some advice for learning the material and getting the
-assignments finished:&lt;/p&gt;
-
-&lt;h4&gt;Learning&lt;/h4&gt;
-
-&lt;ol&gt;
-&lt;li&gt; Professor Ng&amp;#39;s walkthroughs of how to understand your data via visualizations is incredibly
-helpful and a useful way to understand fundamental concepts like bias and variance (and how to
-correct for high bias or high variance).)&lt;/li&gt;
-&lt;li&gt; Any time Professor Ng discusses tradeoffs between algorithms: pay attention -- for example,
-why principal component analysis (PCA) is not linear regression.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4&gt;Assignments&lt;/h4&gt;
-
-&lt;ol&gt;
-&lt;li&gt; The highest quality information comes from the videos, but pay chose attention to the errata
-(&lt;a href="https://www.coursera.org/learn/machine-learning/resources/UWXuL"&gt;example&lt;/a&gt;).&lt;/li&gt;
-&lt;li&gt; Try to solve the programming based just on the assignment PDF. But if you get stuck, consult the
-tutorials. There seem to be two types of tutorials. First there are the ones that in the
-Resources section, labeled, for example,
-&lt;a href="https://www.coursera.org/learn/machine-learning/resources/O756o"&gt;Progrmaming Ex. 1&lt;/a&gt;. Then
-there&amp;#39;s a second page of tutorials
-&lt;a href="https://www.coursera.org/learn/machine-learning/discussions/all/threads/m0ZdvjSrEeWddiIAC9pDDA"&gt;here&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt; If you want a simplified data set, check out the
-&lt;a href="https://www.coursera.org/learn/machine-learning/discussions/all/threads/0SxufTSrEeWPACIACw4G5w"&gt;test cases&lt;/a&gt;.&lt;/li&gt;
-&lt;/ol&gt;
 </content>
   </entry>
 </feed>
