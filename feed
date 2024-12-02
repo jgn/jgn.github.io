@@ -13,7 +13,7 @@
     <link rel="alternate" href="http://7fff.com/2024/12/arrays-are-rarely-the-natural-choice-in-bash-use-files/"/>
     <id>http://7fff.com/2024/12/arrays-are-rarely-the-natural-choice-in-bash-use-files/</id>
     <published>2024-12-02T09:28:00-06:00</published>
-    <updated>2024-12-02T09:43:58-06:00</updated>
+    <updated>2024-12-02T09:57:07-06:00</updated>
     <author>
       <name>jgn</name>
     </author>
@@ -157,7 +157,7 @@ done
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This one takes two parameters, the first being the width, and the second being the command
 to use (if one doesn&amp;#39;t want to use the default, &lt;code&gt;fmt&lt;/code&gt;). So if you like, you can use &lt;code&gt;par&lt;/code&gt; to
-justify the text. For example: ./wrap 50 &amp;quot;par -j&amp;quot; gets you:&lt;/p&gt;
+justify the text. For example: &lt;code&gt;./wrap 50 &amp;quot;par -j&amp;quot;&lt;/code&gt; gets you:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;The output  for `ls-files` is  incredibly limited,
 right? That's  because the typical use  case is to
 list files of a certain type.

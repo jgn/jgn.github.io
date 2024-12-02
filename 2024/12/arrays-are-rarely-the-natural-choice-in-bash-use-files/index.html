@@ -120,7 +120,7 @@ done
   <span class="k">fi
 done
 </span><span class="nb">printf</span> <span class="s1">'%s\n'</span> <span class="s2">"</span><span class="nv">$buffer</span><span class="s2">"</span> | <span class="nv">$command</span> <span class="nt">-w</span> <span class="s2">"</span><span class="nv">$width</span><span class="s2">"</span>
-</code></pre></div> <p>This one takes two parameters, the first being the width, and the second being the command to use (if one doesn&#39;t want to use the default, <code>fmt</code>). So if you like, you can use <code>par</code> to justify the text. For example: ./wrap 50 &quot;par -j&quot; gets you:</p> <div class=highlight><pre class="highlight plaintext"><code>The output  for `ls-files` is  incredibly limited,
+</code></pre></div> <p>This one takes two parameters, the first being the width, and the second being the command to use (if one doesn&#39;t want to use the default, <code>fmt</code>). So if you like, you can use <code>par</code> to justify the text. For example: <code>./wrap 50 &quot;par -j&quot;</code> gets you:</p> <div class=highlight><pre class="highlight plaintext"><code>The output  for `ls-files` is  incredibly limited,
 right? That's  because the typical use  case is to
 list files of a certain type.
 
