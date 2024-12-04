@@ -4,16 +4,275 @@
   <id>http://7fff.com/</id>
   <link href="http://7fff.com/"/>
   <link href="http://7fff.com/feed.xml" rel="self"/>
-  <updated>2024-03-30T12:37:00-04:00</updated>
+  <updated>2024-12-04T08:26:00-06:00</updated>
   <author>
     <name>jgn</name>
   </author>
   <entry>
+    <title>How to reverse (revert) some Thor actions</title>
+    <link rel="alternate" href="http://7fff.com/2024/12/how-to-reverse-revert-some-thor-actions/"/>
+    <id>http://7fff.com/2024/12/how-to-reverse-revert-some-thor-actions/</id>
+    <published>2024-12-04T08:26:00-06:00</published>
+    <updated>2024-12-04T08:39:50-06:00</updated>
+    <author>
+      <name>jgn</name>
+    </author>
+    <content type="html">&lt;p&gt;It&amp;#39;s pretty cool that in many cases Rails migrations can reverse their action when you use
+the &lt;code&gt;destroy&lt;/code&gt; command. For example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;% rails generate model user name:string
+      invoke  active_record
+      create    db/migrate/20241204143118_create_users.rb
+      create    app/models/user.rb
+      invoke    test_unit
+      create      test/models/user_test.rb
+      create      test/fixtures/users.yml
+% rails destroy model user
+      invoke  active_record
+      remove    db/migrate/20241204143118_create_users.rb
+      remove    app/models/user.rb
+      invoke    test_unit
+      remove      test/models/user_test.rb
+      remove      test/fixtures/users.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So that&amp;#39;s pretty fun. Rails migrations are built on Thor, but there&amp;#39;s not a lot of
+documentation on how to reverse a Thor action.&lt;/p&gt;
+
+&lt;p&gt;I had to study the code and its specs to figure this out, and even then it took some
+noodling around.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;#39;s how to do it. In your Thor file, you create actions like so. Note the setting
+of &lt;code&gt;self.behavior&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;  desc "prepend-before", "prepend to a file before a match"
+  def prepend_before
+    # behavior: Does not inject if the content exists *anywhere* in the file
+    inject_into_file "doc/README", "more content\n", before: "__end__"
+  end
+
+  desc "revoke-prepend", "revoke prepend"
+  def revoke_prepend
+    self.behavior = :revoke
+    inject_into_file "doc/README", "more content\n", :before =&amp;gt; "__end__"
+  end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here&amp;#39;s what run the looks like.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;% thor ex:prepend-before
+      insert  doc/README
+% thor ex:revoke-prepend
+    subtract  doc/README
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You&amp;#39;re welcome. Note that not all Thor actions allow for revocation: At some point
+I&amp;#39;ll add a list of such actions here.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Arrays are rarely the natural choice in bash; use files</title>
+    <link rel="alternate" href="http://7fff.com/2024/12/arrays-are-rarely-the-natural-choice-in-bash-use-files/"/>
+    <id>http://7fff.com/2024/12/arrays-are-rarely-the-natural-choice-in-bash-use-files/</id>
+    <published>2024-12-02T09:28:00-06:00</published>
+    <updated>2024-12-04T08:27:36-06:00</updated>
+    <author>
+      <name>jgn</name>
+    </author>
+    <content type="html">&lt;p&gt;So I wanted to format some text whereby I specify a width and a utility fills and wraps the
+lines.&lt;/p&gt;
+
+&lt;p&gt;Example input text:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;The output for `ls-files` is incredibly limited, right? That's because the
+typical use case is to list files of a certain type.
+
+You can do
+
+  ls-files -c  # show cached (tracked)
+  ls-files -d  # show unstaged deletions
+  ls-files -u  # show unmerged
+
+There is also an option -t that shows status tag (though the tags are weird:
+for instance, the tag for a tracked file is: H).
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Fortunately there&amp;#39;s a nice tool called &lt;code&gt;fmt&lt;/code&gt; that can do pretty much what we want.&lt;/p&gt;
+
+&lt;p&gt;You can do &lt;code&gt;fmt -w 50 &amp;lt;text.txt&lt;/code&gt; and get the following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;The output for `ls-files` is incredibly limited,
+right? That's because the typical use case is to
+list files of a certain type.
+
+You can do
+
+  ls-files -c  # show cached (tracked) ls-files -d
+  # show unstaged deletions ls-files -u  # show
+  unmerged
+
+There is also an option -t that shows status tag
+(though the tags are weird: for instance, the tag
+for a tracked file is: H).
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Well that&amp;#39;s not right. I would like it to leave lines alone that have fewer characters than
+the specified width. In other words, I want:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;The output for `ls-files` is incredibly limited,
+right? That's because the typical use case is to
+list files of a certain type.
+
+You can do
+
+  ls-files -c  # show cached (tracked)
+  ls-files -d  # show unstaged deletions
+  ls-files -u  # show unmerged
+
+There is also an option -t that shows status tag
+(though the tags are weird: for instance, the tag
+for a tracked file is: H).
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I could do this pretty fast in Ruby, but in this case, I needed it in shell (for bash), and
+I didn&amp;#39;t want to incur the startup time of a Ruby script called from a bash script.&lt;/p&gt;
+
+&lt;p&gt;My first instinct was to use arrays, because that feels natural to me as a programmer -- I might
+split on newlines and do something with the result.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;#39;s what I came up with. Note that on my target, the Mac, the latest version of bash is 3.2
+(for licensing reasons). This means I couldn&amp;#39;t use some of the newer array functions from bash 4.&lt;/p&gt;
+
+&lt;p&gt;(By the way, I do know the bash convention of using all uppercase for environment variable
+names, but that&amp;#39;s just too ugly. Sorry.)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight shell"&gt;&lt;code&gt;&lt;span class="c"&gt;#!/usr/bin/env bash&lt;/span&gt;
+
+&lt;span class="nv"&gt;width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+&lt;span class="nb"&gt;shift
+&lt;/span&gt;&lt;span class="nv"&gt;text&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+
+&lt;span class="nv"&gt;output&lt;/span&gt;&lt;span class="o"&gt;=()&lt;/span&gt;
+&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="o"&gt;=()&lt;/span&gt;
+&lt;span class="nv"&gt;line&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;""&lt;/span&gt;
+&lt;span class="nv"&gt;last_index&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;0
+
+&lt;span class="nv"&gt;format_command&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"fmt"&lt;/span&gt;    &lt;span class="c"&gt;# or `par -j`&lt;/span&gt;
+
+format &lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+  &lt;span class="nb"&gt;local &lt;/span&gt;formatted
+
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-gt&lt;/span&gt; 1 &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then
+    &lt;/span&gt;&lt;span class="nv"&gt;formatted&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s1"&gt;'%s'&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; | &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$format_command&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-w&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;width&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;)&lt;/span&gt;
+    output+&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$formatted&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;fi
+  &lt;/span&gt;output+&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;""&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+  &lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="o"&gt;=()&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;for &lt;/span&gt;line &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;text&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+  &lt;span class="c"&gt;# hit a newline; format everything accumulated in the buffer&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;line&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;""&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then
+    &lt;/span&gt;format
+  &lt;span class="c"&gt;# hit a short line; add it to the output unformatted&lt;/span&gt;
+  &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-eq&lt;/span&gt; 0 &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;line&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="s2"&gt;""&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;line&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-le&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;width&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then
+    &lt;/span&gt;output+&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+  &lt;span class="c"&gt;# a regular line; add it to the buffer for later formatting.&lt;/span&gt;
+  &lt;span class="k"&gt;else
+    &lt;/span&gt;buffer+&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt; "&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;fi
+done
+
+&lt;/span&gt;format
+
+&lt;span class="nv"&gt;last_index&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$((&lt;/span&gt; &lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;output&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="k"&gt;))&lt;/span&gt;
+&lt;span class="nb"&gt;unset&lt;/span&gt; &lt;span class="s2"&gt;"output[&lt;/span&gt;&lt;span class="nv"&gt;$last_index&lt;/span&gt;&lt;span class="s2"&gt;]"&lt;/span&gt;
+
+&lt;span class="c"&gt;# Split elements in original on newline&lt;/span&gt;
+&lt;span class="nv"&gt;split_on_newline&lt;/span&gt;&lt;span class="o"&gt;=()&lt;/span&gt;
+&lt;span class="k"&gt;while &lt;/span&gt;&lt;span class="nv"&gt;IFS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;read&lt;/span&gt; &lt;span class="nt"&gt;-r&lt;/span&gt; line&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do
+    &lt;/span&gt;split_on_newline+&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s1"&gt;'%s\n'&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;output&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+&lt;span class="nv"&gt;output&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;split_on_newline&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So as you can see, there&amp;#39;s rather a lot of wrangling of arrays: getting lines added from a file.
+There&amp;#39;s also the syntax burden of bash arrays, which is non-trivial. I kept looking at this,
+and after awhile it just seemed dumb. Why not write a more routine bash command that reads
+from STDIN and writes to STDOUT?&lt;/p&gt;
+
+&lt;p&gt;So I came up with this, which is shorter and seems more natural:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight shell"&gt;&lt;code&gt;&lt;span class="c"&gt;#!/usr/bin/env bash&lt;/span&gt;
+
+&lt;span class="nv"&gt;width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;30
+&lt;span class="nb"&gt;command&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"fmt"&lt;/span&gt;
+&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;""&lt;/span&gt;
+
+&lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="nt"&gt;-n&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;
+&lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="nt"&gt;-n&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$2&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;command&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$2&lt;/span&gt;
+
+&lt;span class="k"&gt;while &lt;/span&gt;&lt;span class="nv"&gt;IFS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;read&lt;/span&gt; &lt;span class="nt"&gt;-r&lt;/span&gt; line&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do
+  if&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="nt"&gt;-z&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-ne&lt;/span&gt; 0 &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then
+    &lt;/span&gt;&lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s1"&gt;'%s\n'&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$buffer&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; | &lt;span class="nv"&gt;$command&lt;/span&gt; &lt;span class="nt"&gt;-w&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$width&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+    &lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+    &lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;""&lt;/span&gt;
+  &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-eq&lt;/span&gt; 0 &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;line&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-lt&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$width&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then
+    &lt;/span&gt;&lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s1"&gt;'%s\n'&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+  &lt;span class="k"&gt;else
+    &lt;/span&gt;buffer+&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+    buffer+&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;" "&lt;/span&gt;
+  &lt;span class="k"&gt;fi
+done
+&lt;/span&gt;&lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s1"&gt;'%s\n'&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$buffer&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; | &lt;span class="nv"&gt;$command&lt;/span&gt; &lt;span class="nt"&gt;-w&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$width&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This one takes two parameters, the first being the width, and the second being the command
+to use (if one doesn&amp;#39;t want to use the default, &lt;code&gt;fmt&lt;/code&gt;). So if you like, you can use &lt;code&gt;par&lt;/code&gt; to
+justify the text. For example: &lt;code&gt;./wrap 50 &amp;quot;par -j&amp;quot;&lt;/code&gt; gets you:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;The output  for `ls-files` is  incredibly limited,
+right? That's  because the typical use  case is to
+list files of a certain type.
+
+You can do
+
+  ls-files -c  # show cached (tracked)
+  ls-files -d  # show unstaged deletions
+  ls-files -u  # show unmerged
+
+There is also  an option -t that  shows status tag
+(though the tags are  weird: for instance, the tag
+for a tracked file is: H).
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>Using Google Apps Script to convert a Word document to Google Docs</title>
+    <link rel="alternate" href="http://7fff.com/2024/09/using-google-apps-script-to-convert-a-word-document-to-google-docs/"/>
+    <id>http://7fff.com/2024/09/using-google-apps-script-to-convert-a-word-document-to-google-docs/</id>
+    <published>2024-09-09T09:08:00-05:00</published>
+    <updated>2024-12-04T08:25:51-06:00</updated>
+    <author>
+      <name>jgn</name>
+    </author>
+    <content type="html">&lt;p&gt;I recently wanted to write code to convert a Microsoft Word document to a Google Doc. (In fact,
+I wanted to convert many such Word docs.)&lt;/p&gt;
+
+&lt;p&gt;This turned out to be pretty obscure. Here&amp;#39;s how to do it (ids changed):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;function go() {
+  convertWordDocToGoogleDoc(
+    "15qYN30uJAsMhKxUb1nbCoE09NT7-FPZs",
+    "Converted",
+    "1-Grx_yhWWOA73-1dnbEI6JlfHkDXxzr6"
+  );
+}
+
+function convertWordDocToGoogleDoc(sourceFileId, targetFileName, targetFolderId) {
+  // Convert a Word doc to a Google doc
+  // (this was a royal pain to figure out)
+  let targetResource = {
+    'name':     targetFileName,
+    'mimeType': MimeType.GOOGLE_DOCS,
+    'parents':  [targetFolderId]
+  };
+  // Notice: This is done with the *Drive* service, not the DocumentApp
+  // To add the Drive Service, click the "+" by Services in the left-hand
+  // pane and select Drive API.
+  let targetFile = Drive.Files.copy(targetResource, sourceFileId);
+
+  return targetFile.id;
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+  </entry>
+  <entry>
     <title>The New York Times' mobile 'Today's Paper' could be a lot better</title>
     <link rel="alternate" href="http://7fff.com/2024/03/the-new-york-times-mobile-today-s-paper-could-be-a-lot-better/"/>
     <id>http://7fff.com/2024/03/the-new-york-times-mobile-today-s-paper-could-be-a-lot-better/</id>
-    <published>2024-03-30T12:37:00-04:00</published>
-    <updated>2024-10-19T10:32:17-04:00</updated>
+    <published>2024-03-30T11:37:00-05:00</published>
+    <updated>2024-10-19T09:32:17-05:00</updated>
     <author>
       <name>jgn</name>
     </author>
@@ -97,8 +356,8 @@ where&amp;#39;s the 36 Hours piece on Cape Town, South Africa? &lt;/p&gt;&lt;/li
     <title>Books I read in 2022 and 2023</title>
     <link rel="alternate" href="http://7fff.com/2023/12/books-i-read-in-2022-and-2023/"/>
     <id>http://7fff.com/2023/12/books-i-read-in-2022-and-2023/</id>
-    <published>2023-12-26T11:31:00-05:00</published>
-    <updated>2024-10-19T10:32:17-04:00</updated>
+    <published>2023-12-26T10:31:00-06:00</published>
+    <updated>2024-10-19T09:32:17-05:00</updated>
     <author>
       <name>jgn</name>
     </author>
@@ -241,8 +500,8 @@ people, they don&amp;#39;t know what I&amp;#39;m talking about, and I should be 
     <title>Books I read in 2021</title>
     <link rel="alternate" href="http://7fff.com/2021/12/books-i-read-in-2021/"/>
     <id>http://7fff.com/2021/12/books-i-read-in-2021/</id>
-    <published>2021-12-31T13:46:00-05:00</published>
-    <updated>2024-10-19T10:32:17-04:00</updated>
+    <published>2021-12-31T12:46:00-06:00</published>
+    <updated>2024-10-19T09:32:17-05:00</updated>
     <author>
       <name>jgn</name>
     </author>
@@ -376,338 +635,6 @@ too high; but I am pretty choosy about what I read, so I&amp;#39;ll stand by tha
 &lt;li&gt;A good book that I might come back to some time. Memorable. Maybe important.&lt;/li&gt;
 &lt;li&gt;Top-notch. If I had the time I&amp;#39;d re-read it.&lt;/li&gt;
 &lt;/ol&gt;
-</content>
-  </entry>
-  <entry>
-    <title>The perils of rounding; or, Careful with that Axe, Eugene</title>
-    <link rel="alternate" href="http://7fff.com/2021/04/the-perils-of-rounding-or-careful-with-that-axe-eugene/"/>
-    <id>http://7fff.com/2021/04/the-perils-of-rounding-or-careful-with-that-axe-eugene/</id>
-    <published>2021-04-09T10:01:00-04:00</published>
-    <updated>2024-10-19T10:32:17-04:00</updated>
-    <author>
-      <name>jgn</name>
-    </author>
-    <content type="html">&lt;p&gt;In the image you&amp;#39;ll see two displays for a single weight measurement I conducted recently on a
-&lt;a href="https://www.getqardio.com/qardiobase-smart-scale-iphone-android/"&gt;Qardio Base scale&lt;/a&gt;. Qardio sells
-a number of devices that can measure various things and report those measurements to your phone. I
-have a Qardio Base for my weight, and a Qardio Arm for blood pressure. The first Qardio Base I had
-was flaky, and fortunately Qardio replaced it. Yay, Qardio! The new one seems to work pretty well --
-except that is does weird things with my measurements, which is the purpose of this post. I use
-these devices with my IPhone. These products will save the measurements to Apple Health. But I also
-manually copy the measurements over into a spreadsheet so I can see a lot of different data in one
-place and analyze them.&lt;/p&gt;
-
-&lt;p&gt;Check the image. This is &lt;em&gt;the very same measurement&lt;/em&gt;, only the second display is taking place a
-minute later. Note the BMI values. When I stood on the scale and took the measurement, the BMI is
-reported as 24.9. &lt;img src="../../../assets/images/rounding-0ea5c86e.png" title="Rounding" alt="rounding.png" width="1520" height="1344" /&gt;&lt;/p&gt;
-
-&lt;p&gt;However, a minute later, the measurement is 25.0.&lt;/p&gt;
-
-&lt;p&gt;This is especially annoying because 24.9 is in the &amp;quot;normal&amp;quot; range, while 25.0 is in the &amp;quot;overweight&amp;quot;
-range. So I notice that. I&amp;#39;ve been trying to lose weight recently, and this discrepenacy drives me
-pretty crazy. Which is it, Qardio? Get your story straight!&lt;/p&gt;
-
-&lt;p&gt;Thus, I have noticed that the BMI calculation will sometimes change within a few minutes of the
-original measurement. The discrepancy can be triggered by completely shutting down the app and
-restarting it -- and then looking at your last measurement from the History rather than the live
-view. This is a chronic issue. I just saw a fluctuation again this morning.&lt;/p&gt;
-
-&lt;p&gt;I first reported this issue to Qardio on September 20, 2020. On Oct. 13 I was told: &amp;quot;Our engineering
-team has not closed this issue and is still investigating into what may be causing this issue.&amp;quot;
-That&amp;#39;s cool. Anyway, it was never fixed. I reported it again on Nov. 20, 2020. I reported it again
-on Dec. 5, 2020. I reported it again on April 2, 2021. Every time they suggest updating the app --
-which I do. But I think it&amp;#39;s still broken; we&amp;#39;ll see how the latest upgrade goes.&lt;/p&gt;
-
-&lt;p&gt;So this is actually a really terrible bug. Here&amp;#39;s why: &lt;em&gt;You can&amp;#39;t depend on the display of the
-value&lt;/em&gt;. Sometimes it changes. This erodes one&amp;#39;s faith in the idea that the device is making an
-accurate measurement. It&amp;#39;s an especially bad bug because, really, &lt;em&gt;that&amp;#39;s all the system is supposed
-to do&lt;/em&gt;!: Measure a value and report it. It would seem, though, that: (1) Qardio is not able to
-recognize that this is a serious bug that undermines one&amp;#39;s faith in their system; and/or (2) they
-can&amp;#39;t fix it.&lt;/p&gt;
-
-&lt;p&gt;Why?&lt;/p&gt;
-
-&lt;p&gt;Smells like a rounding error to me, and maybe they don&amp;#39;t have control over part of their ecosystem.&lt;/p&gt;
-
-&lt;p&gt;Here&amp;#39;s my theory. Let&amp;#39;s say that the original measurement is . . . &lt;code&gt;24.9499&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;When it&amp;#39;s displayed, it is rounded to a precision of 1 digit. So &lt;code&gt;24.9499&lt;/code&gt; rounded to the nearest
-fractional digit is &lt;code&gt;24.9&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;I think, then, that Qardio saves that reading, &lt;code&gt;24.9499&lt;/code&gt;. But when they save it, they save it
-rounded to two digits. This rounding might happen locally on the phone, or on their server or in
-Apple Health. Anyway, rounded to two fractional digits, it&amp;#39;s &lt;code&gt;24.95&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Now the next time the value is displayed, they look up the saved value (&lt;code&gt;24.95&lt;/code&gt;). They then display
-the saved value rounded to one fractional digit. And what is &lt;code&gt;24.95&lt;/code&gt; rounded to one fractional
-digit? It&amp;#39;s &lt;code&gt;25.0&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Oops.&lt;/p&gt;
-
-&lt;p&gt;Before I close, I suppose I should belabor what &amp;quot;rounding&amp;quot; a number can mean. The Ruby documentation
-says that a number rounded to &lt;code&gt;ndigits&lt;/code&gt; means &amp;quot;Returns float rounded to the nearest value with a
-precision of ndigits decimal digits.&amp;quot; Here&amp;#39;s how one implementation of Ruby does it (I&amp;#39;m looking at
-the code from Rubinus
-&lt;a href="https://github.com/rubinius/rubinius/blob/master/core/float.rb#L90-L91"&gt;here&lt;/a&gt; and
-&lt;a href="https://github.com/rubinius/rubinius/blob/master/machine/class/float.cpp#L373-L385"&gt;here&lt;/a&gt;, which is
-easy to read):&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Multiply the given value &lt;code&gt;a&lt;/code&gt; by &lt;code&gt;10**n&lt;/code&gt;, giving &lt;code&gt;a1&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Get rid of the fractional digits in &lt;code&gt;a1&lt;/code&gt;, giving &lt;code&gt;a2&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;If &lt;code&gt;a1&lt;/code&gt; minus &lt;code&gt;a2&lt;/code&gt; &amp;gt;= &lt;code&gt;0.5&lt;/code&gt;, set &lt;code&gt;a2&lt;/code&gt; to &lt;code&gt;a2&lt;/code&gt; + &lt;code&gt;1.0&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Return &lt;code&gt;a2&lt;/code&gt; / &lt;code&gt;10**n&lt;/code&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;So let&amp;#39;s try this with &lt;code&gt;a&lt;/code&gt; set to &lt;code&gt;24.9499&lt;/code&gt; and &lt;code&gt;n&lt;/code&gt; set to &lt;code&gt;1&lt;/code&gt;:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;a1&lt;/code&gt; is &lt;code&gt;249.499&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;a2&lt;/code&gt; is &lt;code&gt;249&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;(&lt;code&gt;a1&lt;/code&gt; minus &lt;code&gt;a2&lt;/code&gt; is &lt;code&gt;0.499&lt;/code&gt; which is not greater than &lt;code&gt;0.5&lt;/code&gt; so do nothing)&lt;/li&gt;
-&lt;li&gt;return &lt;code&gt;249&lt;/code&gt; / &lt;code&gt;10**1&lt;/code&gt;, or &lt;code&gt;24.9&lt;/code&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;And here&amp;#39;s the case with &lt;code&gt;a&lt;/code&gt; set to &lt;code&gt;24.9599&lt;/code&gt; and &lt;code&gt;n&lt;/code&gt; set to &lt;code&gt;1&lt;/code&gt;:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;a1&lt;/code&gt; is &lt;code&gt;249.599&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;a2&lt;/code&gt; is &lt;code&gt;249&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;(&lt;code&gt;a1&lt;/code&gt; minus &lt;code&gt;a2&lt;/code&gt; is &lt;code&gt;0.599&lt;/code&gt; which is greater than &lt;code&gt;0.5&lt;/code&gt; so set &lt;code&gt;a2&lt;/code&gt; to &lt;code&gt;a2&lt;/code&gt; + &lt;code&gt;1.0&lt;/code&gt; (&lt;code&gt;250&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;return &lt;code&gt;250&lt;/code&gt; / &lt;code&gt;10**1&lt;/code&gt;, or &lt;code&gt;25.0&lt;/code&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Maybe this will help Qardio fix their bug.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Stanford's Machine Learning Course</title>
-    <link rel="alternate" href="http://7fff.com/2020/10/stanford-s-machine-learning-course/"/>
-    <id>http://7fff.com/2020/10/stanford-s-machine-learning-course/</id>
-    <published>2020-10-27T20:15:00-04:00</published>
-    <updated>2024-10-19T10:32:17-04:00</updated>
-    <author>
-      <name>jgn</name>
-    </author>
-    <content type="html">&lt;p&gt;With the pandemic, my wife grading like crazy because of an increased load owing to academic
-calendar changes, and my daughter gone off to college, I&amp;#39;ve had a lot of time on my hands. In a
-late night moment of weakness, I not only signed up for
-&lt;a href="https://www.coursera.org/learn/machine-learning"&gt;Stanford&amp;#39;s famous Machine Learning course&lt;/a&gt; (videos
-by Andrew Ng) on Coursera, but paid for it so as to get a certificate. The next day, I regretted a
-bit the expense and time commitment, but paying for it has kept me honest and diligent. My repo
-suggests that I started it in September 19th and I finished it at the end of October, passing
-everything with 100% (which is not too difficult because you can resubmit until your work is
-correct). Now it&amp;#39;s time for a little reflection.&lt;/p&gt;
-
-&lt;p&gt;I took this course because I wanted to be familiar with the vocabulary -- and I also wanted to get a
-feel for the kinds of problems basic machine learning can address. And I&amp;#39;ve learned a lot. So with
-regard to those outcomes, the course is a good one. I&amp;#39;m pretty late to the party: based on what I&amp;#39;ve
-learned I wish I had taken this some years ago when the course was new. Andrew Ng is of course one
-of the leading lights of productionizing machine learning at scale, having founded Google Brain and
-then for awhile being the Chief Scientist at Baidu.&lt;/p&gt;
-
-&lt;p&gt;One great aspect of the course is the way Ng has designed it so that certain concepts come back
-later. For instance, linear regression and gradient descent are worked up in the first lectures, and
-then return in a discussion of content-based recommendation systems. I love that kind of
-reinforcement.&lt;/p&gt;
-
-&lt;p&gt;The course, though, is starting to show its age. It really needs a refresh. I guess Ng never went
-back to it because he now has a more holistic learning venture,
-&lt;a href="https://www.deeplearning.ai/"&gt;deeplearning.ai&lt;/a&gt; (which is still delivered through Coursera).&lt;/p&gt;
-
-&lt;p&gt;The awkward stuff: Every lecture has a number of errata
-(&lt;a href="https://www.coursera.org/learn/machine-learning/resources/UWXuL"&gt;example&lt;/a&gt;) -- part of that is
-because of the sharp eyes of the millions of students who have enrolled in the course. But the thing
-that really gives one pause is the inconsistency of the presentation. In early weeks the slides are
-punctuated with &amp;quot;Readings&amp;quot; that summarize the lecture material in a condensed form
-(&lt;a href="https://www.coursera.org/learn/machine-learning/resources/RmTEz"&gt;example&lt;/a&gt;), which is great for
-review. Later weeks don&amp;#39;t have that. At some point a graduate student contributed some fantastic
-lecture notes, but they seem a little uneven. There are some really useful things here: For
-instance, each programming assignment has a tutorial to coach students over some of the bumps --
-and, most critically, there is test data for each part of the assignment. I wrote tests in code to
-verify against the test data that my actual code produces the expected results: This is essentially
-what the automatic grader does, but the grader is a black box. The reason the test data is so great
-is because sometimes your assignment solution misses some cases that the automatic grader checks:
-But the test data has good coverage, so by verifying your code against the test data, you can have
-more confidence that your code will pass the grader. And it&amp;#39;s faster: The test data is really pared
-down. Anyway, the upshot of this is that to get a full understanding, sometimes impacting the way
-you would do the coding assignments, you have to scramble over the assignment&amp;#39;s PDF, the web page
-regarding programming the assignment, errata, tutorials, and test cases. At one point in a &lt;a href="https://www.coursera.org/learn/machine-learning/resources/Uuxg6"&gt;tutorial
-for Programming Exercise 4&lt;/a&gt;, the
-author says: &amp;quot;This tutorial outlines the process of accomplishing the goals for Programming Exercise
-4. The purpose is to create a collection of all the useful yet scattered and obscure knowledge that
-otherwise would require hours of frustrating searches.This tutorial is targeted solely at vectorized
-implementations.&amp;quot; It just isn&amp;#39;t as unified as it might be. Another thing that is kind of weird is
-that it&amp;#39;s entirely clear from the lectures that students should strive for vectorized implementations,
-but the tutorials and assignments suggest that some students write loops and don&amp;#39;t get to take
-advantage of the speed of Octave&amp;#39;s libraries. It&amp;#39;s kind of incredible to me that looping solutions
-are even permitted.&lt;/p&gt;
-
-&lt;p&gt;Ng&amp;#39;s style is very soft-spoken if not modest. At the end of the earlier lectures on linear and
-logistic regression, he notes to the audience that at this point one probably knows more about
-machine learning than a lot of people doing it in Silicon Valley, which is pretty funny and kind of
-nice take-down of the Valley. He has some tics, for instance, he likes to say &amp;quot;concretely&amp;quot; which I
-guess is math talk for &amp;quot;now I&amp;#39;m going to get down to a case.&amp;quot; Another moment is when Ng will say
-that he&amp;#39;s not going to prove something or derive something: This is almost always followed by an
-appeal to intuition where he says &amp;quot;you know&amp;quot; how something is -- and I would say he&amp;#39;s compelling in
-explaining without a lot of math. There are some interesting pedagogical tricks. For instance, about
-2/3 of the way through a given video lecture, there will be a pause for a quick single-question
-quiz. These quizzes frequently check for knowledge that is conveyed immediately after. In other
-words, you have to draw out the implications of what Ng has just taught. Some of these are hard. But
-the experience of failing a quiz or guessing for a correct answer, then to see Ng&amp;#39;s walkthrough,
-produces a solid learning memory.&lt;/p&gt;
-
-&lt;p&gt;The graded assignments come in two forms: First, a 5-question quiz. In my experience, these can be
-quite hard. Frequently they turn on drawing something out from the lecture. One extremely painful
-aspect of the 5-question quizzes is that there may be a question where the rubric is to &amp;quot;pick all
-answers that are correct.&amp;quot; So with five possible answers, you may have to do some hard thinking
-because one of the answers may be a bit non-obvious. In Coursera, you can re-do quizzes. A couple of
-times I found I had to write down the questions and then go back to the lectures to see what I had
-missed. On occasion the lecture provided the underpinning for an answer, but you had to figure out
-the implication yourself.&lt;/p&gt;
-
-&lt;p&gt;The programming assignments are top-notch. An early assignment is about recognizing hand-written
-digits, and you feel this definite jaw-drop / &amp;quot;oh my god&amp;quot; when it turns out to work. I know that
-this work was done years and years ago, but it is still really cool. Another example is about spam
-classification. I think after going through the assignments, almost anyone will have thoughts about
-problems in his or her own domain. Generally you fill in code for a missing function and then a test
-harness runs the data. When you submit, your results are validated by a server at Coursera. About my
-only gripe here is that there&amp;#39;s a bit of a &amp;quot;so what&amp;quot; at the end of an assignment because it doesn&amp;#39;t
-really sum up what you would do with the technique when presented with a fresh problem, starting
-from nothing. These programming assignments are also a treasure-trove of supporting code -- for
-instance, nice plots of contours that would be useful in your own work to provide a view into your
-data.&lt;/p&gt;
-
-&lt;p&gt;The programming assignments use Matlab or Octave (open source Matlab) and solutions using
-vectorization are preferred (rather than writing your own for-loops to find solutions by iteration).
-I found it pretty easy to find vectorized solutions but I imagine that trips up others who have been
-programming for a long time.&lt;/p&gt;
-
-&lt;p&gt;The last thing I want to say is that there is a high cognitive bar in this course because you really
-have to learn the material in three ways: First there are the equations: It&amp;#39;s not hard but of course
-it&amp;#39;s its own language (Ng doesn&amp;#39;t turn the crank very much on the calculus and partial derivitives
-that make a lot of it work). Then there is the linear algebra. (So, for example, there may be
-something that is expressed as multiplication in the equation but you have to pick up the fact that
-it is a dot product or an element-wise multiplication, based on context.) And, finally, there is the
-expression of the algorithms in code (in Octave). So you are translating between three different
-languages. I found this to be very difficult, and not, I think, because the last time I did linear
-algebra in earnest was 40 years ago. There are some moments when you are translating between the
-linear algebra and the code in Octave, and you find that you have to transpose a matrix or vector to
-get it to work. I found this pretty frustrating: It didn&amp;#39;t seem to have much rhyme or reason why,
-when going through a solution, you would find something in the form of a row vector rather than a
-column vector, or vice versa. The TAs know this, and advise students to display the dimensions of
-the variables in Octave to help with debugging, but it seems like there&amp;#39;s an impedance mismatch
-between the different languages.&lt;/p&gt;
-
-&lt;p&gt;I was impressed with Octave. It makes it very easy to manipulate and run operations on matrices.
-There are some missing data structures, though: It would be helpful to have a proper hash or
-dictionary: You can do dictionary operations with an associative array, but the syntax is obtuse.
-Still, the pleasure of having matrix operations embedded in syntax is nice. No need to create
-objects and run methods to do basic matrix arithmetic.&lt;/p&gt;
-
-&lt;p&gt;In sum: Great course but it&amp;#39;s showing its age. I think the next course for me might be the one
-on beginning TensorFlow (too bad the assignments aren&amp;#39;t in Ruby!).&lt;/p&gt;
-
-&lt;p&gt;Having completed the course, I do have some advice for learning the material and getting the
-assignments finished:&lt;/p&gt;
-
-&lt;h4&gt;Learning&lt;/h4&gt;
-
-&lt;ol&gt;
-&lt;li&gt; Professor Ng&amp;#39;s walkthroughs of how to understand your data via visualizations is incredibly
-helpful and a useful way to understand fundamental concepts like bias and variance (and how to
-correct for high bias or high variance).)&lt;/li&gt;
-&lt;li&gt; Any time Professor Ng discusses tradeoffs between algorithms: pay attention -- for example,
-why principal component analysis (PCA) is not linear regression.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4&gt;Assignments&lt;/h4&gt;
-
-&lt;ol&gt;
-&lt;li&gt; The highest quality information comes from the videos, but pay chose attention to the errata
-(&lt;a href="https://www.coursera.org/learn/machine-learning/resources/UWXuL"&gt;example&lt;/a&gt;).&lt;/li&gt;
-&lt;li&gt; Try to solve the programming based just on the assignment PDF. But if you get stuck, consult the
-tutorials. There seem to be two types of tutorials. First there are the ones that in the
-Resources section, labeled, for example,
-&lt;a href="https://www.coursera.org/learn/machine-learning/resources/O756o"&gt;Progrmaming Ex. 1&lt;/a&gt;. Then
-there&amp;#39;s a second page of tutorials
-&lt;a href="https://www.coursera.org/learn/machine-learning/discussions/all/threads/m0ZdvjSrEeWddiIAC9pDDA"&gt;here&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt; If you want a simplified data set, check out the
-&lt;a href="https://www.coursera.org/learn/machine-learning/discussions/all/threads/0SxufTSrEeWPACIACw4G5w"&gt;test cases&lt;/a&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Does the Apple Watch 6 oximeter matter?</title>
-    <link rel="alternate" href="http://7fff.com/2020/09/does-the-apple-watch-6-oximeter-matter/"/>
-    <id>http://7fff.com/2020/09/does-the-apple-watch-6-oximeter-matter/</id>
-    <published>2020-09-21T07:46:00-04:00</published>
-    <updated>2024-10-19T10:32:17-04:00</updated>
-    <author>
-      <name>jgn</name>
-    </author>
-    <content type="html">&lt;p&gt;I&amp;#39;m not sure people realize what a boon the Apple Watch&amp;#39;s oximeter (blood oxygen app) may be to
-one&amp;#39;s tracking of personal health, so I thought I&amp;#39;d provide some example data to provide a feel for
-what you&amp;#39;ll be able to monitor. Of course, a lot will depend on what people discover about the
-watch&amp;#39;s oxygen monitoring: Accuracy, the granularity of data, etc. But I think it&amp;#39;s going to be a
-great help for people who want to understand better the relationship between blood oxygen levels and
-heart health. Additionally, some people use oximeters to measure their oxygen out of concern for
-hypoxia that is induced by the novel coronavirus.&lt;/p&gt;
-
-&lt;p&gt;The TL;DR on this is that with oximeter readings and metrics for heart rate variability, you can
-get some insights into possible sleep apnea that can increase heart rate variability and potentially
-cause atrial fibrillation (which can in turn provoke stroke or heart failure).&lt;/p&gt;
-
-&lt;p&gt;All graphs and charts are shared with the permission of the person who originated the data.&lt;/p&gt;
-
-&lt;p&gt;So the first image shows the overnight blood oxygen this person has on a typical night using a CPAP
-machine. This looks good. All SpO2 (peripheral oxygen saturation) values are above 90%. The person&amp;#39;s
-pulse is low. &lt;a href="(https://www.webmd.com/lung/pulse-oximetry-test)"&gt;WebMD&lt;/a&gt; says: &amp;quot;A blood oxygen level
-lower than 89% means you may not have enough oxygen in your blood to meet your body&amp;#39;s needs. This
-could be because there’s a problem with your heart or lungs.&amp;quot; These values were collected with a
-&lt;a href="https://getwellue.com/pages/o2ring-oxygen-monitor"&gt;Wellue O2Ring&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="../../../assets/images/pulseox1-6d1be445.jpg" title="Normal pulse ox readings" alt="pulseox1" width="750" height="1334" /&gt;&lt;/p&gt;
-
-&lt;p&gt;Now, one way you might be starving your brain and body for oxygen is if you have sleep apnea.
-This person uses a CPAP device every night, but recently when traveling did not have the CPAP.
-Here&amp;#39;s what can go wrong.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="../../../assets/images/pulseox2-d625e53c.jpg" title="pulse ox readings slowing sleep apnea" alt="pulseox2" width="750" height="1334" /&gt;&lt;/p&gt;
-
-&lt;p&gt;As you can see in the second image, during sleep apnea, one&amp;#39;s blood oxygen level can spike way down.&lt;/p&gt;
-
-&lt;p&gt;Prolonged episodes of sleep apnea can cause a lot of problems. The
-&lt;a href="https://www.mayoclinic.org/diseases-conditions/sleep-apnea/symptoms-causes/syc-20377631"&gt;Mayo Clinic&lt;/a&gt;
-says: &amp;quot;Sudden drops in blood oxygen levels that occur during sleep apnea increase blood pressure and
-strain the cardiovascular system. Having obstructive sleep apnea increases your risk of high blood
-pressure (hypertension). Obstructive sleep apnea might also increase your risk of recurrent heart
-attack, stroke and abnormal heartbeats, such as atrial fibrillation. If you have heart disease,
-multiple episodes of low blood oxygen (hypoxia or hypoxemia) can lead to sudden death from an
-irregular heartbeat.&amp;quot;&lt;/p&gt;
-
-&lt;p&gt;I&amp;#39;m not a doctor, but there are articles
-(&lt;a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3306298/"&gt;example&lt;/a&gt;) suggesting that prolonged sleep
-apnea with its impact on blood oxygen can affect heart rate variability (HRV), which would seem to
-be a leading indicator for issues such as atrial fibrillation (afib) which is a form of cardiac
-arrhythmia that can lead to a stroke or heart failure. The Apple Watch can track this. Here are
-three examples of HRV readings from the Apple Health app. The first one shows relatively normal HRV
-for this person; the second shows elevate readings; and then the third image shows HRV leading up to
-the onset of afib.&lt;/p&gt;
-
-&lt;p&gt;Once this person started using a CPAP, the HRV settled down, and the heart reverted from afib to
-normal &amp;quot;sinus&amp;quot; rhythm.&lt;/p&gt;
-
-&lt;p&gt;In short, had this person known his or her oxygen levels, there might have been an earlier
-conversation with a physician leading to some controls (such as better diet, reduced caffiene and
-alcohol consumption, more exercise, the use of a CPAP machine . . .) that might have reduced the
-likelihood of afib occurring.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="../../../assets/images/hrv1-916829e7.png" title="normal heart rate variability for this person" alt="hrv1" width="742" height="830" /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="../../../assets/images/hrv2-017b02c9.png" title="increased heart rate variability for this person" alt="hrv2" width="742" height="833" /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="../../../assets/images/hrv3-eaa53feb.png" title="heart rate variability leading up to afib" alt="hrv3" width="745" height="832" /&gt;&lt;/p&gt;
 </content>
   </entry>
 </feed>

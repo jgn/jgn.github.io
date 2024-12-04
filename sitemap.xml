@@ -298,6 +298,9 @@
     <loc>https://7fff.com/2007/11/facebook-beacon-as-a-reminder-of-what-you-ve-already-given-up</loc>
   </url>
   <url>
+    <loc>https://7fff.com/2024/09/using-google-apps-script-to-convert-a-word-document-to-google-docs</loc>
+  </url>
+  <url>
     <loc>https://7fff.com/2019/09/nudge-your-staff-to-get-tsa-pre</loc>
   </url>
   <url>
@@ -311,6 +314,9 @@
   </url>
   <url>
     <loc>https://7fff.com/2007/08/sorting-google-search-results-by-date</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2024/12/arrays-are-rarely-the-natural-choice-in-bash-use-files</loc>
   </url>
   <url>
     <loc>https://7fff.com/2011/12/technology-resolutions-for-the-new-year</loc>
@@ -482,6 +488,9 @@
   </url>
   <url>
     <loc>https://7fff.com/2010/03/goodbye-alex-chilton-1950-2010</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2024/12/how-to-reverse-revert-some-thor-actions</loc>
   </url>
   <url>
     <loc>https://7fff.com/2011/09/comcast-drives-me-nuts</loc>
@@ -685,6 +694,12 @@
     <loc>https://7fff.com/category/getting-rid-of-old-drafts-series</loc>
   </url>
   <url>
+    <loc>https://7fff.com/category/google-apps</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/category/google-apps-script</loc>
+  </url>
+  <url>
     <loc>https://7fff.com/category/health</loc>
   </url>
   <url>
@@ -754,10 +769,49 @@
     <loc>https://7fff.com/category/wasting-time</loc>
   </url>
   <url>
+    <loc>https://7fff.com/category/bash</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/category/hacks</loc>
+  </url>
+  <url>
     <loc>https://7fff.com/category/management</loc>
   </url>
   <url>
+    <loc>https://7fff.com/category/programming</loc>
+  </url>
+  <url>
     <loc>https://7fff.com/category/reading</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/category/ruby</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/tag/thor</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/tag/bash</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/tag/arrays</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/tag/files</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/tag/strategies</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/tag/google-apps</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/tag/microsoft-word</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/tag/google-docs</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/tag/javascript</loc>
   </url>
   <url>
     <loc>https://7fff.com/tag/ny-times</loc>
@@ -854,6 +908,12 @@
   </url>
   <url>
     <loc>https://7fff.com/2024</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2024/12</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2024/09</loc>
   </url>
   <url>
     <loc>https://7fff.com/2024/03</loc>
