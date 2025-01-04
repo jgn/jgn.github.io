@@ -4,16 +4,260 @@
   <id>http://7fff.com/</id>
   <link href="http://7fff.com/"/>
   <link href="http://7fff.com/feed" rel="self"/>
-  <updated>2024-12-02T09:28:00-06:00</updated>
+  <updated>2025-01-03T16:53:00-06:00</updated>
   <author>
     <name>jgn</name>
   </author>
+  <entry>
+    <title>Radio buttons, checkboxes, affirmative choices, and consents</title>
+    <link rel="alternate" href="http://7fff.com/2025/01/radio-buttons-checkboxes-affirmative-choices-and-consents/"/>
+    <id>http://7fff.com/2025/01/radio-buttons-checkboxes-affirmative-choices-and-consents/</id>
+    <published>2025-01-03T16:53:00-06:00</published>
+    <updated>2025-01-04T16:35:54-06:00</updated>
+    <author>
+      <name>jgn</name>
+    </author>
+    <content type="html">&lt;p&gt;Here are some notes about radio button and checkbox defaults for times when you need an affirmative
+answer.&lt;/p&gt;
+
+&lt;h3&gt;Affirmative choices&lt;/h3&gt;
+
+&lt;p&gt;The Nielsen/Norman Group (no relation) has
+&lt;a href="https://www.nngroup.com/articles/radio-buttons-default-selection/"&gt;an interesting article on radio buttons by Kara Pernice&lt;/a&gt;.
+Its advice is sound, but I want to note a case where there could perhaps be even more obviousness.&lt;/p&gt;
+
+&lt;p&gt;The next time you design a radio button interface, I&amp;#39;d like to advise you to think about an
+additional choice, which is essentially a default choice representing that a choice is not made.&lt;/p&gt;
+
+&lt;p&gt;Radio buttons provide for a mutually-exclusive choice. For instance, an airline serves two meals to
+first-class customers, one with pasta, one with rice. You can only pick one.&lt;/p&gt;
+
+&lt;div class="quote-rendering"&gt;
+&lt;input type="radio" name="pasta_or_rice" checked&gt; pasta &lt;br/&gt;
+&lt;input type="radio" name="pasta_or_rice"&gt; rice
+&lt;/div&gt;
+
+&lt;p&gt;But this hides the implied third choice, which is not to have any meal. Better:&lt;/p&gt;
+
+&lt;div class="quote-rendering"&gt;
+&lt;input type="radio" name="pasta_or_rice_2" checked&gt; pasta &lt;br/&gt;
+&lt;input type="radio" name="pasta_or_rice_2"&gt; rice &lt;br/&gt;
+&lt;input type="radio" name="pasta_or_rice_2"&gt; neither
+&lt;/div&gt;
+
+&lt;p&gt;This may become important for legal requests for a formal, affirmative choice. For example, a health
+survey might ask:&lt;/p&gt;
+
+&lt;div class="quote-rendering"&gt;
+Are you pregnant? &lt;p/&gt;
+
+&lt;input type="radio" name="no_yes" checked&gt; No &lt;br/&gt;
+&lt;input type="radio" name="no_yes"&gt; Yes
+&lt;/div&gt;
+
+&lt;p&gt;But this doesn&amp;#39;t allow the choice to say neither No nor Yes. Also, suppose you are a healthcare
+company that asks this question, and you don&amp;#39;t want to be blamed if the user gets the wrong
+treatment according to this answer. The user might say: I was in a rush and took all of the default
+answers; the form reported this answer as &amp;quot;No,&amp;quot; but it was actually &amp;quot;Yes.&amp;quot;&lt;/p&gt;
+
+&lt;p&gt;Some people try to solve this with a form where neither choice is indicated by default, and the user
+is forced to choose one or the other:&lt;/p&gt;
+
+&lt;div class="quote-rendering"&gt;
+&lt;input type="radio" name="no_yes_2"&gt; No &lt;br/&gt;
+&lt;input type="radio" name="no_yes_2"&gt; Yes
+&lt;/div&gt;
+
+&lt;p&gt;I don&amp;#39;t like this one, because the form typically can&amp;#39;t be submitted with no choice, or there is no
+way undo choosing one of the options (there&amp;#39;s no way to go back to the &amp;quot;neither is picked&amp;quot;
+scenario).&lt;/p&gt;
+
+&lt;p&gt;So this is missing the third option, which in some forms is &amp;quot;prefer not to say,&amp;quot; or &amp;quot;not reported.&amp;quot;
+Those two phrasings of the answer are in fact a little pushy. Does the user actually &lt;em&gt;prefer&lt;/em&gt; not to
+say, or are they compelled not to say? Additionally, &amp;quot;not reported&amp;quot; is not quite right, because the
+user is reporting something: The user is reporting neither No or Yes. And this third option should
+be the default:&lt;/p&gt;
+
+&lt;div class="quote-rendering"&gt;
+&lt;input type="radio" name="no_yes_3"&gt; No &lt;br/&gt;
+&lt;input type="radio" name="no_yes_3"&gt; Yes &lt;br/&gt;
+&lt;input type="radio" name="no_yes_3" checked&gt; No choice made &lt;br/&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Now if a user accidentally takes the default answer, the healthcare company is protected because
+they can show that no choice was made. If a procedure must be conducted that depends on
+pregnancy status, they can ask again in a different setting. Additionally, the confidence in the No
+or Yes answer is enhanced, because the user has to make an affirmative decision to choose something
+other than &amp;quot;No choice made.&amp;quot;&lt;/p&gt;
+
+&lt;p&gt;One last thing: If you implement this, make sure that the date/time of the choice is captured in the
+database. (It can also help to put the statement itself into the database.) People go in and out of
+the state of pregnancy, and you should capture that so that it&amp;#39;s clear that the answer wasn&amp;#39;t
+provided for all time. Indeed, with this in mind, the question &amp;quot;are you pregnant?&amp;quot; might be changed
+to:&lt;/p&gt;
+
+&lt;div class="quote-rendering"&gt;
+On this date, 3-Jan-2025, are you pregnant?
+&lt;/div&gt;
+
+&lt;p&gt;By this means the wording for the user and the data captured on the back-end is aligned.&lt;/p&gt;
+
+&lt;h3&gt;Consents&lt;/h3&gt;
+
+&lt;p&gt;There&amp;#39;s a similar problem with consents.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#39;s say that you&amp;#39;re a healthcare company and want to satisfy HIPAA requirements and encrypt
+personal data when in transit. In most cases, email is encrypted end-to-end with TLS, but you know
+of cases where this is not feasible (because the patient&amp;#39;s email server can&amp;#39;t handle it). Therefore,
+you want to ask the user for consent to send unencrypted email. With this consent, you may go ahead
+and send unencrypted email. Without this consent, you continue not sending such email. Thus, not
+sending the email is the default, whether or not you capture a consent decision. No one says &amp;quot;please
+do not send me unencrypted email&amp;quot; up front.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;#39;s another example: The request to consent to treatment. Without such consent, you won&amp;#39;t be
+treated.&lt;/p&gt;
+
+&lt;p&gt;What this means is that it is not appropriate to use radio buttons to collect a Yes or No answer.
+This is wrong:&lt;/p&gt;
+
+&lt;div class="quote-rendering"&gt;
+&lt;input type="radio" name="no_yes_4" checked&gt; No &lt;br/&gt;
+&lt;input type="radio" name="no_yes_4"&gt; Yes
+&lt;/div&gt;
+
+&lt;p&gt;Don&amp;#39;t do this. The &amp;quot;No&amp;quot; answer is meaningless, because without consent, the email will already not
+be sent. Essentially, the user is being asked to consent -- or do nothing. The best interface is a
+checkbox or possibly a button:&lt;/p&gt;
+
+&lt;div class="quote-rendering"&gt;
+In most cases, BigHealth will send email that is encrypted end-to-end, but in some cases, this is
+not feasible for technical reasons. Do you consent to email being sent unencrypted if the encryption
+can't be accomplished? &lt;p/&gt;
+
+&lt;input type="checkbox" name="consent-1"&gt; I consent to allowing unencrypted email
+&lt;/div&gt;
+
+&lt;p&gt;Note as well that this form should only be presented when the user has not given consent. (If the
+user has given consent, then you should show a form providing for the withdrawal of consent: See
+below.) As for the affirmative radio button answers, the date/time should be collected on the back
+end. Additionally, the table should not have a column for Yes/No values. It should be a table called
+&amp;quot;consents&amp;quot; where each row is just is the date/time. The appearance of such a row means that on that
+date/time, the user consented. But this is probably not quite enough.&lt;/p&gt;
+
+&lt;p&gt;You also want to allow for the withdrawal of consent. In this case the language would be something like this:&lt;/p&gt;
+
+&lt;div class="quote-rendering"&gt;
+
+In most cases, BigHealth will send email that is encrypted end-to-end, but in some cases, this is
+not feasible for technical reasons. On 3-Jan-2025, you consented to this activity.
+&lt;p/&gt;
+Do you withdraw your consent to email being sent unencrypted if the encryption can't be accomplished?
+&lt;p/&gt;
+&lt;input type="checkbox" name="consent-withdrawal-1"&gt; I withdraw my consent to allowing unencrypted email
+&lt;/div&gt;
+
+&lt;p&gt;Now, on the back-end, you probably want a table called &amp;quot;consent decisions.&amp;quot; There is a row with
+columns defining who consented, what the consent statement was about, a &amp;quot;decision,&amp;quot; with values
+&amp;quot;consented&amp;quot; or &amp;quot;withdrawn,&amp;quot; and a column for the date/time of the decision. It can help to have a
+separate table of consent statements, and rather than showing the literal language on the front-end,
+use the language from the table so that everything ties up properly. I have seen companies
+accidentally introduce drift into this process where the consent statement in the database does not
+match up with the language presented to the user (and sometimes, this language will mismatch paper
+versions of the consent form.)&lt;/p&gt;
+
+&lt;p&gt;By these means, you capture affirmative answers to decisions and consent decisions without confusing
+the user and you represent them in the database in such a way that there is clarity about the time
+relations to the decisions and/or consents.&lt;/p&gt;
+
+&lt;p&gt;Last thing: The UK has a
+&lt;a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/consent/what-is-valid-consent/#what4"&gt;great document&lt;/a&gt;
+(citing relevant portions of the GDPR) that outlines how consents should work. Consent must be&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;freely given&lt;/li&gt;
+&lt;li&gt;specific and informed&lt;/li&gt;
+&lt;li&gt;unambiguous&lt;/li&gt;
+&lt;li&gt;explicit&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;On &lt;a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/consent/how-should-we-obtain-record-and-manage-consent/#how4"&gt;another page&lt;/a&gt;,
+they note that you should consider refreshes of consent:&lt;/p&gt;
+&lt;blockquote class="blockquote"&gt;&lt;p&gt;You should also consider whether to automatically refresh consent at appropriate intervals. How
+often it’s appropriate to do so will depend on the particular context, including people’s
+expectations, whether you are in regular contact, and how disruptive repeated consent requests
+would be to the individual. If in doubt, we recommend you consider refreshing consent every two
+years – but you may be able to justify a longer period, or need to refresh more regularly to
+ensure good levels of trust and engagement.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If/when you change the consent statement, you will need to re-solicit consent again for the revised
+language. You will need to ensure that your back-end can support the semantics of the older consents
+if the user has not had an opportunity to re-consent.&lt;/p&gt;
+
+&lt;p&gt;Enjoy.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>How to reverse (revert) some Thor actions</title>
+    <link rel="alternate" href="http://7fff.com/2024/12/how-to-reverse-revert-some-thor-actions/"/>
+    <id>http://7fff.com/2024/12/how-to-reverse-revert-some-thor-actions/</id>
+    <published>2024-12-04T08:26:00-06:00</published>
+    <updated>2025-01-03T16:52:08-06:00</updated>
+    <author>
+      <name>jgn</name>
+    </author>
+    <content type="html">&lt;p&gt;It&amp;#39;s pretty cool that in many cases Rails migrations can reverse their action when you use
+the &lt;code&gt;destroy&lt;/code&gt; command. For example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;% rails generate model user name:string
+      invoke  active_record
+      create    db/migrate/20241204143118_create_users.rb
+      create    app/models/user.rb
+      invoke    test_unit
+      create      test/models/user_test.rb
+      create      test/fixtures/users.yml
+% rails destroy model user
+      invoke  active_record
+      remove    db/migrate/20241204143118_create_users.rb
+      remove    app/models/user.rb
+      invoke    test_unit
+      remove      test/models/user_test.rb
+      remove      test/fixtures/users.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So that&amp;#39;s pretty fun. Rails migrations are built on Thor, but there&amp;#39;s not a lot of
+documentation on how to reverse a Thor action.&lt;/p&gt;
+
+&lt;p&gt;I had to study the code and its specs to figure this out, and even then it took some
+noodling around.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;#39;s how to do it. In your Thor file, you create actions like so. Note the setting
+of &lt;code&gt;self.behavior&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;  desc "prepend-before", "prepend to a file before a match"
+  def prepend_before
+    # behavior: Does not inject if the content exists *anywhere* in the file
+    inject_into_file "doc/README", "more content\n", before: "__end__"
+  end
+
+  desc "revoke-prepend", "revoke prepend"
+  def revoke_prepend
+    self.behavior = :revoke
+    inject_into_file "doc/README", "more content\n", :before =&amp;gt; "__end__"
+  end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here&amp;#39;s what run the looks like.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;% thor ex:prepend-before
+      insert  doc/README
+% thor ex:revoke-prepend
+    subtract  doc/README
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You&amp;#39;re welcome. Note that not all Thor actions allow for revocation: At some point
+I&amp;#39;ll add a list of such actions here.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Arrays are rarely the natural choice in bash; use files</title>
     <link rel="alternate" href="http://7fff.com/2024/12/arrays-are-rarely-the-natural-choice-in-bash-use-files/"/>
     <id>http://7fff.com/2024/12/arrays-are-rarely-the-natural-choice-in-bash-use-files/</id>
     <published>2024-12-02T09:28:00-06:00</published>
-    <updated>2024-12-02T09:57:07-06:00</updated>
+    <updated>2025-01-03T16:52:08-06:00</updated>
     <author>
       <name>jgn</name>
     </author>
@@ -438,249 +682,6 @@ people, they don&amp;#39;t know what I&amp;#39;m talking about, and I should be 
 &lt;td style="text-align: center"&gt;4.1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;&lt;/table&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Books I read in 2021</title>
-    <link rel="alternate" href="http://7fff.com/2021/12/books-i-read-in-2021/"/>
-    <id>http://7fff.com/2021/12/books-i-read-in-2021/</id>
-    <published>2021-12-31T12:46:00-06:00</published>
-    <updated>2021-12-31T15:19:50-06:00</updated>
-    <author>
-      <name>jgn</name>
-    </author>
-    <content type="html">&lt;p&gt;Thanks to Goodreads, I know what books I completed in the past year. I also participated in the
-Goodreads &amp;quot;reading challenge&amp;quot; where you promise to read some number of books. I promised 53, and
-managed to complete 53. This is more than I typically finish: I think the pandemic had something
-to do with it. Also, strangely, I had to fly quite a lot this year, despite the pandemic, and that
-provided a lot of time for getting to the final pages.&lt;/p&gt;
-
-&lt;p&gt;Looking over the year, among the fiction
-I most enjoyed and would recommend are: &lt;img src="../../../assets/images/2021-books-read-2bacd531.png" title="2021 Books Read" alt="2021-books-read.png" width="512" height="1582" /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://www.nytimes.com/2021/11/09/books/review/the-sentence-louise-erdrich.html"&gt;Louise Erdrich, The Sentence&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.newyorker.com/culture/cultural-comment/rereading-paula-foxs-desperate-characters"&gt;Paula Fox, Desparate Characters&lt;/a&gt; (from 1970; depressing but amazing: I am going to have to read
-everything else she wrote)&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.theguardian.com/books/2019/may/21/best-recent-thrillers-review-roundup-peter-heller-denise-mina"&gt;Peter Heller, The River&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I also see some highly-rated (by me) novels that I cannot really recommend;
-while they hit the mark for me, I don&amp;#39;t think others would really dig &amp;#39;em. Also, I see where my ratings were a bit off. For instance, I see I gave Amor Towles&amp;#39;s Rules
-of Civility 5 stars but gave his A Gentleman in Moscow only 4. I read Gentleman first and thought
-its structure was a little haphazard, which is why I downgraded it. But in reflection, I think
-it was the better novel, so I&amp;#39;m going to have to subtract a star from Rules.&lt;/p&gt;
-
-&lt;p&gt;In non-fiction, my highest rated are&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://www.theguardian.com/us-news/2021/jan/30/kill-switch-review-senate-filibuster-republicans-mcconnell-trump"&gt;Adam Jentleson, Kill Switch&lt;/a&gt; (about the United States Senate)&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.washingtonpost.com/entertainment/books/wework-adam-neumann-cult-of-we-review/2021/07/22/769ea784-eaf5-11eb-8950-d73b3e93ff7f_story.html"&gt;Eliot Brown, The Cult of We&lt;/a&gt; (about WeWork; better than the similar Billio Dollar Loser)&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.lareviewofbooks.org/article/the-lawlessness-of-medicine/"&gt;Siddhartha Mukherjee, The Laws of Medicine&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.nytimes.com/2018/12/12/books/review-curse-of-bigness-antitrust-law-tim-wu.html"&gt;Tim Wu, The Curse of Bigness&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This seems to be the first time in many years when I didn&amp;#39;t have a highly-rated tech book. Another
-oddity is that I only read one rock book, &lt;a href="https://www.npr.org/2020/01/28/800071527/i-was-singing-for-my-life-amy-rigby-on-mixing-music-and-motherhood"&gt;Amy Rigby&amp;#39;s Girl to City&lt;/a&gt; (excellent). I suppose some
-people read more music books when they can&amp;#39;t see music as much (as under the pandemic) but I think
-my desire to read more rock books is piqued by the live music experience. On the
-other hand, I read 7 books I&amp;#39;d classify as memoir/autobiography; this year, they were all memoir
-(as opposed to full-on autobiography).
-I gave two of them 5 stars, both by the same author: &lt;a href="https://www.theguardian.com/books/2002/sep/01/biography.features1"&gt;Paula Fox&amp;#39;s Borrowed Finery&lt;/a&gt;, and her
-&lt;a href="https://www.kirkusreviews.com/book-reviews/paula-fox/the-coldest-winter-2/"&gt;The Coldest Winter&lt;/a&gt;. Some surprises in memoir: I gave &lt;a href="https://www.youtube.com/watch?v=PTnybQtA19U"&gt;Anna Kendrick&amp;#39;s Scrappy Little Nobody&lt;/a&gt;
-a 4 (better than I would have expected) and Elizabeth Hardwick&amp;#39;s celebrated Sleepless Nights a 3 (it was
-kind of boring and I didn&amp;#39;t see the rationiale for its artiness).&lt;/p&gt;
-
-&lt;p&gt;I&amp;#39;ve been doing the Challenge since 2016, and here&amp;#39;s how things stack up over the years:&lt;/p&gt;
-
-&lt;table&gt;&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Year&lt;/th&gt;
-&lt;th style="text-align: center"&gt;Challenge&lt;/th&gt;
-&lt;th style="text-align: center"&gt;Books Read&lt;/th&gt;
-&lt;th style="text-align: right"&gt;Pages&lt;/th&gt;
-&lt;th style="text-align: center"&gt;Length (Avg)&lt;/th&gt;
-&lt;th style="text-align: center"&gt;Rating (Avg)&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;2016&lt;/td&gt;
-&lt;td style="text-align: center"&gt;28&lt;/td&gt;
-&lt;td style="text-align: center"&gt;30&lt;/td&gt;
-&lt;td style="text-align: right"&gt;8,281&lt;/td&gt;
-&lt;td style="text-align: center"&gt;276&lt;/td&gt;
-&lt;td style="text-align: center"&gt;4.1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2017&lt;/td&gt;
-&lt;td style="text-align: center"&gt;26&lt;/td&gt;
-&lt;td style="text-align: center"&gt;34&lt;/td&gt;
-&lt;td style="text-align: right"&gt;10,166&lt;/td&gt;
-&lt;td style="text-align: center"&gt;299&lt;/td&gt;
-&lt;td style="text-align: center"&gt;3.9&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2018&lt;/td&gt;
-&lt;td style="text-align: center"&gt;31&lt;/td&gt;
-&lt;td style="text-align: center"&gt;39&lt;/td&gt;
-&lt;td style="text-align: right"&gt;13,692&lt;/td&gt;
-&lt;td style="text-align: center"&gt;351&lt;/td&gt;
-&lt;td style="text-align: center"&gt;3.9&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2019&lt;/td&gt;
-&lt;td style="text-align: center"&gt;53&lt;/td&gt;
-&lt;td style="text-align: center"&gt;47&lt;/td&gt;
-&lt;td style="text-align: right"&gt;13,798&lt;/td&gt;
-&lt;td style="text-align: center"&gt;293&lt;/td&gt;
-&lt;td style="text-align: center"&gt;4.0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2020&lt;/td&gt;
-&lt;td style="text-align: center"&gt;53&lt;/td&gt;
-&lt;td style="text-align: center"&gt;27&lt;/td&gt;
-&lt;td style="text-align: right"&gt;9,546&lt;/td&gt;
-&lt;td style="text-align: center"&gt;353&lt;/td&gt;
-&lt;td style="text-align: center"&gt;3.9&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2021&lt;/td&gt;
-&lt;td style="text-align: center"&gt;53&lt;/td&gt;
-&lt;td style="text-align: center"&gt;53&lt;/td&gt;
-&lt;td style="text-align: right"&gt;14,631&lt;/td&gt;
-&lt;td style="text-align: center"&gt;275&lt;/td&gt;
-&lt;td style="text-align: center"&gt;3.9&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
-
-&lt;p&gt;The &amp;quot;Challenge&amp;quot; column is the number I strived to read, and &amp;quot;Books&amp;quot; is the actual total. In 2019
-I started challenging myself to read 53 books/year but it was only this year that I managed
-to satify that expectation. I will admit that I read some shorter books (hence, the smallest
-average number of pages since 2016.) You might notice that dip in reading in 2020: My ability
-to focus  was disrupted by politics and the 2020 Presidential election. Besides being
-completely distracted, I was not the healthiest: I must have gained 15 pounds that I still haven&amp;#39;t
-gotten rid of. And lest I forget, I had a spell of afib in February, 2020, that lasted until June:
-That really messed up my reading time. On the other hand, while I read fewer pages in 2020, each book was
-longer. I suppose looking over this summary, my &amp;quot;natural&amp;quot; year of reading is about 40 books of
-about 325 pages each, for some 13,000 pages. As I note, I read a lot of shorter books this year
-to hit my number (53); so I think that number may be a bit inflated and I should allow myself to read longer
-works (on average). So for 2022, I think I&amp;#39;ll challenge myself to 45. I look at the reading tallies
-of some of my friends (Ellie: 62 books / 369 pp. average; Kelly: 105/337) and don&amp;#39;t know how they
-do it.&lt;/p&gt;
-
-&lt;p&gt;Some might think that my average rating of about 3.9 is
-too high; but I am pretty choosy about what I read, so I&amp;#39;ll stand by that average number. Here&amp;#39;s how I grade.
-5 is the highest and 1 is the lowest:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;A terrible book that I probably didn&amp;#39;t even finish. Poorly written and uninteresting content.&lt;/li&gt;
-&lt;li&gt;A weak book that may have some merit but is essentially forgettable.&lt;/li&gt;
-&lt;li&gt;Not bad.&lt;/li&gt;
-&lt;li&gt;A good book that I might come back to some time. Memorable. Maybe important.&lt;/li&gt;
-&lt;li&gt;Top-notch. If I had the time I&amp;#39;d re-read it.&lt;/li&gt;
-&lt;/ol&gt;
-</content>
-  </entry>
-  <entry>
-    <title>The perils of rounding; or, Careful with that Axe, Eugene</title>
-    <link rel="alternate" href="http://7fff.com/2021/04/the-perils-of-rounding-or-careful-with-that-axe-eugene/"/>
-    <id>http://7fff.com/2021/04/the-perils-of-rounding-or-careful-with-that-axe-eugene/</id>
-    <published>2021-04-09T09:01:00-05:00</published>
-    <updated>2021-04-12T08:03:55-05:00</updated>
-    <author>
-      <name>jgn</name>
-    </author>
-    <content type="html">&lt;p&gt;In the image you&amp;#39;ll see two displays for a single weight measurement I conducted recently on a
-&lt;a href="https://www.getqardio.com/qardiobase-smart-scale-iphone-android/"&gt;Qardio Base scale&lt;/a&gt;. Qardio sells
-a number of devices that can measure various things and report those measurements to your phone. I
-have a Qardio Base for my weight, and a Qardio Arm for blood pressure. The first Qardio Base I had
-was flaky, and fortunately Qardio replaced it. Yay, Qardio! The new one seems to work pretty well --
-except that is does weird things with my measurements, which is the purpose of this post. I use
-these devices with my IPhone. These products will save the measurements to Apple Health. But I also
-manually copy the measurements over into a spreadsheet so I can see a lot of different data in one
-place and analyze them.&lt;/p&gt;
-
-&lt;p&gt;Check the image. This is &lt;em&gt;the very same measurement&lt;/em&gt;, only the second display is taking place a
-minute later. Note the BMI values. When I stood on the scale and took the measurement, the BMI is
-reported as 24.9. &lt;img src="../../../assets/images/rounding-0ea5c86e.png" title="Rounding" alt="rounding.png" width="1520" height="1344" /&gt;&lt;/p&gt;
-
-&lt;p&gt;However, a minute later, the measurement is 25.0.&lt;/p&gt;
-
-&lt;p&gt;This is especially annoying because 24.9 is in the &amp;quot;normal&amp;quot; range, while 25.0 is in the &amp;quot;overweight&amp;quot;
-range. So I notice that. I&amp;#39;ve been trying to lose weight recently, and this discrepenacy drives me
-pretty crazy. Which is it, Qardio? Get your story straight!&lt;/p&gt;
-
-&lt;p&gt;Thus, I have noticed that the BMI calculation will sometimes change within a few minutes of the
-original measurement. The discrepancy can be triggered by completely shutting down the app and
-restarting it -- and then looking at your last measurement from the History rather than the live
-view. This is a chronic issue. I just saw a fluctuation again this morning.&lt;/p&gt;
-
-&lt;p&gt;I first reported this issue to Qardio on September 20, 2020. On Oct. 13 I was told: &amp;quot;Our engineering
-team has not closed this issue and is still investigating into what may be causing this issue.&amp;quot;
-That&amp;#39;s cool. Anyway, it was never fixed. I reported it again on Nov. 20, 2020. I reported it again
-on Dec. 5, 2020. I reported it again on April 2, 2021. Every time they suggest updating the app --
-which I do. But I think it&amp;#39;s still broken; we&amp;#39;ll see how the latest upgrade goes.&lt;/p&gt;
-
-&lt;p&gt;So this is actually a really terrible bug. Here&amp;#39;s why: &lt;em&gt;You can&amp;#39;t depend on the display of the
-value&lt;/em&gt;. Sometimes it changes. This erodes one&amp;#39;s faith in the idea that the device is making an
-accurate measurement. It&amp;#39;s an especially bad bug because, really, &lt;em&gt;that&amp;#39;s all the system is supposed
-to do&lt;/em&gt;!: Measure a value and report it. It would seem, though, that: (1) Qardio is not able to
-recognize that this is a serious bug that undermines one&amp;#39;s faith in their system; and/or (2) they
-can&amp;#39;t fix it.&lt;/p&gt;
-
-&lt;p&gt;Why?&lt;/p&gt;
-
-&lt;p&gt;Smells like a rounding error to me, and maybe they don&amp;#39;t have control over part of their ecosystem.&lt;/p&gt;
-
-&lt;p&gt;Here&amp;#39;s my theory. Let&amp;#39;s say that the original measurement is . . . &lt;code&gt;24.9499&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;When it&amp;#39;s displayed, it is rounded to a precision of 1 digit. So &lt;code&gt;24.9499&lt;/code&gt; rounded to the nearest
-fractional digit is &lt;code&gt;24.9&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;I think, then, that Qardio saves that reading, &lt;code&gt;24.9499&lt;/code&gt;. But when they save it, they save it
-rounded to two digits. This rounding might happen locally on the phone, or on their server or in
-Apple Health. Anyway, rounded to two fractional digits, it&amp;#39;s &lt;code&gt;24.95&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Now the next time the value is displayed, they look up the saved value (&lt;code&gt;24.95&lt;/code&gt;). They then display
-the saved value rounded to one fractional digit. And what is &lt;code&gt;24.95&lt;/code&gt; rounded to one fractional
-digit? It&amp;#39;s &lt;code&gt;25.0&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Oops.&lt;/p&gt;
-
-&lt;p&gt;Before I close, I suppose I should belabor what &amp;quot;rounding&amp;quot; a number can mean. The Ruby documentation
-says that a number rounded to &lt;code&gt;ndigits&lt;/code&gt; means &amp;quot;Returns float rounded to the nearest value with a
-precision of ndigits decimal digits.&amp;quot; Here&amp;#39;s how one implementation of Ruby does it (I&amp;#39;m looking at
-the code from Rubinus
-&lt;a href="https://github.com/rubinius/rubinius/blob/master/core/float.rb#L90-L91"&gt;here&lt;/a&gt; and
-&lt;a href="https://github.com/rubinius/rubinius/blob/master/machine/class/float.cpp#L373-L385"&gt;here&lt;/a&gt;, which is
-easy to read):&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Multiply the given value &lt;code&gt;a&lt;/code&gt; by &lt;code&gt;10**n&lt;/code&gt;, giving &lt;code&gt;a1&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Get rid of the fractional digits in &lt;code&gt;a1&lt;/code&gt;, giving &lt;code&gt;a2&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;If &lt;code&gt;a1&lt;/code&gt; minus &lt;code&gt;a2&lt;/code&gt; &amp;gt;= &lt;code&gt;0.5&lt;/code&gt;, set &lt;code&gt;a2&lt;/code&gt; to &lt;code&gt;a2&lt;/code&gt; + &lt;code&gt;1.0&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Return &lt;code&gt;a2&lt;/code&gt; / &lt;code&gt;10**n&lt;/code&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;So let&amp;#39;s try this with &lt;code&gt;a&lt;/code&gt; set to &lt;code&gt;24.9499&lt;/code&gt; and &lt;code&gt;n&lt;/code&gt; set to &lt;code&gt;1&lt;/code&gt;:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;a1&lt;/code&gt; is &lt;code&gt;249.499&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;a2&lt;/code&gt; is &lt;code&gt;249&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;(&lt;code&gt;a1&lt;/code&gt; minus &lt;code&gt;a2&lt;/code&gt; is &lt;code&gt;0.499&lt;/code&gt; which is not greater than &lt;code&gt;0.5&lt;/code&gt; so do nothing)&lt;/li&gt;
-&lt;li&gt;return &lt;code&gt;249&lt;/code&gt; / &lt;code&gt;10**1&lt;/code&gt;, or &lt;code&gt;24.9&lt;/code&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;And here&amp;#39;s the case with &lt;code&gt;a&lt;/code&gt; set to &lt;code&gt;24.9599&lt;/code&gt; and &lt;code&gt;n&lt;/code&gt; set to &lt;code&gt;1&lt;/code&gt;:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;a1&lt;/code&gt; is &lt;code&gt;249.599&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;a2&lt;/code&gt; is &lt;code&gt;249&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;(&lt;code&gt;a1&lt;/code&gt; minus &lt;code&gt;a2&lt;/code&gt; is &lt;code&gt;0.599&lt;/code&gt; which is greater than &lt;code&gt;0.5&lt;/code&gt; so set &lt;code&gt;a2&lt;/code&gt; to &lt;code&gt;a2&lt;/code&gt; + &lt;code&gt;1.0&lt;/code&gt; (&lt;code&gt;250&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;return &lt;code&gt;250&lt;/code&gt; / &lt;code&gt;10**1&lt;/code&gt;, or &lt;code&gt;25.0&lt;/code&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Maybe this will help Qardio fix their bug.&lt;/p&gt;
 </content>
   </entry>
 </feed>
