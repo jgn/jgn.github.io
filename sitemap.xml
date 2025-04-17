@@ -400,6 +400,9 @@
     <loc>https://7fff.com/2008/05/indispensible-mac-app-icdc</loc>
   </url>
   <url>
+    <loc>https://7fff.com/2025/04/prompting-claude-to-write-gdpr-questions</loc>
+  </url>
+  <url>
     <loc>https://7fff.com/2007/08/facebook-java-client-is-java-1-5-blech</loc>
   </url>
   <url>
@@ -667,10 +670,19 @@
     <loc>https://7fff.com/2013/10/21/notes-and-translations-for-the-new-york-times-coverage-of-healthcare-gov-software</loc>
   </url>
   <url>
+    <loc>https://7fff.com/category/ai</loc>
+  </url>
+  <url>
     <loc>https://7fff.com/category/announcements</loc>
   </url>
   <url>
     <loc>https://7fff.com/category/annoyance</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/category/cipp-e</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/category/claude</loc>
   </url>
   <url>
     <loc>https://7fff.com/category/code</loc>
@@ -692,6 +704,9 @@
   </url>
   <url>
     <loc>https://7fff.com/category/facebook</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/category/gdpr</loc>
   </url>
   <url>
     <loc>https://7fff.com/category/getting-rid-of-old-drafts-series</loc>
@@ -725,6 +740,9 @@
   </url>
   <url>
     <loc>https://7fff.com/category/middleman</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/category/prompting</loc>
   </url>
   <url>
     <loc>https://7fff.com/category/rails</loc>
@@ -788,6 +806,9 @@
   </url>
   <url>
     <loc>https://7fff.com/category/ruby</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/tag/claude</loc>
   </url>
   <url>
     <loc>https://7fff.com/tag/thor</loc>
@@ -911,6 +932,9 @@
   </url>
   <url>
     <loc>https://7fff.com/2025</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2025/04</loc>
   </url>
   <url>
     <loc>https://7fff.com/2025/01</loc>

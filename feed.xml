@@ -4,10 +4,201 @@
   <id>http://7fff.com/</id>
   <link href="http://7fff.com/"/>
   <link href="http://7fff.com/feed.xml" rel="self"/>
-  <updated>2025-01-03T16:53:00-06:00</updated>
+  <updated>2025-04-16T09:31:00-05:00</updated>
   <author>
     <name>jgn</name>
   </author>
+  <entry>
+    <title>Prompting Claude to write GDPR questions</title>
+    <link rel="alternate" href="http://7fff.com/2025/04/prompting-claude-to-write-gdpr-questions/"/>
+    <id>http://7fff.com/2025/04/prompting-claude-to-write-gdpr-questions/</id>
+    <published>2025-04-16T09:31:00-05:00</published>
+    <updated>2025-04-16T20:47:22-05:00</updated>
+    <author>
+      <name>jgn</name>
+    </author>
+    <content type="html">&lt;p&gt;I&amp;#39;m going to be taking the CIPP/E exam on May 7 to valdiate my understanding
+of the European privacy regulations, GDPR.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;ve been working with the sample exam (which you have to purchase) from CIPP, but
+wanted more questions. So I wrote this prompt for &lt;a href="https://claude.ai"&gt;Claude&lt;/a&gt; (3.7 Sonnet).&lt;/p&gt;
+
+&lt;p&gt;The &amp;quot;OUTLINE&amp;quot; as given below is from the &lt;a href="https://iapp.org/certify/get-certified/cippe/"&gt;Body of Knowledge&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In what&amp;#39;s below, I&amp;#39;m only asking Claude to generate questions for only a few domains. By this
+means, I can focus. The reason I ask for that CSV section is so that I can test myself and keep
+all of the answers for all quizzes (which will be on different domains) so that I can do some
+analytics on it and figure out where I need to study more.&lt;/p&gt;
+
+&lt;p&gt;I would say that Claude&amp;#39;s questions and answers are pretty easy; I need to think about how to
+prompt Claude to write harder questions that are still helpful.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;You are an expert in GDPR: The Articles, the Recitals, and the EDPB Guidelines.&lt;/p&gt;
+
+&lt;h3&gt;Your style of question&lt;/h3&gt;
+
+&lt;p&gt;You are also a very considerate teacher who seeks to write questions that help your students
+learn what is important. The questions must be very clear, and must not go into the obscure corners
+of the law. While questions shouldn&amp;#39;t be deliberately misleading, they often require distinguishing
+between similar concepts. At the same time, you should not insult the intelligence of the test-taker
+by writing questions that are trivial. You may write a question that shows a bit of humor, but don&amp;#39;t
+overdo it.&lt;/p&gt;
+
+&lt;h3&gt;Difficulty and duration&lt;/h3&gt;
+
+&lt;p&gt;The person taking the test will devote at most 2 minute to each question. The total time should
+be the number of questions times the number of minutes for each question. They will not have access
+to the Internet or any printed resources. Thus, the questions must exercise knowledge that is
+plausibly remembered by a smart student. Questions may require some nuanced details that demonstrate
+deeper knowledge.&lt;/p&gt;
+
+&lt;h3&gt;Clarity of questions&lt;/h3&gt;
+
+&lt;p&gt;Review your work and think critically about your questions:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Is the question clear?&lt;/li&gt;
+&lt;li&gt;Are the answers clear?&lt;/li&gt;
+&lt;li&gt;Is the question interesting? This would be subjective, but use your best judgement.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If the answer is &amp;quot;no&amp;quot; to any of these questions, revise the question and its answers so that they
+are clear and interesting.&lt;/p&gt;
+
+&lt;h3&gt;Other details&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Each question should be multiple choice with 4 options labeled A-D&lt;/li&gt;
+&lt;li&gt;Ensure all distractors (wrong answer options) are plausible but clearly incorrect. Distractors
+should represent common misconceptions or partial understanding of the concepts.&lt;/li&gt;
+&lt;li&gt;Verify that each question has only one unambiguously correct answer&lt;/li&gt;
+&lt;li&gt;The answers must also not be of the type that pick multiple answers such as &amp;quot;Both A and B&amp;quot;&lt;/li&gt;
+&lt;li&gt;Check that the language used in questions and answers is precise and not open to interpretation&lt;/li&gt;
+&lt;li&gt;Confirm that questions test understanding rather than just recall of facts&lt;/li&gt;
+&lt;li&gt;Verify that the question directly relates to the specified subdomain and topic&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;what you must do&lt;/h3&gt;
+
+&lt;p&gt;Generate 18 questions that reference items in the following OUTLINE. In the OUTLINE, the subdomain
+are given with capital letters. For instance, &amp;quot;Data Protection Concepts&amp;quot; is in subdomain A, and
+&amp;quot;Personal data&amp;quot; is sub-subdomain 1. The enumeration of Articles, Recitals, Guidelines, and Opinions
+(indicated with the word &amp;quot;Mostly&amp;quot;)  is to provide hints to you for question coverage. You may go
+beyond these if you like.&lt;/p&gt;
+
+&lt;p&gt;Your 18 questions must have 5 from subdomain A, 4 from subdomain B, 4 from subdomain C,
+and 5 from subdomain D. The distribution of questions regarding the sub-subdomains is up to you,
+based on your understanding of the importance of the topic to the GDPR. The questions need not be in subdomain order.&lt;/p&gt;
+
+&lt;h4&gt;Scenarios&lt;/h4&gt;
+
+&lt;p&gt;Some questions may be preceded with a scenario, which is then used for 2-3 of the following
+questions. Note that the scenario may address multiple subdomains. For
+example, if you had questions from subdomain A, sub-subdomain 1, that could be clustered with two other
+questions in, say, subdomains C and D, you could preface those questions with a scenario.
+The scenario would have the title: SCENARIO 1 FOR THE NEXT 3 QUESTIONS. After the questions
+for that scenario, you would have a line that says: END OF SCENARIO 1. A scenario should be no
+longer that 500 words. You may use paragraphs for the scenario. The entire quiz may have at most
+2 scenarios.&lt;/p&gt;
+
+&lt;p&gt;Finally, scenarios should be written with realistic but complex business situations with nuanced
+legal implications requiring application of &lt;em&gt;multiple&lt;/em&gt; GDPR principles.&lt;/p&gt;
+
+&lt;h3&gt;Output format&lt;/h3&gt;
+
+&lt;p&gt;First, a section labeled QUESTIONS. This will not provide the correct answer or the rationale.&lt;/p&gt;
+
+&lt;p&gt;When you show each question (1-18) make sure that you list the options as a bullet list under
+each question. As noted, the questions should not be in subdomain order. As noted, you may
+have a cluster of multiple questions refer to a scenario that would preceded the cluster.&lt;/p&gt;
+
+&lt;p&gt;Section, a section labeled CSV. This will be a CSV file with five columns. The headers will
+be quiz, question, studentanswer, domain, subdomain, and sub-subdomain. The quiz, studentanswer, and domain columns will be
+blank. The values for the question, subdomain, and subsubdomain columns will be the question number,
+the subdomain letter, and the sub-subdomain. You will make sure there is a header row for
+the column names. For example,&lt;/p&gt;
+
+&lt;p&gt;quiz,quuestion,studentanswer,domain,subdomain,subsubdomain
+,1,,,A,2&lt;/p&gt;
+
+&lt;p&gt;Third, a section labled KEY. This will provide just the answers. For example, if the correct answer for
+question 1 is B, it will say: 1: B&lt;/p&gt;
+
+&lt;p&gt;Fourth, a section labeled ANSWERS AND RATIONALES. For each question, there will be:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The question number, the question, and the list of answers, A-D.&lt;/li&gt;
+&lt;li&gt;The correct answer.&lt;/li&gt;
+&lt;li&gt;The rationale. Rationales should be 3-5 sentences explaining why the correct answer is right and
+briefly why other options are wrong. Rationales should identify common misconceptions when relevant.&lt;/li&gt;
+&lt;li&gt;The subdomain.&lt;/li&gt;
+&lt;li&gt;The sub-subdomain.&lt;/li&gt;
+&lt;li&gt;Key Articles and Recitals from GDPR, and the names of any relevant Guideslines. This may go beyond
+the suggestions in the OUTLINE. They may be simple references such as Article 4 or Guideline 07/1010.
+I am assuming that your rationale will provide enough information so that the explanations of
+the correct and incorrect answers make sense.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Questions should test understanding of concepts and their application,
+not just memorization of facts.&lt;/p&gt;
+
+&lt;p&gt;OUTLINE&lt;/p&gt;
+
+&lt;p&gt;A. Data Protection Concepts (generate 5 questions)&lt;/p&gt;
+
+&lt;p&gt;Mostly Articles 2, 4, 9 and Recitals 26, 28, 42, 51
+The exam taker will also know about Opinion 4/2007&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Personal data&lt;/li&gt;
+&lt;li&gt;Sensitive personal data
+a. Special categories of personal data&lt;/li&gt;
+&lt;li&gt;Pseudonymous and anonymous data&lt;/li&gt;
+&lt;li&gt;Processing&lt;/li&gt;
+&lt;li&gt;Controller&lt;/li&gt;
+&lt;li&gt;Processor
+a. Guidelines 07/2020 on the concepts of controller and processor in the GDPR&lt;/li&gt;
+&lt;li&gt;Data subject&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;B. Territorial and Material Scope of the General Data Protection Regulation (generate 4 questions)&lt;/p&gt;
+
+&lt;p&gt;Mostly Article 3, Guidelines 3/2018&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Establishment in the EU&lt;/li&gt;
+&lt;li&gt;Non-establishment in the EU
+a. Guidelines 3/2018 on the territorial scope of the GDPR&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;C. Data Processing Principles (generate 4 questions)&lt;/p&gt;
+
+&lt;p&gt;Mostly Articles 5, 39, and Recitals 39, 74 and the ePrivacy Directive&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Fairness and lawfulness&lt;/li&gt;
+&lt;li&gt;Purpose limitation&lt;/li&gt;
+&lt;li&gt;Proportionality&lt;/li&gt;
+&lt;li&gt;Accuracy&lt;/li&gt;
+&lt;li&gt;Storage limitation (retention)&lt;/li&gt;
+&lt;li&gt;Integrity and confidentiality&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;D. Lawful Processing Criteria (generate 5 questions)&lt;/p&gt;
+
+&lt;p&gt;Mostly Articles 4, 6, 7, 8, 9, 13, 14, Recitals 32, 42, 43, 44, 45, 47, 51, 53&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Consent&lt;/li&gt;
+&lt;li&gt;Contractual necessity&lt;/li&gt;
+&lt;li&gt;Legal obligation, vital interests and public interest&lt;/li&gt;
+&lt;li&gt;Legitimate interests&lt;/li&gt;
+&lt;li&gt;Special categories of processing&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+  </entry>
   <entry>
     <title>Radio buttons, checkboxes, affirmative choices, and consents</title>
     <link rel="alternate" href="http://7fff.com/2025/01/radio-buttons-checkboxes-affirmative-choices-and-consents/"/>
@@ -538,150 +729,6 @@ Next Week.&amp;quot; &lt;strong&gt;Suggestion: Please, include it all. It&amp;#3
 is there.&lt;/strong&gt; By the same token, p. A22 is the Weather. Similarly,
 where&amp;#39;s the 36 Hours piece on Cape Town, South Africa? &lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Books I read in 2022 and 2023</title>
-    <link rel="alternate" href="http://7fff.com/2023/12/books-i-read-in-2022-and-2023/"/>
-    <id>http://7fff.com/2023/12/books-i-read-in-2022-and-2023/</id>
-    <published>2023-12-26T10:31:00-06:00</published>
-    <updated>2024-01-02T07:16:49-06:00</updated>
-    <author>
-      <name>jgn</name>
-    </author>
-    <content type="html">&lt;p&gt;It&amp;#39;s been awhile since I&amp;#39;ve posted anything here, which is terrible but I have reasons. 2022 and 2023 were tough years. My dad died
-in January of 2022, and the prior four months or so involved a lot of caregiving. Then after that, there was
-straightening out his affairs and his apartment. At the end of 2018, mom died, too. So that&amp;#39;s two
-significant deaths, and their aftermaths, over a bit more than 3 years. These 
-years were also dominated by acqusitions: First, Iora was aquired by One Medical in September of
-2021, which brought a lot of integration work into 2022. Then in 2023, One Medical
-was acquired by Amazon. At Iora I had been the VP of Technology, including security and technology
-compliance; in July of 2022 I became the Senior Director of Information Security at One Medical.
-So things have been busy with a lot of changes.&lt;/p&gt;
-
-&lt;p&gt;As I look back on these years, it&amp;#39;s intersting that I did manage to read 53 books in 2021, which
-must have been a kind of salve and distraction after mom died. Since 2021, though I read a paltry (for me)
-33 and 30 books.&lt;/p&gt;
-
-&lt;p&gt;So I think I&amp;#39;m going to take this as a resolution and challenge for 2024: Read more. This is probably
-going to be a good year for not reading the paper and getting too caught up in politics, which I may
-need to do anyway, but not as a time-killer.&lt;/p&gt;
-
-&lt;h3&gt;2022&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src="../../../assets/images/2022-books-read-3cec65f8.png" title="2022 Books Read" alt="2022-books-read.png" width="644" height="1252" /&gt;&lt;/p&gt;
-
-&lt;p&gt;Dad&amp;#39;s death made
-2022 an unsteady year emotionally, and I didn&amp;#39;t feel like reading much that was serious. Maybe
-that&amp;#39;s not quite true: Apparently I read the new Franzen but I don&amp;#39;t remember any of it. I
-did read a number of the 33 1/3 books on record albums, and that was a good distraction -- really comfort
-reading for me.  I re-read
-some books: Curtis Sittenfeld&amp;#39;s &lt;a href="https://www.goodreads.com/review/show/3794491615"&gt;Prep&lt;/a&gt; and Donna Tartt&amp;#39;s &lt;a href="https://www.goodreads.com/review/show/4540812965"&gt;The Secret History&lt;/a&gt;. More comfort reading
-(though the books are not really so comforting come to think of it).&lt;/p&gt;
-
-&lt;p&gt;Looking back on 2022, probably the two best things I read were about the state of Maine, where my
-daughter is going to college. I read &lt;a href="https://www.goodreads.com/book/show/103986.The_Lobster_Coast?from_search=true&amp;amp;from_srp=true&amp;amp;qid=lbHUiKIU71&amp;amp;rank=1"&gt;The Lobster Coast&lt;/a&gt;, a history, and &lt;a href="https://www.goodreads.com/book/show/58988394-the-midcoast?ref=rae_0"&gt;The Midcoast&lt;/a&gt;, a novel that
-takes that history into account. Both highly recommended.&lt;/p&gt;
-
-&lt;p&gt;I also read some work-related books on security and gave 5 stars to Nicole Pelroth&amp;#39;s &lt;a href="https://www.goodreads.com/review/show/3806829965"&gt;This is
-How They Tell Me the World Ends&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3&gt;2023&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src="../../../assets/images/2023-books-read-0c7640f1.png" title="2023 Books Read" alt="2023-books-read.png" width="639" height="1076" /&gt;&lt;/p&gt;
-
-&lt;p&gt;I read fewer books in 2023 than in 2022! That makes me look back on 2021, 2019, and 2018 and
-wonder how I got so much read. The big standout for 2023 was a collection of books about Amazon:
-all pretty good; the one I would recommend to others is &lt;a href="https://www.goodreads.com/review/show/5406985629"&gt;Working Backwards&lt;/a&gt;. I read these because
-the acquisition of One Medical by Amazon was finalized in February. Actually the best read about
-Amazon was a critique: Kristi Coulter&amp;#39;s &lt;a href="https://www.goodreads.com/book/show/65215677-exit-interview?from_search=true&amp;amp;from_srp=true&amp;amp;qid=izsfsGM496&amp;amp;rank=1"&gt;Exit Interview&lt;/a&gt;.
-I&amp;#39;d say more about this but I think as a current employee I should stay mum. &lt;/p&gt;
-
-&lt;h3&gt;And what about 2024?&lt;/h3&gt;
-
-&lt;p&gt;I have a list called &lt;a href="https://www.goodreads.com/review/list/141355-john?ref=nav_mybooks&amp;amp;shelf=books-i-should-stop-putting-off"&gt;&amp;quot;Books I should Stop Putting Off&amp;quot;&lt;/a&gt;,
-all killer, no filler, and all non-fiction. If I had to pick one to move to the top of my list, it would probably be &lt;a href="https://www.goodreads.com/book/show/52269471-mindf-ck"&gt;the one on Cambridge Analytica&lt;/a&gt;. I have noticed that when I mention Cambridge Analytica to
-people, they don&amp;#39;t know what I&amp;#39;m talking about, and I should be at the ready for more of the story and the facts.&lt;/p&gt;
-
-&lt;p&gt;Maybe I need a new list of fiction that I should prioritize.  Maybe &lt;a href="https://www.goodreads.com/review/list/141355-john?ref=nav_mybooks&amp;amp;shelf=prioritized-fiction-recent"&gt;this&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Here are my stats to date:&lt;/p&gt;
-
-&lt;table&gt;&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style="text-align: center"&gt;Year&lt;/th&gt;
-&lt;th style="text-align: center"&gt;Challenge&lt;/th&gt;
-&lt;th style="text-align: center"&gt;Books Read&lt;/th&gt;
-&lt;th style="text-align: center"&gt;Pages&lt;/th&gt;
-&lt;th style="text-align: center"&gt;Length (Avg)&lt;/th&gt;
-&lt;th style="text-align: center"&gt;Rating (Avg)&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center"&gt;2023&lt;/td&gt;
-&lt;td style="text-align: center"&gt;40&lt;/td&gt;
-&lt;td style="text-align: center"&gt;30&lt;/td&gt;
-&lt;td style="text-align: center"&gt;8,574&lt;/td&gt;
-&lt;td style="text-align: center"&gt;285&lt;/td&gt;
-&lt;td style="text-align: center"&gt;3.9&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center"&gt;2022&lt;/td&gt;
-&lt;td style="text-align: center"&gt;40&lt;/td&gt;
-&lt;td style="text-align: center"&gt;33&lt;/td&gt;
-&lt;td style="text-align: center"&gt;10,923&lt;/td&gt;
-&lt;td style="text-align: center"&gt;331&lt;/td&gt;
-&lt;td style="text-align: center"&gt;3.9&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center"&gt;2021&lt;/td&gt;
-&lt;td style="text-align: center"&gt;53&lt;/td&gt;
-&lt;td style="text-align: center"&gt;53&lt;/td&gt;
-&lt;td style="text-align: center"&gt;14,631&lt;/td&gt;
-&lt;td style="text-align: center"&gt;275&lt;/td&gt;
-&lt;td style="text-align: center"&gt;3.9&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center"&gt;2020&lt;/td&gt;
-&lt;td style="text-align: center"&gt;53&lt;/td&gt;
-&lt;td style="text-align: center"&gt;27&lt;/td&gt;
-&lt;td style="text-align: center"&gt;9,546&lt;/td&gt;
-&lt;td style="text-align: center"&gt;353&lt;/td&gt;
-&lt;td style="text-align: center"&gt;3.9&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center"&gt;2019&lt;/td&gt;
-&lt;td style="text-align: center"&gt;53&lt;/td&gt;
-&lt;td style="text-align: center"&gt;47&lt;/td&gt;
-&lt;td style="text-align: center"&gt;13,798&lt;/td&gt;
-&lt;td style="text-align: center"&gt;293&lt;/td&gt;
-&lt;td style="text-align: center"&gt;4.0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center"&gt;2018&lt;/td&gt;
-&lt;td style="text-align: center"&gt;31&lt;/td&gt;
-&lt;td style="text-align: center"&gt;39&lt;/td&gt;
-&lt;td style="text-align: center"&gt;13,692&lt;/td&gt;
-&lt;td style="text-align: center"&gt;351&lt;/td&gt;
-&lt;td style="text-align: center"&gt;3.9&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center"&gt;2017&lt;/td&gt;
-&lt;td style="text-align: center"&gt;26&lt;/td&gt;
-&lt;td style="text-align: center"&gt;34&lt;/td&gt;
-&lt;td style="text-align: center"&gt;10,166&lt;/td&gt;
-&lt;td style="text-align: center"&gt;299&lt;/td&gt;
-&lt;td style="text-align: center"&gt;3.9&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center"&gt;2016&lt;/td&gt;
-&lt;td style="text-align: center"&gt;28&lt;/td&gt;
-&lt;td style="text-align: center"&gt;30&lt;/td&gt;
-&lt;td style="text-align: center"&gt;8,281&lt;/td&gt;
-&lt;td style="text-align: center"&gt;276&lt;/td&gt;
-&lt;td style="text-align: center"&gt;4.1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
 </content>
   </entry>
 </feed>
