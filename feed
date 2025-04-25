@@ -4,10 +4,36 @@
   <id>http://7fff.com/</id>
   <link href="http://7fff.com/"/>
   <link href="http://7fff.com/feed" rel="self"/>
-  <updated>2025-04-16T09:31:00-05:00</updated>
+  <updated>2025-04-24T19:38:00-05:00</updated>
   <author>
     <name>jgn</name>
   </author>
+  <entry>
+    <title>Dissertating</title>
+    <link rel="alternate" href="http://7fff.com/2025/04/dissertating/"/>
+    <id>http://7fff.com/2025/04/dissertating/</id>
+    <published>2025-04-24T19:38:00-05:00</published>
+    <updated>2025-04-24T19:52:22-05:00</updated>
+    <author>
+      <name>jgn</name>
+    </author>
+    <content type="html">&lt;p&gt;Every now and then people glom on to the fact that I spent a lot of time studying English Renaissance literature.
+Here are a couple of people discussion my dissertation, English Literary Anatomy, 1540-1621:
+Institution into Form (1993).&lt;/p&gt;
+
+&lt;audio src="assets/audio/ela.wav" controls&gt;&lt;/audio&gt;
+
+&lt;p&gt;The discussion gets the main observations about the literature, but kind of misses the point about
+how much I saw/see &amp;quot;institutions&amp;quot; as really the primary frame for our undertanding of, well, basically: anything.
+If you are thinking of something through the framework of, say, &amp;quot;the corporation,&amp;quot; the boundaries
+of what you can think and describe are proscribed. Maybe today we&amp;#39;d talk about Overton windows.
+My argument was that the institition of anatomy was so compellingly lived by the barber-surgeons (and the King)
+that it could legitimize all kinds of thoughts that would otherwise be disallowed. Really, unthinkable.&lt;/p&gt;
+
+&lt;p&gt;Meanwhile, I think the second half of the conversation is more boring than the first half, just like the
+dissertation.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Prompting Claude to write GDPR questions</title>
     <link rel="alternate" href="http://7fff.com/2025/04/prompting-claude-to-write-gdpr-questions/"/>
@@ -645,90 +671,5 @@ function convertWordDocToGoogleDoc(sourceFileId, targetFileName, targetFolderId)
   return targetFile.id;
 };
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
-  </entry>
-  <entry>
-    <title>The New York Times' mobile 'Today's Paper' could be a lot better</title>
-    <link rel="alternate" href="http://7fff.com/2024/03/the-new-york-times-mobile-today-s-paper-could-be-a-lot-better/"/>
-    <id>http://7fff.com/2024/03/the-new-york-times-mobile-today-s-paper-could-be-a-lot-better/</id>
-    <published>2024-03-30T11:37:00-05:00</published>
-    <updated>2024-03-30T12:23:07-05:00</updated>
-    <author>
-      <name>jgn</name>
-    </author>
-    <content type="html">&lt;p&gt;I like to read the paper. On paper. I like to read a paper with a lot of news, if not the most
-news (compared to other papers). That would seem to be the New
-York Times. I subscribe to home delivery with a Friday, Saturday, Sunday 
-subscription which also gets me the online/mobile experience. What I like about the printed
-edition is that the importance of articles is indicated by size and placement, and I can scan
-more headlines at a glance. The pictures are bigger. Oh, and it&amp;#39;s not online. I spend most of
-my week looking at a computer screen, and it&amp;#39;s a nice treat to do some old-fashioned reading
-from print.&lt;/p&gt;
-
-&lt;p&gt;Recently, however, my eyes have gotten worse, and for whatever
-reason, the print seems to be lighter. I think the paper is printed here in Minnesota and sometimes
-the print is light enough that it&amp;#39;s hard to read, even when under a bright light. This has made
-me wonder about switching to the mobile edition, where I can control brightness (and font size,
-though I&amp;#39;m satisfied with the default font size on mobile).&lt;/p&gt;
-
-&lt;p&gt;But remember that I like the print edition&amp;#39;s sequencing of articles, the size of headlines, and
-so forth. This has made me wonder whether I would really be satisfied with the Today&amp;#39;s Paper
-feature. You can see the web version of this by going to &lt;a href="https://www.nytimes.com/section/todayspaper"&gt;&lt;a href="https://www.nytimes.com/section/todayspaper"&gt;https://www.nytimes.com/section/todayspaper&lt;/a&gt;&lt;/a&gt;. There are subtle differences between the web and mobile
-experiences which I will touch on. Also, I should note that there was an old site called
-app.nytimes.com, which has been discontinued. This was an earlier attempt by the Times to simulate
-the day&amp;#39;s paper. I think it failed because it would re-render the articles into print + pictures,
-and thus didn&amp;#39;t have some of the really cool digital features that the Times has created over the
-years. There&amp;#39;s also the replica edition, which I don&amp;#39;t like because the user experience
-is awkward and requires a lot of clicks. Also, I want to note that there are distinct advantages
-to the electronic editions: It&amp;#39;s easier to share an article; and you can read and participate
-in the comment section.&lt;/p&gt;
-
-&lt;p&gt;So here I want to describe some of the differences between the printed version of the Times, and
-the Today&amp;#39;s Paper version, in particular the mobile version on an iPad. For this comparison,
-I&amp;#39;ll be comparing the print and mobile editions for March 30, 2024.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;First off, when you get the printed Times, you can just start reading it immediately. On the
-web, you could bookmark the Today&amp;#39;s Paper page. In the mobile experience, you have to navigate
-through the Sections button, then scroll to near the bottom, and select Today&amp;#39;s Paper. &lt;strong&gt;Suggestion:
-Make it much easier to get to Today&amp;#39;s Paper, and see the articles right away. If you have to, package it as a separate app.&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;In the web version, the date is shown in a dropdown, and you can navigate to another day.
-&lt;strong&gt;Suggestions: (1) Show the date in the app on the mobile edition; (2) Bring the ability to see Today&amp;#39;s Paper
-for any date to the mobile edition.&lt;/strong&gt; This latter point is more important than it might seem. When
-I&amp;#39;m traveling for work or on vacation, sometimes I miss a day or two. I&amp;#39;d like to be able to catch up easily -- but I
-can&amp;#39;t.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Here&amp;#39;s the top headline in the print edition: &amp;quot;Pandemic Effect: Absence From Schools is Soaring.&amp;quot;
-Mobile: &amp;quot;Why School Absences have &amp;#39;Exploded&amp;#39; Almost Everywhere.&amp;quot; &lt;strong&gt;Suggestion: Make the headlines
-the same.&lt;/strong&gt; While I&amp;#39;m at it, have the URL slug be the same. Why? So that I can be assured that
-I am talking about the same article as it was titled in print. Look, you&amp;#39;re calling this feature
-Today&amp;#39;s &lt;em&gt;Paper&lt;/em&gt;. Do us a favor, and support those semantics -- follow the paper version. If you
-like, call it Today&amp;#39;s Edition instead of Today&amp;#39;s Paper. But at present, it&amp;#39;s not Today&amp;#39;s &lt;em&gt;Paper&lt;/em&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Here is my number one most critical concern: It is not easy to read the Times &lt;em&gt;in its print sequence&lt;/em&gt;
-in the mobile edition.&lt;/strong&gt; The main issue is that to get to the next article as offered in the
-print edition, you have to&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Scroll down so as to expose the back button (&amp;lt;).&lt;/li&gt;
-&lt;li&gt;Tap the back button.&lt;/li&gt;
-&lt;li&gt;Tap the next article (or scroll to it if it&amp;#39;s below -- note that the iPad and iPhone
-experiences are a bit different in that on the phone all of the articles are on a list,
-while on the iPad the &amp;quot;next&amp;quot; article might be to the right of the one you just read.
-In any case, I don&amp;#39;t want to scroll, tap, and tap.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;strong&gt;Suggestion: Please make it easier for me. Either
-   add a Next button (that means the next button in the Today&amp;#39;s Paper sequence), or let me
-   swipe for the next article.&lt;/strong&gt; Would this be so hard? The Washington Post supports a
-   swipe (I doubt it&amp;#39;s in the print edition order, though). Even the pretty crappy app for
-   my local paper, the Minneapolis Star-Tribune, provides for a swipe. The BBC app doesn&amp;#39;t
-   seem to support swipe. Perhaps there&amp;#39;s some issue getting feature parity between the Times
-   iOS and Android versions. I don&amp;#39;t really care -- I think that on the iOS versions of
-   Today&amp;#39;s Paper, it should be super easy to get to the next article in print order.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Last thing. The mobile edition seems incomplete, at least compared to the print edition. I am
-looking at p. 10 in Section C, which is the Cooking section with the headline &amp;quot;What to Make
-Next Week.&amp;quot; &lt;strong&gt;Suggestion: Please, include it all. It&amp;#39;s simply not Today&amp;#39;s Paper unless everything
-is there.&lt;/strong&gt; By the same token, p. A22 is the Weather. Similarly,
-where&amp;#39;s the 36 Hours piece on Cape Town, South Africa? &lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</content>
   </entry>
 </feed>
