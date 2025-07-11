@@ -13,7 +13,7 @@
             var entry = document.getElementsByTagName('script')[0];
             entry.parentNode.insertBefore(script, entry);
           }());
-        </script> </div> </nav> <div class=container-fluid> <h1>Spying on Ruby's Net::HTTP <small> by jgn on Thursday, August 4, 2011 in <a href="../../../category/ruby/">Ruby</a> and <a href="../../../category/code/">Code</a> </small> </h1> <p>I’ve heard two people complain that they can’t see OAuth HTTP behavior and get unexpected 401s. If you want to see what’s going on at the transport level, here’s a monkeypatch (depends on ActiveSupport for the alias_method_chain) just for you:</p> <p>[code language=’ruby’] class Net::HTTP</p> <p>def initialize_with_debug(*args, &amp;block) initialize_without_debug(*args, &amp;block) set_debug_output $stderr end</p> <p>alias_method_chain :initialize, :debug end</p> <div id=disqus_thread></div> <script>
+        </script> </div> </nav> <div class=container-fluid> <h1>Spying on Ruby's Net::HTTP <small> by jgn on Thursday, August 4, 2011 in <a href="../../../category/ruby/">Ruby</a> and <a href="../../../category/code/">Code</a> </small> </h1> <p>I&#39;ve heard two people complain that they can&#39;t see OAuth HTTP behavior and get unexpected 401s. If you want to see what&#39;s going on at the transport level, here&#39;s a monkeypatch (depends on ActiveSupport for the alias_method_chain) just for you:</p> <p>[code language=&#39;ruby&#39;] class Net::HTTP</p> <p>def initialize_with_debug(*args, &amp;block) initialize_without_debug(*args, &amp;block) set_debug_output $stderr end</p> <p>alias_method_chain :initialize, :debug end</p> <div id=disqus_thread></div> <script>
 //<![CDATA[
                   var disqus_shortname = '7fff';
           

@@ -13,7 +13,127 @@
             var entry = document.getElementsByTagName('script')[0];
             entry.parentNode.insertBefore(script, entry);
           }());
-        </script> </div> </nav> <div class=container-fluid> <h1>Arrays are rarely the natural choice in bash; use files <small> by jgn on Monday, December 2, 2024 in <a href="../../../category/programming/">programming</a> and <a href="../../../category/bash/">bash</a> </small> </h1> <p>So I wanted to format some text whereby I specify a width and a utility fills and wraps the lines.</p> <p>Example input text:</p> <p>``` The output for <code>ls-files</code> is incredibly limited, right? That’s because the typical use case is to list files of a certain type.</p> <p>You can do</p> <p>ls-files -c # show cached (tracked) ls-files -d # show unstaged deletions ls-files -u # show unmerged</p> <p>There is also an option -t that shows status tag (though the tags are weird: for instance, the tag for a tracked file is: H). ```</p> <p>Fortunately there’s a nice tool called <code>fmt</code> that can do pretty much what we want.</p> <p>You can do <code>fmt -w 50 &lt;text.txt</code> and get the following:</p> <p>``` The output for <code>ls-files</code> is incredibly limited, right? That’s because the typical use case is to list files of a certain type.</p> <p>You can do</p> <p>ls-files -c # show cached (tracked) ls-files -d # show unstaged deletions ls-files -u # show unmerged</p> <p>There is also an option -t that shows status tag (though the tags are weird: for instance, the tag for a tracked file is: H). ```</p> <p>Well that’s not right. I would like it to leave lines alone that have fewer characters than the specified width. In other words, I want:</p> <p>``` The output for <code>ls-files</code> is incredibly limited, right? That’s because the typical use case is to list files of a certain type.</p> <p>You can do</p> <p>ls-files -c # show cached (tracked) ls-files -d # show unstaged deletions ls-files -u # show unmerged</p> <p>There is also an option -t that shows status tag (though the tags are weird: for instance, the tag for a tracked file is: H). ```</p> <p>I could do this pretty fast in Ruby, but in this case, I needed it in shell (for bash), and I didn’t want to incur the startup time of a Ruby script called from a bash script.</p> <p>My first instinct was to use arrays, because that feels natural to me as a programmer – I might split on newlines and do something with the result.</p> <p>Here’s what I came up with. Note that on my target, the Mac, the latest version of bash is 3.2 (for licensing reasons). This means I couldn’t use some of the newer array functions from bash 4.</p> <p>(By the way, I do know the bash convention of using all uppercase for environment variable names, but that’s just too ugly. Sorry.)</p> <p>```bash #!/usr/bin/env bash</p> <p>width=”$1” shift text=(“$@”)</p> <p>output=() buffer=() line=”” last_index=0</p> <p>format_command=”fmt” # or <code>par -j</code></p> <p>format () { local formatted</p> <p>if [[ “${#buffer[@]}” -gt 1 ]]; then formatted=$(printf ‘%s’ “${buffer[@]}” | “$format_command” -w “${width}”) output+=(“$formatted”) fi output+=(“”) buffer=() }</p> <p>for line in “${text[@]}”; do # hit a newline; format everything accumulated in the buffer if [ “${line}” == “” ]; then format # hit a short line; add it to the output unformatted elif [[ “${#buffer[@]}” -eq 0 &amp;&amp; “${line}” != “” &amp;&amp; “${#line}” -le “${width}” ]]; then output+=(“$line”) # a regular line; add it to the buffer for later formatting. else buffer+=(“$line “) fi done</p> <p>format</p> <p>last_index=$(( ${#output[@]} - 1 )) unset “output[$last_index]”</p> <h1 id=split-elements-in-original-on-newline>Split elements in original on newline</h1> <p>split_on_newline=() while IFS= read -r line; do split_on_newline+=(“$line”) done «&lt; “$(printf ‘%s\n’ “${output[@]}”)” output=(“${split_on_newline[@]}”) ```</p> <p>So as you can see, there’s rather a lot of wrangling of arrays: getting lines added from a file. There’s also the syntax burden of bash arrays, which is non-trivial. I kept looking at this, and after awhile it just seemed dumb. Why not write a more routine bash command that reads from STDIN and writes to STDOUT?</p> <p>So I came up with this, which is shorter and seems more natural:</p> <p>```bash #!/usr/bin/env bash</p> <p>width=30 command=”fmt” buffer=””</p> <p>[[ -n “$1” ]] &amp;&amp; width=$1 [[ -n “$2” ]] &amp;&amp; command=$2</p> <p>while IFS= read -r line; do if [[ -z “$line” &amp;&amp; “${#buffer}” -ne 0 ]]; then printf ‘%s\n’ “$buffer” | $command -w “$width” printf “\n” buffer=”” elif [[ “${#buffer}” -eq 0 &amp;&amp; “${#line}” -lt “$width” ]]; then printf ‘%s\n’ “$line” else buffer+=”$line” buffer+=” “ fi done printf ‘%s\n’ “$buffer” | $command -w “$width” ```</p> <p>This one takes two parameters, the first being the width, and the second being the command to use (if one doesn’t want to use the default, <code>fmt</code>). So if you like, you can use <code>par</code> to justify the text. For example: <code>./wrap 50 "par -j"</code> gets you:</p> <p>``` The output for <code>ls-files</code> is incredibly limited, right? That’s because the typical use case is to list files of a certain type.</p> <p>You can do</p> <p>ls-files -c # show cached (tracked) ls-files -d # show unstaged deletions ls-files -u # show unmerged</p> <p>There is also an option -t that shows status tag (though the tags are weird: for instance, the tag for a tracked file is: H). ```</p> <div id=disqus_thread></div> <script>
+        </script> </div> </nav> <div class=container-fluid> <h1>Arrays are rarely the natural choice in bash; use files <small> by jgn on Monday, December 2, 2024 in <a href="../../../category/programming/">programming</a> and <a href="../../../category/bash/">bash</a> </small> </h1> <p>So I wanted to format some text whereby I specify a width and a utility fills and wraps the lines.</p> <p>Example input text:</p> <div class=highlight><pre class="highlight plaintext"><code>The output for `ls-files` is incredibly limited, right? That's because the
+typical use case is to list files of a certain type.
+
+You can do
+
+  ls-files -c  # show cached (tracked)
+  ls-files -d  # show unstaged deletions
+  ls-files -u  # show unmerged
+
+There is also an option -t that shows status tag (though the tags are weird:
+for instance, the tag for a tracked file is: H).
+</code></pre></div> <p>Fortunately there&#39;s a nice tool called <code>fmt</code> that can do pretty much what we want.</p> <p>You can do <code>fmt -w 50 &lt;text.txt</code> and get the following:</p> <div class=highlight><pre class="highlight plaintext"><code>The output for `ls-files` is incredibly limited,
+right? That's because the typical use case is to
+list files of a certain type.
+
+You can do
+
+  ls-files -c  # show cached (tracked) ls-files -d
+  # show unstaged deletions ls-files -u  # show
+  unmerged
+
+There is also an option -t that shows status tag
+(though the tags are weird: for instance, the tag
+for a tracked file is: H).
+</code></pre></div> <p>Well that&#39;s not right. I would like it to leave lines alone that have fewer characters than the specified width. In other words, I want:</p> <div class=highlight><pre class="highlight plaintext"><code>The output for `ls-files` is incredibly limited,
+right? That's because the typical use case is to
+list files of a certain type.
+
+You can do
+
+  ls-files -c  # show cached (tracked)
+  ls-files -d  # show unstaged deletions
+  ls-files -u  # show unmerged
+
+There is also an option -t that shows status tag
+(though the tags are weird: for instance, the tag
+for a tracked file is: H).
+</code></pre></div> <p>I could do this pretty fast in Ruby, but in this case, I needed it in shell (for bash), and I didn&#39;t want to incur the startup time of a Ruby script called from a bash script.</p> <p>My first instinct was to use arrays, because that feels natural to me as a programmer -- I might split on newlines and do something with the result.</p> <p>Here&#39;s what I came up with. Note that on my target, the Mac, the latest version of bash is 3.2 (for licensing reasons). This means I couldn&#39;t use some of the newer array functions from bash 4.</p> <p>(By the way, I do know the bash convention of using all uppercase for environment variable names, but that&#39;s just too ugly. Sorry.)</p> <div class=highlight><pre class="highlight shell"><code><span class="c">#!/usr/bin/env bash</span>
+
+<span class="nv">width</span><span class="o">=</span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+<span class="nb">shift
+</span><span class="nv">text</span><span class="o">=(</span><span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span><span class="o">)</span>
+
+<span class="nv">output</span><span class="o">=()</span>
+<span class="nv">buffer</span><span class="o">=()</span>
+<span class="nv">line</span><span class="o">=</span><span class="s2">""</span>
+<span class="nv">last_index</span><span class="o">=</span>0
+
+<span class="nv">format_command</span><span class="o">=</span><span class="s2">"fmt"</span>    <span class="c"># or `par -j`</span>
+
+format <span class="o">()</span> <span class="o">{</span>
+  <span class="nb">local </span>formatted
+
+  <span class="k">if</span> <span class="o">[[</span> <span class="s2">"</span><span class="k">${#</span><span class="nv">buffer</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span> <span class="nt">-gt</span> 1 <span class="o">]]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nv">formatted</span><span class="o">=</span><span class="si">$(</span><span class="nb">printf</span> <span class="s1">'%s'</span> <span class="s2">"</span><span class="k">${</span><span class="nv">buffer</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span> | <span class="s2">"</span><span class="nv">$format_command</span><span class="s2">"</span> <span class="nt">-w</span> <span class="s2">"</span><span class="k">${</span><span class="nv">width</span><span class="k">}</span><span class="s2">"</span><span class="si">)</span>
+    output+<span class="o">=(</span><span class="s2">"</span><span class="nv">$formatted</span><span class="s2">"</span><span class="o">)</span>
+  <span class="k">fi
+  </span>output+<span class="o">=(</span><span class="s2">""</span><span class="o">)</span>
+  <span class="nv">buffer</span><span class="o">=()</span>
+<span class="o">}</span>
+
+<span class="k">for </span>line <span class="k">in</span> <span class="s2">"</span><span class="k">${</span><span class="nv">text</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span><span class="p">;</span> <span class="k">do</span>
+  <span class="c"># hit a newline; format everything accumulated in the buffer</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="k">${</span><span class="nv">line</span><span class="k">}</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">""</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span>format
+  <span class="c"># hit a short line; add it to the output unformatted</span>
+  <span class="k">elif</span> <span class="o">[[</span> <span class="s2">"</span><span class="k">${#</span><span class="nv">buffer</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span> <span class="nt">-eq</span> 0 <span class="o">&amp;&amp;</span> <span class="s2">"</span><span class="k">${</span><span class="nv">line</span><span class="k">}</span><span class="s2">"</span> <span class="o">!=</span> <span class="s2">""</span> <span class="o">&amp;&amp;</span> <span class="s2">"</span><span class="k">${#</span><span class="nv">line</span><span class="k">}</span><span class="s2">"</span> <span class="nt">-le</span> <span class="s2">"</span><span class="k">${</span><span class="nv">width</span><span class="k">}</span><span class="s2">"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
+    </span>output+<span class="o">=(</span><span class="s2">"</span><span class="nv">$line</span><span class="s2">"</span><span class="o">)</span>
+  <span class="c"># a regular line; add it to the buffer for later formatting.</span>
+  <span class="k">else
+    </span>buffer+<span class="o">=(</span><span class="s2">"</span><span class="nv">$line</span><span class="s2"> "</span><span class="o">)</span>
+  <span class="k">fi
+done
+
+</span>format
+
+<span class="nv">last_index</span><span class="o">=</span><span class="k">$((</span> <span class="k">${#</span><span class="nv">output</span><span class="p">[@]</span><span class="k">}</span> <span class="o">-</span> <span class="m">1</span> <span class="k">))</span>
+<span class="nb">unset</span> <span class="s2">"output[</span><span class="nv">$last_index</span><span class="s2">]"</span>
+
+<span class="c"># Split elements in original on newline</span>
+<span class="nv">split_on_newline</span><span class="o">=()</span>
+<span class="k">while </span><span class="nv">IFS</span><span class="o">=</span> <span class="nb">read</span> <span class="nt">-r</span> line<span class="p">;</span> <span class="k">do
+    </span>split_on_newline+<span class="o">=(</span><span class="s2">"</span><span class="nv">$line</span><span class="s2">"</span><span class="o">)</span>
+<span class="k">done</span> <span class="o">&lt;&lt;&lt;</span> <span class="s2">"</span><span class="si">$(</span><span class="nb">printf</span> <span class="s1">'%s\n'</span> <span class="s2">"</span><span class="k">${</span><span class="nv">output</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span><span class="si">)</span><span class="s2">"</span>
+<span class="nv">output</span><span class="o">=(</span><span class="s2">"</span><span class="k">${</span><span class="nv">split_on_newline</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span><span class="o">)</span>
+</code></pre></div> <p>So as you can see, there&#39;s rather a lot of wrangling of arrays: getting lines added from a file. There&#39;s also the syntax burden of bash arrays, which is non-trivial. I kept looking at this, and after awhile it just seemed dumb. Why not write a more routine bash command that reads from STDIN and writes to STDOUT?</p> <p>So I came up with this, which is shorter and seems more natural:</p> <div class=highlight><pre class="highlight shell"><code><span class="c">#!/usr/bin/env bash</span>
+
+<span class="nv">width</span><span class="o">=</span>30
+<span class="nb">command</span><span class="o">=</span><span class="s2">"fmt"</span>
+<span class="nv">buffer</span><span class="o">=</span><span class="s2">""</span>
+
+<span class="o">[[</span> <span class="nt">-n</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nv">width</span><span class="o">=</span><span class="nv">$1</span>
+<span class="o">[[</span> <span class="nt">-n</span> <span class="s2">"</span><span class="nv">$2</span><span class="s2">"</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">command</span><span class="o">=</span><span class="nv">$2</span>
+
+<span class="k">while </span><span class="nv">IFS</span><span class="o">=</span> <span class="nb">read</span> <span class="nt">-r</span> line<span class="p">;</span> <span class="k">do
+  if</span> <span class="o">[[</span> <span class="nt">-z</span> <span class="s2">"</span><span class="nv">$line</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="s2">"</span><span class="k">${#</span><span class="nv">buffer</span><span class="k">}</span><span class="s2">"</span> <span class="nt">-ne</span> 0 <span class="o">]]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">printf</span> <span class="s1">'%s\n'</span> <span class="s2">"</span><span class="nv">$buffer</span><span class="s2">"</span> | <span class="nv">$command</span> <span class="nt">-w</span> <span class="s2">"</span><span class="nv">$width</span><span class="s2">"</span>
+    <span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
+    <span class="nv">buffer</span><span class="o">=</span><span class="s2">""</span>
+  <span class="k">elif</span> <span class="o">[[</span> <span class="s2">"</span><span class="k">${#</span><span class="nv">buffer</span><span class="k">}</span><span class="s2">"</span> <span class="nt">-eq</span> 0 <span class="o">&amp;&amp;</span> <span class="s2">"</span><span class="k">${#</span><span class="nv">line</span><span class="k">}</span><span class="s2">"</span> <span class="nt">-lt</span> <span class="s2">"</span><span class="nv">$width</span><span class="s2">"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">printf</span> <span class="s1">'%s\n'</span> <span class="s2">"</span><span class="nv">$line</span><span class="s2">"</span>
+  <span class="k">else
+    </span>buffer+<span class="o">=</span><span class="s2">"</span><span class="nv">$line</span><span class="s2">"</span>
+    buffer+<span class="o">=</span><span class="s2">" "</span>
+  <span class="k">fi
+done
+</span><span class="nb">printf</span> <span class="s1">'%s\n'</span> <span class="s2">"</span><span class="nv">$buffer</span><span class="s2">"</span> | <span class="nv">$command</span> <span class="nt">-w</span> <span class="s2">"</span><span class="nv">$width</span><span class="s2">"</span>
+</code></pre></div> <p>This one takes two parameters, the first being the width, and the second being the command to use (if one doesn&#39;t want to use the default, <code>fmt</code>). So if you like, you can use <code>par</code> to justify the text. For example: <code>./wrap 50 &quot;par -j&quot;</code> gets you:</p> <div class=highlight><pre class="highlight plaintext"><code>The output  for `ls-files` is  incredibly limited,
+right? That's  because the typical use  case is to
+list files of a certain type.
+
+You can do
+
+  ls-files -c  # show cached (tracked)
+  ls-files -d  # show unstaged deletions
+  ls-files -u  # show unmerged
+
+There is also  an option -t that  shows status tag
+(though the tags are  weird: for instance, the tag
+for a tracked file is: H).
+</code></pre></div> <div id=disqus_thread></div> <script>
 //<![CDATA[
                   var disqus_shortname = '7fff';
           

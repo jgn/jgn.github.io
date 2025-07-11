@@ -13,7 +13,7 @@
             var entry = document.getElementsByTagName('script')[0];
             entry.parentNode.insertBefore(script, entry);
           }());
-        </script> </div> </nav> <div class=container-fluid> <h1>If you must rescue Exception . . . <small> by jgn on Thursday, October 29, 2009 in <a href="../../../category/ruby/">Ruby</a> and <a href="../../../category/code/">Code</a> </small> </h1> <p>Sometimes you see Ruby code that rescue an exception at the top of the hierarchy:</p> <p>[code language=’ruby’] rescue Exception =&gt; e</p> <p>If you must do that, how about providing a means to control-C, by putting this in the method with the rescue:</p> <p>[code language=’ruby’] trap(“INT”) do puts “Terminating . . . “ return # or maybe exit end</p> <div id=disqus_thread></div> <script>
+        </script> </div> </nav> <div class=container-fluid> <h1>If you must rescue Exception . . . <small> by jgn on Thursday, October 29, 2009 in <a href="../../../category/ruby/">Ruby</a> and <a href="../../../category/code/">Code</a> </small> </h1> <p>Sometimes you see Ruby code that rescue an exception at the top of the hierarchy:</p> <p>[code language=&#39;ruby&#39;] rescue Exception =&gt; e</p> <p>If you must do that, how about providing a means to control-C, by putting this in the method with the rescue:</p> <p>[code language=&#39;ruby&#39;] trap(&quot;INT&quot;) do puts &quot;Terminating . . . &quot; return # or maybe exit end</p> <div id=disqus_thread></div> <script>
 //<![CDATA[
                   var disqus_shortname = '7fff';
           

@@ -13,7 +13,7 @@
             var entry = document.getElementsByTagName('script')[0];
             entry.parentNode.insertBefore(script, entry);
           }());
-        </script> </div> </nav> <div class=container-fluid> <h1>Ruby inherited callback runs before subclass is loaded <small> by jgn on Tuesday, September 22, 2009 in <a href="../../../category/technology/">Technology</a> </small> </h1> <p>Harrumph.</p> <p>I wanted to call a class method on a subclass when the base class’s inherited callback is triggered.</p> <p>But it doesn’t work, because the subclass isn’t loaded when this callback is triggered.</p> <p>:-(</p> <p>So the following doesn’t work (‘boo’ prints instead of ‘foo’):</p> <p>[source language=’ruby’] class Base def self.permalink ‘boo’ end def self.inherited(c) puts “permalink: #{c.permalink}” end end</p> <p>class C</p> <div id=disqus_thread></div> <script>
+        </script> </div> </nav> <div class=container-fluid> <h1>Ruby inherited callback runs before subclass is loaded <small> by jgn on Tuesday, September 22, 2009 in <a href="../../../category/technology/">Technology</a> </small> </h1> <p>Harrumph.</p> <p>I wanted to call a class method on a subclass when the base class&#39;s inherited callback is triggered.</p> <p>But it doesn&#39;t work, because the subclass isn&#39;t loaded when this callback is triggered.</p> <p>:-(</p> <p>So the following doesn&#39;t work (&#39;boo&#39; prints instead of &#39;foo&#39;):</p> <p>[source language=&#39;ruby&#39;] class Base def self.permalink &#39;boo&#39; end def self.inherited(c) puts &quot;permalink: #{c.permalink}&quot; end end</p> <p>class C</p> <div id=disqus_thread></div> <script>
 //<![CDATA[
                   var disqus_shortname = '7fff';
           

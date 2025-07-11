@@ -13,7 +13,21 @@
             var entry = document.getElementsByTagName('script')[0];
             entry.parentNode.insertBefore(script, entry);
           }());
-        </script> </div> </nav> <div class=container-fluid> <h1>Boxen workflow - notes to self <small> by jgn on Thursday, February 21, 2013 in <a href="../../../category/technology/">Technology</a> and <a href="../../../category/code/">Code</a> </small> </h1> <h3 id=making-a-change-in-ones-own-my-boxen>Making a change in one’s own “my-boxen”</h3> <p><code>ruby cd src/my-boxen # make changes script/boxen # You will see: Boxen has a dirty tree, won't auto-update! # That's OK; you're trying out your changes </code></p> <p>Did it work? Yes. Then …</p> <p><code>ruby git add ... # BTW, in https://github.com/boxen/our-boxen/tree/master/vendor/puppet/cache GitHub does add and commit the Puppet tars git commit ... git push ... </code></p> <h3 id=upgrading-a-module>Upgrading a Module</h3> <ol> <li>Fork the module you need (e.g., <code>puppet-postgresql</code>)</li> <li>Make changes; and make sure to tag with a new version number (e.g., 1.0.1)</li> <li>Now use the new repo and tag in your my-boxen</li> </ol> <p><code>ruby # Do what you have to do to remove the model manually brew uninstall postgresql rm -fR /opt/boxen/homebrew/var/postgres rm -fR /opt/boxen/data/postgresql script/boxen </code> 4. Now open a new shell. This is because the environment variable for <code>PGPORT</code> is specifically not reset in <code>/opt/boxen/env.d/postgresql.sh</code> - no idea why. Otherwise you’d be able to just: <code>source /opt/boxen/env.sh</code></p> <div id=disqus_thread></div> <script>
+        </script> </div> </nav> <div class=container-fluid> <h1>Boxen workflow - notes to self <small> by jgn on Thursday, February 21, 2013 in <a href="../../../category/technology/">Technology</a> and <a href="../../../category/code/">Code</a> </small> </h1> <h3>Making a change in one&#39;s own &quot;my-boxen&quot;</h3> <div class=highlight><pre class="highlight ruby"><code><span class="n">cd</span> <span class="n">src</span><span class="o">/</span><span class="n">my</span><span class="o">-</span><span class="n">boxen</span>
+<span class="c1"># make changes</span>
+<span class="n">script</span><span class="o">/</span><span class="n">boxen</span>
+<span class="c1"># You will see: Boxen has a dirty tree, won't auto-update!</span>
+<span class="c1"># That's OK; you're trying out your changes</span>
+</code></pre></div> <p>Did it work? Yes. Then ...</p> <div class=highlight><pre class="highlight ruby"><code><span class="n">git</span> <span class="n">add</span> <span class="o">...</span>
+<span class="c1"># BTW, in https://github.com/boxen/our-boxen/tree/master/vendor/puppet/cache GitHub does add and commit the Puppet tars</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">...</span>
+<span class="n">git</span> <span class="n">push</span> <span class="o">...</span>
+</code></pre></div> <h3>Upgrading a Module</h3> <ol> <li>Fork the module you need (e.g., <code>puppet-postgresql</code>)</li> <li>Make changes; and make sure to tag with a new version number (e.g., 1.0.1)</li> <li>Now use the new repo and tag in your my-boxen</li> </ol> <div class=highlight><pre class="highlight ruby"><code><span class="c1"># Do what you have to do to remove the model manually</span>
+<span class="n">brew</span> <span class="n">uninstall</span> <span class="n">postgresql</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">fR</span> <span class="sr">/opt/</span><span class="n">boxen</span><span class="o">/</span><span class="n">homebrew</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">postgres</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">fR</span> <span class="sr">/opt/</span><span class="n">boxen</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">postgresql</span>
+<span class="n">script</span><span class="o">/</span><span class="n">boxen</span>
+</code></pre></div> <ol> <li>Now open a new shell. This is because the environment variable for <code>PGPORT</code> is specifically not reset in <code>/opt/boxen/env.d/postgresql.sh</code> - no idea why. Otherwise you&#39;d be able to just: <code>source /opt/boxen/env.sh</code></li> </ol> <div id=disqus_thread></div> <script>
 //<![CDATA[
                   var disqus_shortname = '7fff';
           

@@ -13,7 +13,30 @@
             var entry = document.getElementsByTagName('script')[0];
             entry.parentNode.insertBefore(script, entry);
           }());
-        </script> </div> </nav> <div class=container-fluid> <h1>Using Google Apps Script to convert a Word document to Google Docs <small> by jgn on Monday, September 9, 2024 in <a href="../../../category/programming/">programming</a>, <a href="../../../category/hacks/">hacks</a>, <a href="../../../category/google-apps/">Google Apps</a>, and <a href="../../../category/google-apps-script/">Google Apps Script</a> </small> </h1> <p>I recently wanted to write code to convert a Microsoft Word document to a Google Doc. (In fact, I wanted to convert many such Word docs.)</p> <p>This turned out to be pretty obscure. Here’s how to do it (ids changed):</p> <p>``` function go() { convertWordDocToGoogleDoc( “15qYN30uJAsMhKxUb1nbCoE09NT7-FPZs”, “Converted”, “1-Grx_yhWWOA73-1dnbEI6JlfHkDXxzr6” ); }</p> <p>function convertWordDocToGoogleDoc(sourceFileId, targetFileName, targetFolderId) { // Convert a Word doc to a Google doc // (this was a royal pain to figure out) let targetResource = { ‘name’: targetFileName, ‘mimeType’: MimeType.GOOGLE_DOCS, ‘parents’: [targetFolderId] }; // Notice: This is done with the <em>Drive</em> service, not the DocumentApp // To add the Drive Service, click the “+” by Services in the left-hand // pane and select Drive API. let targetFile = Drive.Files.copy(targetResource, sourceFileId);</p> <p>return targetFile.id; }; ```</p> <div id=disqus_thread></div> <script>
+        </script> </div> </nav> <div class=container-fluid> <h1>Using Google Apps Script to convert a Word document to Google Docs <small> by jgn on Monday, September 9, 2024 in <a href="../../../category/programming/">programming</a>, <a href="../../../category/hacks/">hacks</a>, <a href="../../../category/google-apps/">Google Apps</a>, and <a href="../../../category/google-apps-script/">Google Apps Script</a> </small> </h1> <p>I recently wanted to write code to convert a Microsoft Word document to a Google Doc. (In fact, I wanted to convert many such Word docs.)</p> <p>This turned out to be pretty obscure. Here&#39;s how to do it (ids changed):</p> <div class=highlight><pre class="highlight plaintext"><code>function go() {
+  convertWordDocToGoogleDoc(
+    "15qYN30uJAsMhKxUb1nbCoE09NT7-FPZs",
+    "Converted",
+    "1-Grx_yhWWOA73-1dnbEI6JlfHkDXxzr6"
+  );
+}
+
+function convertWordDocToGoogleDoc(sourceFileId, targetFileName, targetFolderId) {
+  // Convert a Word doc to a Google doc
+  // (this was a royal pain to figure out)
+  let targetResource = {
+    'name':     targetFileName,
+    'mimeType': MimeType.GOOGLE_DOCS,
+    'parents':  [targetFolderId]
+  };
+  // Notice: This is done with the *Drive* service, not the DocumentApp
+  // To add the Drive Service, click the "+" by Services in the left-hand
+  // pane and select Drive API.
+  let targetFile = Drive.Files.copy(targetResource, sourceFileId);
+
+  return targetFile.id;
+};
+</code></pre></div> <div id=disqus_thread></div> <script>
 //<![CDATA[
                   var disqus_shortname = '7fff';
           

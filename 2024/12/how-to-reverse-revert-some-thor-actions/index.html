@@ -13,7 +13,36 @@
             var entry = document.getElementsByTagName('script')[0];
             entry.parentNode.insertBefore(script, entry);
           }());
-        </script> </div> </nav> <div class=container-fluid> <h1>How to reverse (revert) some Thor actions <small> by jgn on Wednesday, December 4, 2024 in <a href="../../../category/programming/">programming</a> and <a href="../../../category/ruby/">ruby</a> </small> </h1> <p>It’s pretty cool that in many cases Rails migrations can reverse their action when you use the <code>destroy</code> command. For example:</p> <p><code> % rails generate model user name:string invoke active_record create db/migrate/20241204143118_create_users.rb create app/models/user.rb invoke test_unit create test/models/user_test.rb create test/fixtures/users.yml % rails destroy model user invoke active_record remove db/migrate/20241204143118_create_users.rb remove app/models/user.rb invoke test_unit remove test/models/user_test.rb remove test/fixtures/users.yml </code></p> <p>So that’s pretty fun. Rails migrations are built on Thor, but there’s not a lot of documentation on how to reverse a Thor action.</p> <p>I had to study the code and its specs to figure this out, and even then it took some noodling around.</p> <p>Here’s how to do it. In your Thor file, you create actions like so. Note the setting of <code>self.behavior</code>.</p> <p>``` desc “prepend-before”, “prepend to a file before a match” def prepend_before # behavior: Does not inject if the content exists <em>anywhere</em> in the file inject_into_file “doc/README”, “more content\n”, before: “<strong>end</strong>” end</p> <p>desc “revoke-prepend”, “revoke prepend” def revoke_prepend self.behavior = :revoke inject_into_file “doc/README”, “more content\n”, :before =&gt; “<strong>end</strong>” end ```</p> <p>Here’s what run the looks like.</p> <p><code> % thor ex:prepend-before insert doc/README % thor ex:revoke-prepend subtract doc/README </code></p> <p>You’re welcome. Note that not all Thor actions allow for revocation: At some point I’ll add a list of such actions here.</p> <div id=disqus_thread></div> <script>
+        </script> </div> </nav> <div class=container-fluid> <h1>How to reverse (revert) some Thor actions <small> by jgn on Wednesday, December 4, 2024 in <a href="../../../category/programming/">programming</a> and <a href="../../../category/ruby/">ruby</a> </small> </h1> <p>It&#39;s pretty cool that in many cases Rails migrations can reverse their action when you use the <code>destroy</code> command. For example:</p> <div class=highlight><pre class="highlight plaintext"><code>% rails generate model user name:string
+      invoke  active_record
+      create    db/migrate/20241204143118_create_users.rb
+      create    app/models/user.rb
+      invoke    test_unit
+      create      test/models/user_test.rb
+      create      test/fixtures/users.yml
+% rails destroy model user
+      invoke  active_record
+      remove    db/migrate/20241204143118_create_users.rb
+      remove    app/models/user.rb
+      invoke    test_unit
+      remove      test/models/user_test.rb
+      remove      test/fixtures/users.yml
+</code></pre></div> <p>So that&#39;s pretty fun. Rails migrations are built on Thor, but there&#39;s not a lot of documentation on how to reverse a Thor action.</p> <p>I had to study the code and its specs to figure this out, and even then it took some noodling around.</p> <p>Here&#39;s how to do it. In your Thor file, you create actions like so. Note the setting of <code>self.behavior</code>.</p> <div class=highlight><pre class="highlight plaintext"><code>  desc "prepend-before", "prepend to a file before a match"
+  def prepend_before
+    # behavior: Does not inject if the content exists *anywhere* in the file
+    inject_into_file "doc/README", "more content\n", before: "__end__"
+  end
+
+  desc "revoke-prepend", "revoke prepend"
+  def revoke_prepend
+    self.behavior = :revoke
+    inject_into_file "doc/README", "more content\n", :before =&gt; "__end__"
+  end
+</code></pre></div> <p>Here&#39;s what run the looks like.</p> <div class=highlight><pre class="highlight plaintext"><code>% thor ex:prepend-before
+      insert  doc/README
+% thor ex:revoke-prepend
+    subtract  doc/README
+</code></pre></div> <p>You&#39;re welcome. Note that not all Thor actions allow for revocation: At some point I&#39;ll add a list of such actions here.</p> <div id=disqus_thread></div> <script>
 //<![CDATA[
                   var disqus_shortname = '7fff';
           

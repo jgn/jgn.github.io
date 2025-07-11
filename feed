@@ -21,12 +21,12 @@
 Here are a couple of people discussion my dissertation, English Literary Anatomy, 1540-1621:
 Institution into Form (1993).&lt;/p&gt;
 
-&lt;audio src="/assets/audio/ela.mp3" controls=""&gt;&lt;/audio&gt;
+&lt;audio src="/assets/audio/ela.mp3" controls&gt;&lt;/audio&gt;
 
 &lt;p&gt;The discussion gets the main observations about the literature, but kind of misses the point about
-how much I saw/see “institutions” as really the primary frame for our undertanding of, well, basically: anything.
-If you are thinking of something through the framework of, say, “the corporation,” the boundaries
-of what you can think and describe are proscribed. Maybe today we’d talk about Overton windows.
+how much I saw/see &amp;quot;institutions&amp;quot; as really the primary frame for our undertanding of, well, basically: anything.
+If you are thinking of something through the framework of, say, &amp;quot;the corporation,&amp;quot; the boundaries
+of what you can think and describe are proscribed. Maybe today we&amp;#39;d talk about Overton windows.
 My argument was that the institition of anatomy was so compellingly lived by the barber-surgeons (and the King)
 that it could legitimize all kinds of thoughts that would otherwise be disallowed. Really, unthinkable.&lt;/p&gt;
 
@@ -43,36 +43,36 @@ dissertation.&lt;/p&gt;
     <author>
       <name>jgn</name>
     </author>
-    <content type="html">&lt;p&gt;I’m going to be taking the CIPP/E exam on May 7 to valdiate my understanding
+    <content type="html">&lt;p&gt;I&amp;#39;m going to be taking the CIPP/E exam on May 7 to valdiate my understanding
 of the European privacy regulations, GDPR.&lt;/p&gt;
 
-&lt;p&gt;I’ve been working with the sample exam (which you have to purchase) from CIPP, but
+&lt;p&gt;I&amp;#39;ve been working with the sample exam (which you have to purchase) from CIPP, but
 wanted more questions. So I wrote this prompt for &lt;a href="https://claude.ai"&gt;Claude&lt;/a&gt; (3.7 Sonnet).&lt;/p&gt;
 
-&lt;p&gt;The “OUTLINE” as given below is from the &lt;a href="https://iapp.org/certify/get-certified/cippe/"&gt;Body of Knowledge&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &amp;quot;OUTLINE&amp;quot; as given below is from the &lt;a href="https://iapp.org/certify/get-certified/cippe/"&gt;Body of Knowledge&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;In what’s below, I’m only asking Claude to generate questions for only a few domains. By this
+&lt;p&gt;In what&amp;#39;s below, I&amp;#39;m only asking Claude to generate questions for only a few domains. By this
 means, I can focus. The reason I ask for that CSV section is so that I can test myself and keep
 all of the answers for all quizzes (which will be on different domains) so that I can do some
 analytics on it and figure out where I need to study more.&lt;/p&gt;
 
-&lt;p&gt;I would say that Claude’s questions and answers are pretty easy; I need to think about how to
+&lt;p&gt;I would say that Claude&amp;#39;s questions and answers are pretty easy; I need to think about how to
 prompt Claude to write harder questions that are still helpful.&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;hr&gt;
 
 &lt;p&gt;You are an expert in GDPR: The Articles, the Recitals, and the EDPB Guidelines.&lt;/p&gt;
 
-&lt;h3 id="your-style-of-question"&gt;Your style of question&lt;/h3&gt;
+&lt;h3&gt;Your style of question&lt;/h3&gt;
 
 &lt;p&gt;You are also a very considerate teacher who seeks to write questions that help your students
 learn what is important. The questions must be very clear, and must not go into the obscure corners
-of the law. While questions shouldn’t be deliberately misleading, they often require distinguishing
+of the law. While questions shouldn&amp;#39;t be deliberately misleading, they often require distinguishing
 between similar concepts. At the same time, you should not insult the intelligence of the test-taker
-by writing questions that are trivial. You may write a question that shows a bit of humor, but don’t
+by writing questions that are trivial. You may write a question that shows a bit of humor, but don&amp;#39;t
 overdo it.&lt;/p&gt;
 
-&lt;h3 id="difficulty-and-duration"&gt;Difficulty and duration&lt;/h3&gt;
+&lt;h3&gt;Difficulty and duration&lt;/h3&gt;
 
 &lt;p&gt;The person taking the test will devote at most 2 minute to each question. The total time should
 be the number of questions times the number of minutes for each question. They will not have access
@@ -80,45 +80,45 @@ to the Internet or any printed resources. Thus, the questions must exercise know
 plausibly remembered by a smart student. Questions may require some nuanced details that demonstrate
 deeper knowledge.&lt;/p&gt;
 
-&lt;h3 id="clarity-of-questions"&gt;Clarity of questions&lt;/h3&gt;
+&lt;h3&gt;Clarity of questions&lt;/h3&gt;
 
 &lt;p&gt;Review your work and think critically about your questions:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Is the question clear?&lt;/li&gt;
-  &lt;li&gt;Are the answers clear?&lt;/li&gt;
-  &lt;li&gt;Is the question interesting? This would be subjective, but use your best judgement.&lt;/li&gt;
+&lt;li&gt;Is the question clear?&lt;/li&gt;
+&lt;li&gt;Are the answers clear?&lt;/li&gt;
+&lt;li&gt;Is the question interesting? This would be subjective, but use your best judgement.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;If the answer is “no” to any of these questions, revise the question and its answers so that they
+&lt;p&gt;If the answer is &amp;quot;no&amp;quot; to any of these questions, revise the question and its answers so that they
 are clear and interesting.&lt;/p&gt;
 
-&lt;h3 id="other-details"&gt;Other details&lt;/h3&gt;
+&lt;h3&gt;Other details&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Each question should be multiple choice with 4 options labeled A-D&lt;/li&gt;
-  &lt;li&gt;Ensure all distractors (wrong answer options) are plausible but clearly incorrect. Distractors
+&lt;li&gt;Each question should be multiple choice with 4 options labeled A-D&lt;/li&gt;
+&lt;li&gt;Ensure all distractors (wrong answer options) are plausible but clearly incorrect. Distractors
 should represent common misconceptions or partial understanding of the concepts.&lt;/li&gt;
-  &lt;li&gt;Verify that each question has only one unambiguously correct answer&lt;/li&gt;
-  &lt;li&gt;The answers must also not be of the type that pick multiple answers such as “Both A and B”&lt;/li&gt;
-  &lt;li&gt;Check that the language used in questions and answers is precise and not open to interpretation&lt;/li&gt;
-  &lt;li&gt;Confirm that questions test understanding rather than just recall of facts&lt;/li&gt;
-  &lt;li&gt;Verify that the question directly relates to the specified subdomain and topic&lt;/li&gt;
+&lt;li&gt;Verify that each question has only one unambiguously correct answer&lt;/li&gt;
+&lt;li&gt;The answers must also not be of the type that pick multiple answers such as &amp;quot;Both A and B&amp;quot;&lt;/li&gt;
+&lt;li&gt;Check that the language used in questions and answers is precise and not open to interpretation&lt;/li&gt;
+&lt;li&gt;Confirm that questions test understanding rather than just recall of facts&lt;/li&gt;
+&lt;li&gt;Verify that the question directly relates to the specified subdomain and topic&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id="what-you-must-do"&gt;what you must do&lt;/h3&gt;
+&lt;h3&gt;what you must do&lt;/h3&gt;
 
 &lt;p&gt;Generate 18 questions that reference items in the following OUTLINE. In the OUTLINE, the subdomain
-are given with capital letters. For instance, “Data Protection Concepts” is in subdomain A, and
-“Personal data” is sub-subdomain 1. The enumeration of Articles, Recitals, Guidelines, and Opinions
-(indicated with the word “Mostly”)  is to provide hints to you for question coverage. You may go
+are given with capital letters. For instance, &amp;quot;Data Protection Concepts&amp;quot; is in subdomain A, and
+&amp;quot;Personal data&amp;quot; is sub-subdomain 1. The enumeration of Articles, Recitals, Guidelines, and Opinions
+(indicated with the word &amp;quot;Mostly&amp;quot;)  is to provide hints to you for question coverage. You may go
 beyond these if you like.&lt;/p&gt;
 
 &lt;p&gt;Your 18 questions must have 5 from subdomain A, 4 from subdomain B, 4 from subdomain C,
 and 5 from subdomain D. The distribution of questions regarding the sub-subdomains is up to you,
 based on your understanding of the importance of the topic to the GDPR. The questions need not be in subdomain order.&lt;/p&gt;
 
-&lt;h4 id="scenarios"&gt;Scenarios&lt;/h4&gt;
+&lt;h4&gt;Scenarios&lt;/h4&gt;
 
 &lt;p&gt;Some questions may be preceded with a scenario, which is then used for 2-3 of the following
 questions. Note that the scenario may address multiple subdomains. For
@@ -132,7 +132,7 @@ longer that 500 words. You may use paragraphs for the scenario. The entire quiz 
 &lt;p&gt;Finally, scenarios should be written with realistic but complex business situations with nuanced
 legal implications requiring application of &lt;em&gt;multiple&lt;/em&gt; GDPR principles.&lt;/p&gt;
 
-&lt;h3 id="output-format"&gt;Output format&lt;/h3&gt;
+&lt;h3&gt;Output format&lt;/h3&gt;
 
 &lt;p&gt;First, a section labeled QUESTIONS. This will not provide the correct answer or the rationale.&lt;/p&gt;
 
@@ -155,13 +155,13 @@ question 1 is B, it will say: 1: B&lt;/p&gt;
 &lt;p&gt;Fourth, a section labeled ANSWERS AND RATIONALES. For each question, there will be:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;The question number, the question, and the list of answers, A-D.&lt;/li&gt;
-  &lt;li&gt;The correct answer.&lt;/li&gt;
-  &lt;li&gt;The rationale. Rationales should be 3-5 sentences explaining why the correct answer is right and
+&lt;li&gt;The question number, the question, and the list of answers, A-D.&lt;/li&gt;
+&lt;li&gt;The correct answer.&lt;/li&gt;
+&lt;li&gt;The rationale. Rationales should be 3-5 sentences explaining why the correct answer is right and
 briefly why other options are wrong. Rationales should identify common misconceptions when relevant.&lt;/li&gt;
-  &lt;li&gt;The subdomain.&lt;/li&gt;
-  &lt;li&gt;The sub-subdomain.&lt;/li&gt;
-  &lt;li&gt;Key Articles and Recitals from GDPR, and the names of any relevant Guideslines. This may go beyond
+&lt;li&gt;The subdomain.&lt;/li&gt;
+&lt;li&gt;The sub-subdomain.&lt;/li&gt;
+&lt;li&gt;Key Articles and Recitals from GDPR, and the names of any relevant Guideslines. This may go beyond
 the suggestions in the OUTLINE. They may be simple references such as Article 4 or Guideline 07/1010.
 I am assuming that your rationale will provide enough information so that the explanations of
 the correct and incorrect answers make sense.&lt;/li&gt;
@@ -178,15 +178,15 @@ not just memorization of facts.&lt;/p&gt;
 The exam taker will also know about Opinion 4/2007&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Personal data&lt;/li&gt;
-  &lt;li&gt;Sensitive personal data
+&lt;li&gt;Personal data&lt;/li&gt;
+&lt;li&gt;Sensitive personal data
 a. Special categories of personal data&lt;/li&gt;
-  &lt;li&gt;Pseudonymous and anonymous data&lt;/li&gt;
-  &lt;li&gt;Processing&lt;/li&gt;
-  &lt;li&gt;Controller&lt;/li&gt;
-  &lt;li&gt;Processor
-  a. Guidelines 07/2020 on the concepts of controller and processor in the GDPR&lt;/li&gt;
-  &lt;li&gt;Data subject&lt;/li&gt;
+&lt;li&gt;Pseudonymous and anonymous data&lt;/li&gt;
+&lt;li&gt;Processing&lt;/li&gt;
+&lt;li&gt;Controller&lt;/li&gt;
+&lt;li&gt;Processor
+a. Guidelines 07/2020 on the concepts of controller and processor in the GDPR&lt;/li&gt;
+&lt;li&gt;Data subject&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;B. Territorial and Material Scope of the General Data Protection Regulation (generate 4 questions)&lt;/p&gt;
@@ -194,9 +194,9 @@ a. Special categories of personal data&lt;/li&gt;
 &lt;p&gt;Mostly Article 3, Guidelines 3/2018&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Establishment in the EU&lt;/li&gt;
-  &lt;li&gt;Non-establishment in the EU
-  a. Guidelines 3/2018 on the territorial scope of the GDPR&lt;/li&gt;
+&lt;li&gt;Establishment in the EU&lt;/li&gt;
+&lt;li&gt;Non-establishment in the EU
+a. Guidelines 3/2018 on the territorial scope of the GDPR&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;C. Data Processing Principles (generate 4 questions)&lt;/p&gt;
@@ -204,12 +204,12 @@ a. Special categories of personal data&lt;/li&gt;
 &lt;p&gt;Mostly Articles 5, 39, and Recitals 39, 74 and the ePrivacy Directive&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Fairness and lawfulness&lt;/li&gt;
-  &lt;li&gt;Purpose limitation&lt;/li&gt;
-  &lt;li&gt;Proportionality&lt;/li&gt;
-  &lt;li&gt;Accuracy&lt;/li&gt;
-  &lt;li&gt;Storage limitation (retention)&lt;/li&gt;
-  &lt;li&gt;Integrity and confidentiality&lt;/li&gt;
+&lt;li&gt;Fairness and lawfulness&lt;/li&gt;
+&lt;li&gt;Purpose limitation&lt;/li&gt;
+&lt;li&gt;Proportionality&lt;/li&gt;
+&lt;li&gt;Accuracy&lt;/li&gt;
+&lt;li&gt;Storage limitation (retention)&lt;/li&gt;
+&lt;li&gt;Integrity and confidentiality&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;D. Lawful Processing Criteria (generate 5 questions)&lt;/p&gt;
@@ -217,11 +217,11 @@ a. Special categories of personal data&lt;/li&gt;
 &lt;p&gt;Mostly Articles 4, 6, 7, 8, 9, 13, 14, Recitals 32, 42, 43, 44, 45, 47, 51, 53&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Consent&lt;/li&gt;
-  &lt;li&gt;Contractual necessity&lt;/li&gt;
-  &lt;li&gt;Legal obligation, vital interests and public interest&lt;/li&gt;
-  &lt;li&gt;Legitimate interests&lt;/li&gt;
-  &lt;li&gt;Special categories of processing&lt;/li&gt;
+&lt;li&gt;Consent&lt;/li&gt;
+&lt;li&gt;Contractual necessity&lt;/li&gt;
+&lt;li&gt;Legal obligation, vital interests and public interest&lt;/li&gt;
+&lt;li&gt;Legitimate interests&lt;/li&gt;
+&lt;li&gt;Special categories of processing&lt;/li&gt;
 &lt;/ol&gt;
 </content>
   </entry>
@@ -237,80 +237,80 @@ a. Special categories of personal data&lt;/li&gt;
     <content type="html">&lt;p&gt;Here are some notes about radio button and checkbox defaults for times when you need an affirmative
 answer.&lt;/p&gt;
 
-&lt;h3 id="affirmative-choices"&gt;Affirmative choices&lt;/h3&gt;
+&lt;h3&gt;Affirmative choices&lt;/h3&gt;
 
 &lt;p&gt;The Nielsen/Norman Group (no relation) has
 &lt;a href="https://www.nngroup.com/articles/radio-buttons-default-selection/"&gt;an interesting article on radio buttons by Kara Pernice&lt;/a&gt;.
 Its advice is sound, but I want to note a case where there could perhaps be even more obviousness.&lt;/p&gt;
 
-&lt;p&gt;The next time you design a radio button interface, I’d like to advise you to think about an
+&lt;p&gt;The next time you design a radio button interface, I&amp;#39;d like to advise you to think about an
 additional choice, which is essentially a default choice representing that a choice is not made.&lt;/p&gt;
 
 &lt;p&gt;Radio buttons provide for a mutually-exclusive choice. For instance, an airline serves two meals to
 first-class customers, one with pasta, one with rice. You can only pick one.&lt;/p&gt;
 
 &lt;div class="quote-rendering"&gt;
-&lt;input type="radio" name="pasta_or_rice" checked="" /&gt; pasta &lt;br /&gt;
-&lt;input type="radio" name="pasta_or_rice" /&gt; rice
+&lt;input type="radio" name="pasta_or_rice" checked&gt; pasta &lt;br/&gt;
+&lt;input type="radio" name="pasta_or_rice"&gt; rice
 &lt;/div&gt;
 
 &lt;p&gt;But this hides the implied third choice, which is not to have any meal. Better:&lt;/p&gt;
 
 &lt;div class="quote-rendering"&gt;
-&lt;input type="radio" name="pasta_or_rice_2" checked="" /&gt; pasta &lt;br /&gt;
-&lt;input type="radio" name="pasta_or_rice_2" /&gt; rice &lt;br /&gt;
-&lt;input type="radio" name="pasta_or_rice_2" /&gt; neither
+&lt;input type="radio" name="pasta_or_rice_2" checked&gt; pasta &lt;br/&gt;
+&lt;input type="radio" name="pasta_or_rice_2"&gt; rice &lt;br/&gt;
+&lt;input type="radio" name="pasta_or_rice_2"&gt; neither
 &lt;/div&gt;
 
 &lt;p&gt;This may become important for legal requests for a formal, affirmative choice. For example, a health
 survey might ask:&lt;/p&gt;
 
 &lt;div class="quote-rendering"&gt;
-Are you pregnant? &lt;p /&gt;
+Are you pregnant? &lt;p/&gt;
 
-&lt;input type="radio" name="no_yes" checked="" /&gt; No &lt;br /&gt;
-&lt;input type="radio" name="no_yes" /&gt; Yes
+&lt;input type="radio" name="no_yes" checked&gt; No &lt;br/&gt;
+&lt;input type="radio" name="no_yes"&gt; Yes
 &lt;/div&gt;
 
-&lt;p&gt;But this doesn’t allow the choice to say neither No nor Yes. Also, suppose you are a healthcare
-company that asks this question, and you don’t want to be blamed if the user gets the wrong
+&lt;p&gt;But this doesn&amp;#39;t allow the choice to say neither No nor Yes. Also, suppose you are a healthcare
+company that asks this question, and you don&amp;#39;t want to be blamed if the user gets the wrong
 treatment according to this answer. The user might say: I was in a rush and took all of the default
-answers; the form reported this answer as “No,” but it was actually “Yes.”&lt;/p&gt;
+answers; the form reported this answer as &amp;quot;No,&amp;quot; but it was actually &amp;quot;Yes.&amp;quot;&lt;/p&gt;
 
 &lt;p&gt;Some people try to solve this with a form where neither choice is indicated by default, and the user
 is forced to choose one or the other:&lt;/p&gt;
 
 &lt;div class="quote-rendering"&gt;
-&lt;input type="radio" name="no_yes_2" /&gt; No &lt;br /&gt;
-&lt;input type="radio" name="no_yes_2" /&gt; Yes
+&lt;input type="radio" name="no_yes_2"&gt; No &lt;br/&gt;
+&lt;input type="radio" name="no_yes_2"&gt; Yes
 &lt;/div&gt;
 
-&lt;p&gt;I don’t like this one, because the form typically can’t be submitted with no choice, or there is no
-way undo choosing one of the options (there’s no way to go back to the “neither is picked”
+&lt;p&gt;I don&amp;#39;t like this one, because the form typically can&amp;#39;t be submitted with no choice, or there is no
+way undo choosing one of the options (there&amp;#39;s no way to go back to the &amp;quot;neither is picked&amp;quot;
 scenario).&lt;/p&gt;
 
-&lt;p&gt;So this is missing the third option, which in some forms is “prefer not to say,” or “not reported.”
+&lt;p&gt;So this is missing the third option, which in some forms is &amp;quot;prefer not to say,&amp;quot; or &amp;quot;not reported.&amp;quot;
 Those two phrasings of the answer are in fact a little pushy. Does the user actually &lt;em&gt;prefer&lt;/em&gt; not to
-say, or are they compelled not to say? Additionally, “not reported” is not quite right, because the
+say, or are they compelled not to say? Additionally, &amp;quot;not reported&amp;quot; is not quite right, because the
 user is reporting something: The user is reporting neither No or Yes. And this third option should
 be the default:&lt;/p&gt;
 
 &lt;div class="quote-rendering"&gt;
-&lt;input type="radio" name="no_yes_3" /&gt; No &lt;br /&gt;
-&lt;input type="radio" name="no_yes_3" /&gt; Yes &lt;br /&gt;
-&lt;input type="radio" name="no_yes_3" checked="" /&gt; No choice made &lt;br /&gt;
+&lt;input type="radio" name="no_yes_3"&gt; No &lt;br/&gt;
+&lt;input type="radio" name="no_yes_3"&gt; Yes &lt;br/&gt;
+&lt;input type="radio" name="no_yes_3" checked&gt; No choice made &lt;br/&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Now if a user accidentally takes the default answer, the healthcare company is protected because
 they can show that no choice was made. If a procedure must be conducted that depends on
 pregnancy status, they can ask again in a different setting. Additionally, the confidence in the No
 or Yes answer is enhanced, because the user has to make an affirmative decision to choose something
-other than “No choice made.”&lt;/p&gt;
+other than &amp;quot;No choice made.&amp;quot;&lt;/p&gt;
 
 &lt;p&gt;One last thing: If you implement this, make sure that the date/time of the choice is captured in the
 database. (It can also help to put the statement itself into the database.) People go in and out of
-the state of pregnancy, and you should capture that so that it’s clear that the answer wasn’t
-provided for all time. Indeed, with this in mind, the question “are you pregnant?” might be changed
+the state of pregnancy, and you should capture that so that it&amp;#39;s clear that the answer wasn&amp;#39;t
+provided for all time. Indeed, with this in mind, the question &amp;quot;are you pregnant?&amp;quot; might be changed
 to:&lt;/p&gt;
 
 &lt;div class="quote-rendering"&gt;
@@ -319,46 +319,46 @@ On this date, 3-Jan-2025, are you pregnant?
 
 &lt;p&gt;By this means the wording for the user and the data captured on the back-end is aligned.&lt;/p&gt;
 
-&lt;h3 id="consents"&gt;Consents&lt;/h3&gt;
+&lt;h3&gt;Consents&lt;/h3&gt;
 
-&lt;p&gt;There’s a similar problem with consents.&lt;/p&gt;
+&lt;p&gt;There&amp;#39;s a similar problem with consents.&lt;/p&gt;
 
-&lt;p&gt;Let’s say that you’re a healthcare company and want to satisfy HIPAA requirements and encrypt
+&lt;p&gt;Let&amp;#39;s say that you&amp;#39;re a healthcare company and want to satisfy HIPAA requirements and encrypt
 personal data when in transit. In most cases, email is encrypted end-to-end with TLS, but you know
-of cases where this is not feasible (because the patient’s email server can’t handle it). Therefore,
+of cases where this is not feasible (because the patient&amp;#39;s email server can&amp;#39;t handle it). Therefore,
 you want to ask the user for consent to send unencrypted email. With this consent, you may go ahead
 and send unencrypted email. Without this consent, you continue not sending such email. Thus, not
-sending the email is the default, whether or not you capture a consent decision. No one says “please
-do not send me unencrypted email” up front.&lt;/p&gt;
+sending the email is the default, whether or not you capture a consent decision. No one says &amp;quot;please
+do not send me unencrypted email&amp;quot; up front.&lt;/p&gt;
 
-&lt;p&gt;Here’s another example: The request to consent to treatment. Without such consent, you won’t be
+&lt;p&gt;Here&amp;#39;s another example: The request to consent to treatment. Without such consent, you won&amp;#39;t be
 treated.&lt;/p&gt;
 
 &lt;p&gt;What this means is that it is not appropriate to use radio buttons to collect a Yes or No answer.
 This is wrong:&lt;/p&gt;
 
 &lt;div class="quote-rendering"&gt;
-&lt;input type="radio" name="no_yes_4" checked="" /&gt; No &lt;br /&gt;
-&lt;input type="radio" name="no_yes_4" /&gt; Yes
+&lt;input type="radio" name="no_yes_4" checked&gt; No &lt;br/&gt;
+&lt;input type="radio" name="no_yes_4"&gt; Yes
 &lt;/div&gt;
 
-&lt;p&gt;Don’t do this. The “No” answer is meaningless, because without consent, the email will already not
-be sent. Essentially, the user is being asked to consent – or do nothing. The best interface is a
+&lt;p&gt;Don&amp;#39;t do this. The &amp;quot;No&amp;quot; answer is meaningless, because without consent, the email will already not
+be sent. Essentially, the user is being asked to consent -- or do nothing. The best interface is a
 checkbox or possibly a button:&lt;/p&gt;
 
 &lt;div class="quote-rendering"&gt;
 In most cases, BigHealth will send email that is encrypted end-to-end, but in some cases, this is
 not feasible for technical reasons. Do you consent to email being sent unencrypted if the encryption
-can't be accomplished? &lt;p /&gt;
+can't be accomplished? &lt;p/&gt;
 
-&lt;input type="checkbox" name="consent-1" /&gt; I consent to allowing unencrypted email
+&lt;input type="checkbox" name="consent-1"&gt; I consent to allowing unencrypted email
 &lt;/div&gt;
 
 &lt;p&gt;Note as well that this form should only be presented when the user has not given consent. (If the
 user has given consent, then you should show a form providing for the withdrawal of consent: See
 below.) As for the affirmative radio button answers, the date/time should be collected on the back
 end. Additionally, the table should not have a column for Yes/No values. It should be a table called
-“consents” where each row is just is the date/time. The appearance of such a row means that on that
+&amp;quot;consents&amp;quot; where each row is just is the date/time. The appearance of such a row means that on that
 date/time, the user consented. But this is probably not quite enough.&lt;/p&gt;
 
 &lt;p&gt;You also want to allow for the withdrawal of consent. In this case the language would be something like this:&lt;/p&gt;
@@ -367,15 +367,15 @@ date/time, the user consented. But this is probably not quite enough.&lt;/p&gt;
 
 In most cases, BigHealth will send email that is encrypted end-to-end, but in some cases, this is
 not feasible for technical reasons. On 3-Jan-2025, you consented to this activity.
-&lt;p /&gt;
+&lt;p/&gt;
 Do you withdraw your consent to email being sent unencrypted if the encryption can't be accomplished?
-&lt;p /&gt;
-&lt;input type="checkbox" name="consent-withdrawal-1" /&gt; I withdraw my consent to allowing unencrypted email
+&lt;p/&gt;
+&lt;input type="checkbox" name="consent-withdrawal-1"&gt; I withdraw my consent to allowing unencrypted email
 &lt;/div&gt;
 
-&lt;p&gt;Now, on the back-end, you probably want a table called “consent decisions.” There is a row with
-columns defining who consented, what the consent statement was about, a “decision,” with values
-“consented” or “withdrawn,” and a column for the date/time of the decision. It can help to have a
+&lt;p&gt;Now, on the back-end, you probably want a table called &amp;quot;consent decisions.&amp;quot; There is a row with
+columns defining who consented, what the consent statement was about, a &amp;quot;decision,&amp;quot; with values
+&amp;quot;consented&amp;quot; or &amp;quot;withdrawn,&amp;quot; and a column for the date/time of the decision. It can help to have a
 separate table of consent statements, and rather than showing the literal language on the front-end,
 use the language from the table so that everything ties up properly. I have seen companies
 accidentally introduce drift into this process where the consent statement in the database does not
@@ -391,17 +391,17 @@ relations to the decisions and/or consents.&lt;/p&gt;
 (citing relevant portions of the GDPR) that outlines how consents should work. Consent must be&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;freely given&lt;/li&gt;
-  &lt;li&gt;specific and informed&lt;/li&gt;
-  &lt;li&gt;unambiguous&lt;/li&gt;
-  &lt;li&gt;explicit&lt;/li&gt;
+&lt;li&gt;freely given&lt;/li&gt;
+&lt;li&gt;specific and informed&lt;/li&gt;
+&lt;li&gt;unambiguous&lt;/li&gt;
+&lt;li&gt;explicit&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;On &lt;a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/consent/how-should-we-obtain-record-and-manage-consent/#how4"&gt;another page&lt;/a&gt;,
 they note that you should consider refreshes of consent:&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;You should also consider whether to automatically refresh consent at appropriate intervals. How
+&lt;p&gt;You should also consider whether to automatically refresh consent at appropriate intervals. How
 often it’s appropriate to do so will depend on the particular context, including people’s
 expectations, whether you are in regular contact, and how disruptive repeated consent requests
 would be to the individual. If in doubt, we recommend you consider refreshing consent every two
@@ -425,11 +425,9 @@ if the user has not had an opportunity to re-consent.&lt;/p&gt;
     <author>
       <name>jgn</name>
     </author>
-    <content type="html">&lt;p&gt;It’s pretty cool that in many cases Rails migrations can reverse their action when you use
+    <content type="html">&lt;p&gt;It&amp;#39;s pretty cool that in many cases Rails migrations can reverse their action when you use
 the &lt;code&gt;destroy&lt;/code&gt; command. For example:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;
-% rails generate model user name:string
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;% rails generate model user name:string
       invoke  active_record
       create    db/migrate/20241204143118_create_users.rb
       create    app/models/user.rb
@@ -443,42 +441,35 @@ the &lt;code&gt;destroy&lt;/code&gt; command. For example:&lt;/p&gt;
       invoke    test_unit
       remove      test/models/user_test.rb
       remove      test/fixtures/users.yml
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;So that’s pretty fun. Rails migrations are built on Thor, but there’s not a lot of
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So that&amp;#39;s pretty fun. Rails migrations are built on Thor, but there&amp;#39;s not a lot of
 documentation on how to reverse a Thor action.&lt;/p&gt;
 
 &lt;p&gt;I had to study the code and its specs to figure this out, and even then it took some
 noodling around.&lt;/p&gt;
 
-&lt;p&gt;Here’s how to do it. In your Thor file, you create actions like so. Note the setting
+&lt;p&gt;Here&amp;#39;s how to do it. In your Thor file, you create actions like so. Note the setting
 of &lt;code&gt;self.behavior&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;```
-  desc “prepend-before”, “prepend to a file before a match”
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;  desc "prepend-before", "prepend to a file before a match"
   def prepend_before
-    # behavior: Does not inject if the content exists &lt;em&gt;anywhere&lt;/em&gt; in the file
-    inject_into_file “doc/README”, “more content\n”, before: “&lt;strong&gt;end&lt;/strong&gt;”
-  end&lt;/p&gt;
+    # behavior: Does not inject if the content exists *anywhere* in the file
+    inject_into_file "doc/README", "more content\n", before: "__end__"
+  end
 
-&lt;p&gt;desc “revoke-prepend”, “revoke prepend”
+  desc "revoke-prepend", "revoke prepend"
   def revoke_prepend
     self.behavior = :revoke
-    inject_into_file “doc/README”, “more content\n”, :before =&amp;gt; “&lt;strong&gt;end&lt;/strong&gt;”
+    inject_into_file "doc/README", "more content\n", :before =&amp;gt; "__end__"
   end
-```&lt;/p&gt;
-
-&lt;p&gt;Here’s what run the looks like.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;
-% thor ex:prepend-before
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here&amp;#39;s what run the looks like.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;% thor ex:prepend-before
       insert  doc/README
 % thor ex:revoke-prepend
     subtract  doc/README
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;You’re welcome. Note that not all Thor actions allow for revocation: At some point
-I’ll add a list of such actions here.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You&amp;#39;re welcome. Note that not all Thor actions allow for revocation: At some point
+I&amp;#39;ll add a list of such actions here.&lt;/p&gt;
 </content>
   </entry>
   <entry>
@@ -494,175 +485,157 @@ I’ll add a list of such actions here.&lt;/p&gt;
 lines.&lt;/p&gt;
 
 &lt;p&gt;Example input text:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;The output for `ls-files` is incredibly limited, right? That's because the
+typical use case is to list files of a certain type.
 
-&lt;p&gt;```
-The output for &lt;code&gt;ls-files&lt;/code&gt; is incredibly limited, right? That’s because the
-typical use case is to list files of a certain type.&lt;/p&gt;
+You can do
 
-&lt;p&gt;You can do&lt;/p&gt;
-
-&lt;p&gt;ls-files -c  # show cached (tracked)
+  ls-files -c  # show cached (tracked)
   ls-files -d  # show unstaged deletions
-  ls-files -u  # show unmerged&lt;/p&gt;
+  ls-files -u  # show unmerged
 
-&lt;p&gt;There is also an option -t that shows status tag (though the tags are weird:
+There is also an option -t that shows status tag (though the tags are weird:
 for instance, the tag for a tracked file is: H).
-```&lt;/p&gt;
-
-&lt;p&gt;Fortunately there’s a nice tool called &lt;code&gt;fmt&lt;/code&gt; that can do pretty much what we want.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Fortunately there&amp;#39;s a nice tool called &lt;code&gt;fmt&lt;/code&gt; that can do pretty much what we want.&lt;/p&gt;
 
 &lt;p&gt;You can do &lt;code&gt;fmt -w 50 &amp;lt;text.txt&lt;/code&gt; and get the following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;The output for `ls-files` is incredibly limited,
+right? That's because the typical use case is to
+list files of a certain type.
 
-&lt;p&gt;```
-The output for &lt;code&gt;ls-files&lt;/code&gt; is incredibly limited,
-right? That’s because the typical use case is to
-list files of a certain type.&lt;/p&gt;
+You can do
 
-&lt;p&gt;You can do&lt;/p&gt;
-
-&lt;p&gt;ls-files -c  # show cached (tracked) ls-files -d
+  ls-files -c  # show cached (tracked) ls-files -d
   # show unstaged deletions ls-files -u  # show
-  unmerged&lt;/p&gt;
+  unmerged
 
-&lt;p&gt;There is also an option -t that shows status tag
+There is also an option -t that shows status tag
 (though the tags are weird: for instance, the tag
 for a tracked file is: H).
-```&lt;/p&gt;
-
-&lt;p&gt;Well that’s not right. I would like it to leave lines alone that have fewer characters than
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Well that&amp;#39;s not right. I would like it to leave lines alone that have fewer characters than
 the specified width. In other words, I want:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;The output for `ls-files` is incredibly limited,
+right? That's because the typical use case is to
+list files of a certain type.
 
-&lt;p&gt;```
-The output for &lt;code&gt;ls-files&lt;/code&gt; is incredibly limited,
-right? That’s because the typical use case is to
-list files of a certain type.&lt;/p&gt;
+You can do
 
-&lt;p&gt;You can do&lt;/p&gt;
-
-&lt;p&gt;ls-files -c  # show cached (tracked)
+  ls-files -c  # show cached (tracked)
   ls-files -d  # show unstaged deletions
-  ls-files -u  # show unmerged&lt;/p&gt;
+  ls-files -u  # show unmerged
 
-&lt;p&gt;There is also an option -t that shows status tag
+There is also an option -t that shows status tag
 (though the tags are weird: for instance, the tag
 for a tracked file is: H).
-```&lt;/p&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;I could do this pretty fast in Ruby, but in this case, I needed it in shell (for bash), and
-I didn’t want to incur the startup time of a Ruby script called from a bash script.&lt;/p&gt;
+I didn&amp;#39;t want to incur the startup time of a Ruby script called from a bash script.&lt;/p&gt;
 
-&lt;p&gt;My first instinct was to use arrays, because that feels natural to me as a programmer – I might
+&lt;p&gt;My first instinct was to use arrays, because that feels natural to me as a programmer -- I might
 split on newlines and do something with the result.&lt;/p&gt;
 
-&lt;p&gt;Here’s what I came up with. Note that on my target, the Mac, the latest version of bash is 3.2
-(for licensing reasons). This means I couldn’t use some of the newer array functions from bash 4.&lt;/p&gt;
+&lt;p&gt;Here&amp;#39;s what I came up with. Note that on my target, the Mac, the latest version of bash is 3.2
+(for licensing reasons). This means I couldn&amp;#39;t use some of the newer array functions from bash 4.&lt;/p&gt;
 
 &lt;p&gt;(By the way, I do know the bash convention of using all uppercase for environment variable
-names, but that’s just too ugly. Sorry.)&lt;/p&gt;
+names, but that&amp;#39;s just too ugly. Sorry.)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight shell"&gt;&lt;code&gt;&lt;span class="c"&gt;#!/usr/bin/env bash&lt;/span&gt;
 
-&lt;p&gt;```bash
-#!/usr/bin/env bash&lt;/p&gt;
+&lt;span class="nv"&gt;width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+&lt;span class="nb"&gt;shift
+&lt;/span&gt;&lt;span class="nv"&gt;text&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
 
-&lt;p&gt;width=”$1”
-shift
-text=(“$@”)&lt;/p&gt;
+&lt;span class="nv"&gt;output&lt;/span&gt;&lt;span class="o"&gt;=()&lt;/span&gt;
+&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="o"&gt;=()&lt;/span&gt;
+&lt;span class="nv"&gt;line&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;""&lt;/span&gt;
+&lt;span class="nv"&gt;last_index&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;0
 
-&lt;p&gt;output=()
-buffer=()
-line=””
-last_index=0&lt;/p&gt;
+&lt;span class="nv"&gt;format_command&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"fmt"&lt;/span&gt;    &lt;span class="c"&gt;# or `par -j`&lt;/span&gt;
 
-&lt;p&gt;format_command=”fmt”    # or &lt;code&gt;par -j&lt;/code&gt;&lt;/p&gt;
+format &lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+  &lt;span class="nb"&gt;local &lt;/span&gt;formatted
 
-&lt;p&gt;format () {
-  local formatted&lt;/p&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-gt&lt;/span&gt; 1 &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then
+    &lt;/span&gt;&lt;span class="nv"&gt;formatted&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s1"&gt;'%s'&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; | &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$format_command&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-w&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;width&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;)&lt;/span&gt;
+    output+&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$formatted&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;fi
+  &lt;/span&gt;output+&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;""&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+  &lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="o"&gt;=()&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
 
-&lt;p&gt;if [[ “${#buffer[@]}” -gt 1 ]]; then
-    formatted=$(printf ‘%s’ “${buffer[@]}” | “$format_command” -w “${width}”)
-    output+=(“$formatted”)
-  fi
-  output+=(“”)
-  buffer=()
-}&lt;/p&gt;
+&lt;span class="k"&gt;for &lt;/span&gt;line &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;text&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+  &lt;span class="c"&gt;# hit a newline; format everything accumulated in the buffer&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;line&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;""&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then
+    &lt;/span&gt;format
+  &lt;span class="c"&gt;# hit a short line; add it to the output unformatted&lt;/span&gt;
+  &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-eq&lt;/span&gt; 0 &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;line&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="s2"&gt;""&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;line&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-le&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;width&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then
+    &lt;/span&gt;output+&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+  &lt;span class="c"&gt;# a regular line; add it to the buffer for later formatting.&lt;/span&gt;
+  &lt;span class="k"&gt;else
+    &lt;/span&gt;buffer+&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt; "&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;fi
+done
 
-&lt;p&gt;for line in “${text[@]}”; do
-  # hit a newline; format everything accumulated in the buffer
-  if [ “${line}” == “” ]; then
-    format
-  # hit a short line; add it to the output unformatted
-  elif [[ “${#buffer[@]}” -eq 0 &amp;amp;&amp;amp; “${line}” != “” &amp;amp;&amp;amp; “${#line}” -le “${width}” ]]; then
-    output+=(“$line”)
-  # a regular line; add it to the buffer for later formatting.
-  else
-    buffer+=(“$line “)
-  fi
-done&lt;/p&gt;
+&lt;/span&gt;format
 
-&lt;p&gt;format&lt;/p&gt;
+&lt;span class="nv"&gt;last_index&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$((&lt;/span&gt; &lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;output&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="k"&gt;))&lt;/span&gt;
+&lt;span class="nb"&gt;unset&lt;/span&gt; &lt;span class="s2"&gt;"output[&lt;/span&gt;&lt;span class="nv"&gt;$last_index&lt;/span&gt;&lt;span class="s2"&gt;]"&lt;/span&gt;
 
-&lt;p&gt;last_index=$(( ${#output[@]} - 1 ))
-unset “output[$last_index]”&lt;/p&gt;
-
-&lt;h1 id="split-elements-in-original-on-newline"&gt;Split elements in original on newline&lt;/h1&gt;
-&lt;p&gt;split_on_newline=()
-while IFS= read -r line; do
-    split_on_newline+=(“$line”)
-done «&amp;lt; “$(printf ‘%s\n’ “${output[@]}”)”
-output=(“${split_on_newline[@]}”)
-```&lt;/p&gt;
-
-&lt;p&gt;So as you can see, there’s rather a lot of wrangling of arrays: getting lines added from a file.
-There’s also the syntax burden of bash arrays, which is non-trivial. I kept looking at this,
+&lt;span class="c"&gt;# Split elements in original on newline&lt;/span&gt;
+&lt;span class="nv"&gt;split_on_newline&lt;/span&gt;&lt;span class="o"&gt;=()&lt;/span&gt;
+&lt;span class="k"&gt;while &lt;/span&gt;&lt;span class="nv"&gt;IFS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;read&lt;/span&gt; &lt;span class="nt"&gt;-r&lt;/span&gt; line&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do
+    &lt;/span&gt;split_on_newline+&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s1"&gt;'%s\n'&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;output&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+&lt;span class="nv"&gt;output&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;split_on_newline&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So as you can see, there&amp;#39;s rather a lot of wrangling of arrays: getting lines added from a file.
+There&amp;#39;s also the syntax burden of bash arrays, which is non-trivial. I kept looking at this,
 and after awhile it just seemed dumb. Why not write a more routine bash command that reads
 from STDIN and writes to STDOUT?&lt;/p&gt;
 
 &lt;p&gt;So I came up with this, which is shorter and seems more natural:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight shell"&gt;&lt;code&gt;&lt;span class="c"&gt;#!/usr/bin/env bash&lt;/span&gt;
 
-&lt;p&gt;```bash
-#!/usr/bin/env bash&lt;/p&gt;
+&lt;span class="nv"&gt;width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;30
+&lt;span class="nb"&gt;command&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"fmt"&lt;/span&gt;
+&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;""&lt;/span&gt;
 
-&lt;p&gt;width=30
-command=”fmt”
-buffer=””&lt;/p&gt;
+&lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="nt"&gt;-n&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;
+&lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="nt"&gt;-n&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$2&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;command&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$2&lt;/span&gt;
 
-&lt;p&gt;[[ -n “$1” ]] &amp;amp;&amp;amp; width=$1
-[[ -n “$2” ]] &amp;amp;&amp;amp; command=$2&lt;/p&gt;
-
-&lt;p&gt;while IFS= read -r line; do
-  if [[ -z “$line” &amp;amp;&amp;amp; “${#buffer}” -ne 0 ]]; then
-    printf ‘%s\n’ “$buffer” | $command -w “$width”
-    printf “\n”
-    buffer=””
-  elif [[ “${#buffer}” -eq 0 &amp;amp;&amp;amp; “${#line}” -lt “$width” ]]; then
-    printf ‘%s\n’ “$line”
-  else
-    buffer+=”$line”
-    buffer+=” “
-  fi
+&lt;span class="k"&gt;while &lt;/span&gt;&lt;span class="nv"&gt;IFS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;read&lt;/span&gt; &lt;span class="nt"&gt;-r&lt;/span&gt; line&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do
+  if&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="nt"&gt;-z&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-ne&lt;/span&gt; 0 &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then
+    &lt;/span&gt;&lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s1"&gt;'%s\n'&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$buffer&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; | &lt;span class="nv"&gt;$command&lt;/span&gt; &lt;span class="nt"&gt;-w&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$width&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+    &lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+    &lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;""&lt;/span&gt;
+  &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-eq&lt;/span&gt; 0 &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;line&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-lt&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$width&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then
+    &lt;/span&gt;&lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s1"&gt;'%s\n'&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+  &lt;span class="k"&gt;else
+    &lt;/span&gt;buffer+&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+    buffer+&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;" "&lt;/span&gt;
+  &lt;span class="k"&gt;fi
 done
-printf ‘%s\n’ “$buffer” | $command -w “$width”
-```&lt;/p&gt;
-
+&lt;/span&gt;&lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s1"&gt;'%s\n'&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$buffer&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; | &lt;span class="nv"&gt;$command&lt;/span&gt; &lt;span class="nt"&gt;-w&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$width&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This one takes two parameters, the first being the width, and the second being the command
-to use (if one doesn’t want to use the default, &lt;code&gt;fmt&lt;/code&gt;). So if you like, you can use &lt;code&gt;par&lt;/code&gt; to
-justify the text. For example: &lt;code&gt;./wrap 50 "par -j"&lt;/code&gt; gets you:&lt;/p&gt;
+to use (if one doesn&amp;#39;t want to use the default, &lt;code&gt;fmt&lt;/code&gt;). So if you like, you can use &lt;code&gt;par&lt;/code&gt; to
+justify the text. For example: &lt;code&gt;./wrap 50 &amp;quot;par -j&amp;quot;&lt;/code&gt; gets you:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;The output  for `ls-files` is  incredibly limited,
+right? That's  because the typical use  case is to
+list files of a certain type.
 
-&lt;p&gt;```
-The output  for &lt;code&gt;ls-files&lt;/code&gt; is  incredibly limited,
-right? That’s  because the typical use  case is to
-list files of a certain type.&lt;/p&gt;
+You can do
 
-&lt;p&gt;You can do&lt;/p&gt;
-
-&lt;p&gt;ls-files -c  # show cached (tracked)
+  ls-files -c  # show cached (tracked)
   ls-files -d  # show unstaged deletions
-  ls-files -u  # show unmerged&lt;/p&gt;
+  ls-files -u  # show unmerged
 
-&lt;p&gt;There is also  an option -t that  shows status tag
+There is also  an option -t that  shows status tag
 (though the tags are  weird: for instance, the tag
 for a tracked file is: H).
-```&lt;/p&gt;
-</content>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
   </entry>
   <entry>
     <title>Using Google Apps Script to convert a Word document to Google Docs</title>
@@ -676,33 +649,30 @@ for a tracked file is: H).
     <content type="html">&lt;p&gt;I recently wanted to write code to convert a Microsoft Word document to a Google Doc. (In fact,
 I wanted to convert many such Word docs.)&lt;/p&gt;
 
-&lt;p&gt;This turned out to be pretty obscure. Here’s how to do it (ids changed):&lt;/p&gt;
-
-&lt;p&gt;```
-function go() {
+&lt;p&gt;This turned out to be pretty obscure. Here&amp;#39;s how to do it (ids changed):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;function go() {
   convertWordDocToGoogleDoc(
-    “15qYN30uJAsMhKxUb1nbCoE09NT7-FPZs”,
-    “Converted”,
-    “1-Grx_yhWWOA73-1dnbEI6JlfHkDXxzr6”
+    "15qYN30uJAsMhKxUb1nbCoE09NT7-FPZs",
+    "Converted",
+    "1-Grx_yhWWOA73-1dnbEI6JlfHkDXxzr6"
   );
-}&lt;/p&gt;
+}
 
-&lt;p&gt;function convertWordDocToGoogleDoc(sourceFileId, targetFileName, targetFolderId) {
+function convertWordDocToGoogleDoc(sourceFileId, targetFileName, targetFolderId) {
   // Convert a Word doc to a Google doc
   // (this was a royal pain to figure out)
   let targetResource = {
-    ‘name’:     targetFileName,
-    ‘mimeType’: MimeType.GOOGLE_DOCS,
-    ‘parents’:  [targetFolderId]
+    'name':     targetFileName,
+    'mimeType': MimeType.GOOGLE_DOCS,
+    'parents':  [targetFolderId]
   };
-  // Notice: This is done with the &lt;em&gt;Drive&lt;/em&gt; service, not the DocumentApp
-  // To add the Drive Service, click the “+” by Services in the left-hand
+  // Notice: This is done with the *Drive* service, not the DocumentApp
+  // To add the Drive Service, click the "+" by Services in the left-hand
   // pane and select Drive API.
-  let targetFile = Drive.Files.copy(targetResource, sourceFileId);&lt;/p&gt;
+  let targetFile = Drive.Files.copy(targetResource, sourceFileId);
 
-&lt;p&gt;return targetFile.id;
+  return targetFile.id;
 };
-```&lt;/p&gt;
-</content>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
   </entry>
 </feed>

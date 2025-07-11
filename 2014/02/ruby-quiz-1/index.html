@@ -13,7 +13,33 @@
             var entry = document.getElementsByTagName('script')[0];
             entry.parentNode.insertBefore(script, entry);
           }());
-        </script> </div> </nav> <div class=container-fluid> <h1>Ruby Quiz #1 <small> by jgn on Thursday, February 6, 2014 in <a href="../../../category/ruby/">Ruby</a> </small> </h1> <p>The rules: If you have to look stuff up or Google for it, you may post comments but not a solution. If you have a solution in your brain and can solve it without consulting authorities, post your solution.</p> <p>You have a class like this and an example of its usage:</p> <p>```ruby class Vector def initialize(x, y) @x, @y = x, y end</p> <p>def *(value) self.class.new(@x * value, @y * value) end</p> <p>def to_s “#{@x}, #{@y}” end end</p> <p>v = Vector.new(3, 5) puts v puts v * 3 ```</p> <p>Output:</p> <p><code>ruby 3, 5 9, 15 </code></p> <p>You would like to make the <code>#*</code> method commutative, so that the following script</p> <p><code>ruby puts v * 3 puts 3 * v </code></p> <p>produces</p> <p><code>ruby 9, 15 9, 15 </code></p> <p>Add one method to the Vector class to produce this result. The method body should have only one line.</p> <div id=disqus_thread></div> <script>
+        </script> </div> </nav> <div class=container-fluid> <h1>Ruby Quiz #1 <small> by jgn on Thursday, February 6, 2014 in <a href="../../../category/ruby/">Ruby</a> </small> </h1> <p>The rules: If you have to look stuff up or Google for it, you may post comments but not a solution. If you have a solution in your brain and can solve it without consulting authorities, post your solution.</p> <p>You have a class like this and an example of its usage:</p> <div class=highlight><pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">Vector</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="vi">@x</span><span class="p">,</span> <span class="vi">@y</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+  <span class="k">end</span>
+
+
+  <span class="k">def</span> <span class="nf">*</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="nb">self</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="vi">@x</span> <span class="o">*</span> <span class="n">value</span><span class="p">,</span> <span class="vi">@y</span> <span class="o">*</span> <span class="n">value</span><span class="p">)</span>
+  <span class="k">end</span>
+
+
+  <span class="k">def</span> <span class="nf">to_s</span>
+    <span class="s2">"</span><span class="si">#{</span><span class="vi">@x</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="vi">@y</span><span class="si">}</span><span class="s2">"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+
+<span class="n">v</span> <span class="o">=</span> <span class="no">Vector</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">v</span>
+<span class="nb">puts</span> <span class="n">v</span> <span class="o">*</span> <span class="mi">3</span>
+</code></pre></div> <p>Output:</p> <div class=highlight><pre class="highlight ruby"><code><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span>
+<span class="mi">9</span><span class="p">,</span> <span class="mi">15</span>
+</code></pre></div> <p>You would like to make the <code>#*</code> method commutative, so that the following script</p> <div class=highlight><pre class="highlight ruby"><code><span class="nb">puts</span> <span class="n">v</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="nb">puts</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">v</span>
+</code></pre></div> <p>produces</p> <div class=highlight><pre class="highlight ruby"><code><span class="mi">9</span><span class="p">,</span> <span class="mi">15</span>
+<span class="mi">9</span><span class="p">,</span> <span class="mi">15</span>
+</code></pre></div> <p>Add one method to the Vector class to produce this result. The method body should have only one line.</p> <div id=disqus_thread></div> <script>
 //<![CDATA[
                   var disqus_shortname = '7fff';
           
