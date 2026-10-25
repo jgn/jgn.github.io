@@ -4,10 +4,38 @@
   <id>http://7fff.com/</id>
   <link href="http://7fff.com/"/>
   <link href="http://7fff.com/feed.xml" rel="self"/>
-  <updated>2025-08-02T22:36:00+00:00</updated>
+  <updated>2026-10-25T20:03:00+00:00</updated>
   <author>
     <name>jgn</name>
   </author>
+  <entry>
+    <title>Vulture's Secret History of Television</title>
+    <link rel="alternate" href="http://7fff.com/2026/10/vulture-s-secret-history-of-television/"/>
+    <id>http://7fff.com/2026/10/vulture-s-secret-history-of-television/</id>
+    <published>2026-10-25T20:03:00+00:00</published>
+    <updated>2026-10-25T16:04:53-05:00</updated>
+    <author>
+      <name>jgn</name>
+    </author>
+    <content type="html">&lt;p&gt;Back in 2015, &lt;a href="https://www.vulture.com/"&gt;Vulture&lt;/a&gt; created a nice little &lt;a href="https://www.vulture.com/tags/secret-history-of-television/"&gt;Secret History of Television&lt;/a&gt;. The pieces were delivered
+through videos, but unfortunately, the Vulture site no longer links to the videos.&lt;/p&gt;
+
+&lt;p&gt;So I hereby present links to the videos on YouTube.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Episode 1, July 1, 2015 &lt;a href="https://www.youtube.com/watch?v=GQRb6gN28oM"&gt;Inside TV’s Secret History of Last-Ditch Efforts to Keep Shows
+Cute&lt;/a&gt; [i.e., the Cousin Oliver Syndrome]&lt;/li&gt;
+&lt;li&gt;Episode 2, July 8, 20215 &lt;a href="https://www.youtube.com/watch?v=usql12uOUVg"&gt;Why Bottle Episodes Make Great Television&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Episode 3, July 15, 2015 &lt;a href="https://www.youtube.com/watch?v=WEIkusofpnI"&gt;Are Crossover Episodes Ever a Good Idea?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Episode 4, July 22, 2015 &lt;a href="https://www.youtube.com/watch?v=zubb8tYlWcI"&gt;‘Lesbian Kiss Episodes’ Were So, So Terrible&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Episode 5, July 29, 2015 &lt;a href="https://www.youtube.com/watch?v=DrzWFRfAHfI"&gt;Who First Said ‘Motherf*cker’ in a Show?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Episode 6, August 5, 2015 &lt;a href="https://www.youtube.com/watch?v=dUDpv-MIp4w"&gt;Whatever Happened to ‘Very Special Episodes’?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Episode 7, August 12, 2015 &lt;a href="https://www.youtube.com/watch?v=y2-W0MWr1Ow"&gt;The Rise of the Spinoff&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Episode 8, August 26, 2015 &lt;a href="https://www.youtube.com/watch?v=FmRy1TUK19s"&gt;What Are the Best and Worst Musical Episodes?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Episode 9, September 2, 2015 &lt;a href="https://www.youtube.com/watch?v=UU5e5KkejWg"&gt;How Superhero Shows Escaped Their Awkward Phase and Became a Force on TV&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
   <entry>
     <title>My top ten "hangout" movies</title>
     <link rel="alternate" href="http://7fff.com/2025/08/my-top-ten-hangout-movies/"/>
@@ -631,170 +659,5 @@ of &lt;code&gt;self.behavior&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;You&amp;#39;re welcome. Note that not all Thor actions allow for revocation: At some point
 I&amp;#39;ll add a list of such actions here.&lt;/p&gt;
 </content>
-  </entry>
-  <entry>
-    <title>Arrays are rarely the natural choice in bash; use files</title>
-    <link rel="alternate" href="http://7fff.com/2024/12/arrays-are-rarely-the-natural-choice-in-bash-use-files/"/>
-    <id>http://7fff.com/2024/12/arrays-are-rarely-the-natural-choice-in-bash-use-files/</id>
-    <published>2024-12-02T15:28:00+00:00</published>
-    <updated>2025-01-03T16:52:08-06:00</updated>
-    <author>
-      <name>jgn</name>
-    </author>
-    <content type="html">&lt;p&gt;So I wanted to format some text whereby I specify a width and a utility fills and wraps the
-lines.&lt;/p&gt;
-
-&lt;p&gt;Example input text:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;The output for `ls-files` is incredibly limited, right? That's because the
-typical use case is to list files of a certain type.
-
-You can do
-
-  ls-files -c  # show cached (tracked)
-  ls-files -d  # show unstaged deletions
-  ls-files -u  # show unmerged
-
-There is also an option -t that shows status tag (though the tags are weird:
-for instance, the tag for a tracked file is: H).
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Fortunately there&amp;#39;s a nice tool called &lt;code&gt;fmt&lt;/code&gt; that can do pretty much what we want.&lt;/p&gt;
-
-&lt;p&gt;You can do &lt;code&gt;fmt -w 50 &amp;lt;text.txt&lt;/code&gt; and get the following:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;The output for `ls-files` is incredibly limited,
-right? That's because the typical use case is to
-list files of a certain type.
-
-You can do
-
-  ls-files -c  # show cached (tracked) ls-files -d
-  # show unstaged deletions ls-files -u  # show
-  unmerged
-
-There is also an option -t that shows status tag
-(though the tags are weird: for instance, the tag
-for a tracked file is: H).
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Well that&amp;#39;s not right. I would like it to leave lines alone that have fewer characters than
-the specified width. In other words, I want:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;The output for `ls-files` is incredibly limited,
-right? That's because the typical use case is to
-list files of a certain type.
-
-You can do
-
-  ls-files -c  # show cached (tracked)
-  ls-files -d  # show unstaged deletions
-  ls-files -u  # show unmerged
-
-There is also an option -t that shows status tag
-(though the tags are weird: for instance, the tag
-for a tracked file is: H).
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;I could do this pretty fast in Ruby, but in this case, I needed it in shell (for bash), and
-I didn&amp;#39;t want to incur the startup time of a Ruby script called from a bash script.&lt;/p&gt;
-
-&lt;p&gt;My first instinct was to use arrays, because that feels natural to me as a programmer -- I might
-split on newlines and do something with the result.&lt;/p&gt;
-
-&lt;p&gt;Here&amp;#39;s what I came up with. Note that on my target, the Mac, the latest version of bash is 3.2
-(for licensing reasons). This means I couldn&amp;#39;t use some of the newer array functions from bash 4.&lt;/p&gt;
-
-&lt;p&gt;(By the way, I do know the bash convention of using all uppercase for environment variable
-names, but that&amp;#39;s just too ugly. Sorry.)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre class="highlight shell"&gt;&lt;code&gt;&lt;span class="c"&gt;#!/usr/bin/env bash&lt;/span&gt;
-
-&lt;span class="nv"&gt;width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
-&lt;span class="nb"&gt;shift
-&lt;/span&gt;&lt;span class="nv"&gt;text&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-
-&lt;span class="nv"&gt;output&lt;/span&gt;&lt;span class="o"&gt;=()&lt;/span&gt;
-&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="o"&gt;=()&lt;/span&gt;
-&lt;span class="nv"&gt;line&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;""&lt;/span&gt;
-&lt;span class="nv"&gt;last_index&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;0
-
-&lt;span class="nv"&gt;format_command&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"fmt"&lt;/span&gt;    &lt;span class="c"&gt;# or `par -j`&lt;/span&gt;
-
-format &lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-  &lt;span class="nb"&gt;local &lt;/span&gt;formatted
-
-  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-gt&lt;/span&gt; 1 &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then
-    &lt;/span&gt;&lt;span class="nv"&gt;formatted&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s1"&gt;'%s'&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; | &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$format_command&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-w&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;width&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;)&lt;/span&gt;
-    output+&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$formatted&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-  &lt;span class="k"&gt;fi
-  &lt;/span&gt;output+&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;""&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-  &lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="o"&gt;=()&lt;/span&gt;
-&lt;span class="o"&gt;}&lt;/span&gt;
-
-&lt;span class="k"&gt;for &lt;/span&gt;line &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;text&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
-  &lt;span class="c"&gt;# hit a newline; format everything accumulated in the buffer&lt;/span&gt;
-  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;line&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;""&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then
-    &lt;/span&gt;format
-  &lt;span class="c"&gt;# hit a short line; add it to the output unformatted&lt;/span&gt;
-  &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-eq&lt;/span&gt; 0 &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;line&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="s2"&gt;""&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;line&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-le&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;width&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then
-    &lt;/span&gt;output+&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-  &lt;span class="c"&gt;# a regular line; add it to the buffer for later formatting.&lt;/span&gt;
-  &lt;span class="k"&gt;else
-    &lt;/span&gt;buffer+&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt; "&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-  &lt;span class="k"&gt;fi
-done
-
-&lt;/span&gt;format
-
-&lt;span class="nv"&gt;last_index&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$((&lt;/span&gt; &lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;output&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="k"&gt;))&lt;/span&gt;
-&lt;span class="nb"&gt;unset&lt;/span&gt; &lt;span class="s2"&gt;"output[&lt;/span&gt;&lt;span class="nv"&gt;$last_index&lt;/span&gt;&lt;span class="s2"&gt;]"&lt;/span&gt;
-
-&lt;span class="c"&gt;# Split elements in original on newline&lt;/span&gt;
-&lt;span class="nv"&gt;split_on_newline&lt;/span&gt;&lt;span class="o"&gt;=()&lt;/span&gt;
-&lt;span class="k"&gt;while &lt;/span&gt;&lt;span class="nv"&gt;IFS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;read&lt;/span&gt; &lt;span class="nt"&gt;-r&lt;/span&gt; line&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do
-    &lt;/span&gt;split_on_newline+&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;done&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s1"&gt;'%s\n'&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;output&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
-&lt;span class="nv"&gt;output&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;split_on_newline&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;So as you can see, there&amp;#39;s rather a lot of wrangling of arrays: getting lines added from a file.
-There&amp;#39;s also the syntax burden of bash arrays, which is non-trivial. I kept looking at this,
-and after awhile it just seemed dumb. Why not write a more routine bash command that reads
-from STDIN and writes to STDOUT?&lt;/p&gt;
-
-&lt;p&gt;So I came up with this, which is shorter and seems more natural:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre class="highlight shell"&gt;&lt;code&gt;&lt;span class="c"&gt;#!/usr/bin/env bash&lt;/span&gt;
-
-&lt;span class="nv"&gt;width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;30
-&lt;span class="nb"&gt;command&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"fmt"&lt;/span&gt;
-&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;""&lt;/span&gt;
-
-&lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="nt"&gt;-n&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;
-&lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="nt"&gt;-n&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$2&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;command&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$2&lt;/span&gt;
-
-&lt;span class="k"&gt;while &lt;/span&gt;&lt;span class="nv"&gt;IFS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;read&lt;/span&gt; &lt;span class="nt"&gt;-r&lt;/span&gt; line&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do
-  if&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="nt"&gt;-z&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-ne&lt;/span&gt; 0 &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then
-    &lt;/span&gt;&lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s1"&gt;'%s\n'&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$buffer&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; | &lt;span class="nv"&gt;$command&lt;/span&gt; &lt;span class="nt"&gt;-w&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$width&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
-    &lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
-    &lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;""&lt;/span&gt;
-  &lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;buffer&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-eq&lt;/span&gt; 0 &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;${#&lt;/span&gt;&lt;span class="nv"&gt;line&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="nt"&gt;-lt&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$width&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then
-    &lt;/span&gt;&lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s1"&gt;'%s\n'&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
-  &lt;span class="k"&gt;else
-    &lt;/span&gt;buffer+&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$line&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
-    buffer+&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;" "&lt;/span&gt;
-  &lt;span class="k"&gt;fi
-done
-&lt;/span&gt;&lt;span class="nb"&gt;printf&lt;/span&gt; &lt;span class="s1"&gt;'%s\n'&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$buffer&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; | &lt;span class="nv"&gt;$command&lt;/span&gt; &lt;span class="nt"&gt;-w&lt;/span&gt; &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="nv"&gt;$width&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This one takes two parameters, the first being the width, and the second being the command
-to use (if one doesn&amp;#39;t want to use the default, &lt;code&gt;fmt&lt;/code&gt;). So if you like, you can use &lt;code&gt;par&lt;/code&gt; to
-justify the text. For example: &lt;code&gt;./wrap 50 &amp;quot;par -j&amp;quot;&lt;/code&gt; gets you:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;The output  for `ls-files` is  incredibly limited,
-right? That's  because the typical use  case is to
-list files of a certain type.
-
-You can do
-
-  ls-files -c  # show cached (tracked)
-  ls-files -d  # show unstaged deletions
-  ls-files -u  # show unmerged
-
-There is also  an option -t that  shows status tag
-(though the tags are  weird: for instance, the tag
-for a tracked file is: H).
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
   </entry>
 </feed>

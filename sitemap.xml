@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://7fff.com/2009/09/ruby-inherited-callback-runs-before-subclass-is-loaded</loc>
-  </url>
-  <url>
-    <loc>https://7fff.com/2011/01/about-huckleberry-finn-and-the-n-word</loc>
-  </url>
-  <url>
-    <loc>https://7fff.com/2010/09/wow-microsoft-has-problems</loc>
-  </url>
-  <url>
-    <loc>https://7fff.com/2009/11/nick-hornby-juliet-naked-book-review</loc>
+    <loc>https://7fff.com/2008/01/fifteen-years-of-progress</loc>
   </url>
   <url>
     <loc>https://7fff.com/2007/09/top-feeds</loc>
@@ -67,19 +58,34 @@
     <loc>https://7fff.com/category/annoyance</loc>
   </url>
   <url>
-    <loc>https://7fff.com/2018/06</loc>
+    <loc>https://7fff.com/category/cipp-e</loc>
   </url>
   <url>
-    <loc>https://7fff.com/2011/08/spying-on-ruby-s-net-http</loc>
+    <loc>https://7fff.com/category/claude</loc>
   </url>
   <url>
-    <loc>https://7fff.com/2009/06/cambridge-to-south-station</loc>
+    <loc>https://7fff.com/category/code</loc>
   </url>
   <url>
-    <loc>https://7fff.com/2011/03/setting-expires-headers-via-rack</loc>
+    <loc>https://7fff.com/category/college-visits</loc>
   </url>
   <url>
-    <loc>https://7fff.com/2008/01/fifteen-years-of-progress</loc>
+    <loc>https://7fff.com/category/colleges</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/category/consulting</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2018/07</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2011/01/about-huckleberry-finn-and-the-n-word</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2010/09/wow-microsoft-has-problems</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2009/11/nick-hornby-juliet-naked-book-review</loc>
   </url>
   <url>
     <loc>https://7fff.com/2020/01/taking-and-passing-the-cissp-examination</loc>
@@ -107,15 +113,6 @@
   </url>
   <url>
     <loc>https://7fff.com/2008/05/and-another-thing-about-the-new-apple-wireless-keyboard</loc>
-  </url>
-  <url>
-    <loc>https://7fff.com/2011/07/use-of-the-word-bind-in-javascript-libraries</loc>
-  </url>
-  <url>
-    <loc>https://7fff.com/search</loc>
-  </url>
-  <url>
-    <loc>https://7fff.com/2010/03/goodbye-alex-chilton-1950-2010</loc>
   </url>
   <url>
     <loc>https://7fff.com/2024/12/how-to-reverse-revert-some-thor-actions</loc>
@@ -182,6 +179,21 @@
   </url>
   <url>
     <loc>https://7fff.com/2007/11/pro-active-record-book-review</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2009/09/ruby-inherited-callback-runs-before-subclass-is-loaded</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2011/08/spying-on-ruby-s-net-http</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2009/06/cambridge-to-south-station</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2011/03/setting-expires-headers-via-rack</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2018/06</loc>
   </url>
   <url>
     <loc>https://7fff.com/2018/05</loc>
@@ -256,10 +268,10 @@
     <loc>https://7fff.com/2012</loc>
   </url>
   <url>
-    <loc>https://7fff.com/2009/12</loc>
+    <loc>https://7fff.com/category/teaching</loc>
   </url>
   <url>
-    <loc>https://7fff.com/category/ruby</loc>
+    <loc>https://7fff.com/2026/10</loc>
   </url>
   <url>
     <loc>https://7fff.com/2025</loc>
@@ -334,7 +346,7 @@
     <loc>https://7fff.com/2018/08</loc>
   </url>
   <url>
-    <loc>https://7fff.com/2018/07</loc>
+    <loc>https://7fff.com/2009/12</loc>
   </url>
   <url>
     <loc>https://7fff.com/2009/11</loc>
@@ -490,22 +502,10 @@
     <loc>https://7fff.com/2009</loc>
   </url>
   <url>
-    <loc>https://7fff.com/category/security</loc>
-  </url>
-  <url>
-    <loc>https://7fff.com/category/small-liberal-arts-colleges</loc>
-  </url>
-  <url>
-    <loc>https://7fff.com/category/social-media</loc>
-  </url>
-  <url>
-    <loc>https://7fff.com/category/startup-cto-bookshelf</loc>
-  </url>
-  <url>
-    <loc>https://7fff.com/category/teaching</loc>
-  </url>
-  <url>
     <loc>https://7fff.com/category/technology</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/category/television</loc>
   </url>
   <url>
     <loc>https://7fff.com/category/time-management</loc>
@@ -544,6 +544,18 @@
     <loc>https://7fff.com/category/ruby</loc>
   </url>
   <url>
+    <loc>https://7fff.com/tag/televsion</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/tag/vulture</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/tag/youtube</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/tag/video</loc>
+  </url>
+  <url>
     <loc>https://7fff.com/tag/the-thirty-nine-steps</loc>
   </url>
   <url>
@@ -559,31 +571,16 @@
     <loc>https://7fff.com/tag/pulp-fiction</loc>
   </url>
   <url>
-    <loc>https://7fff.com/tag/watch</loc>
-  </url>
-  <url>
-    <loc>https://7fff.com/category/cipp-e</loc>
-  </url>
-  <url>
-    <loc>https://7fff.com/category/claude</loc>
-  </url>
-  <url>
-    <loc>https://7fff.com/category/code</loc>
-  </url>
-  <url>
-    <loc>https://7fff.com/category/college-visits</loc>
-  </url>
-  <url>
-    <loc>https://7fff.com/category/colleges</loc>
-  </url>
-  <url>
-    <loc>https://7fff.com/category/consulting</loc>
+    <loc>https://7fff.com/tag/fargo</loc>
   </url>
   <url>
     <loc>https://7fff.com/category/data</loc>
   </url>
   <url>
     <loc>https://7fff.com/category/dining</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/category/entertainment</loc>
   </url>
   <url>
     <loc>https://7fff.com/category/facebook</loc>
@@ -638,6 +635,21 @@
   </url>
   <url>
     <loc>https://7fff.com/category/reviews</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/category/ruby</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/category/security</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/category/small-liberal-arts-colleges</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/category/social-media</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/category/startup-cto-bookshelf</loc>
   </url>
   <url>
     <loc>https://7fff.com/tag/apple-watch</loc>
@@ -715,7 +727,7 @@
     <loc>https://7fff.com/tag/virtualbox</loc>
   </url>
   <url>
-    <loc>https://7fff.com/tag/fargo</loc>
+    <loc>https://7fff.com/2026</loc>
   </url>
   <url>
     <loc>https://7fff.com/tag/city-lights</loc>
@@ -793,6 +805,9 @@
     <loc>https://7fff.com/tag/apple</loc>
   </url>
   <url>
+    <loc>https://7fff.com/tag/watch</loc>
+  </url>
+  <url>
     <loc>https://7fff.com/2008/01/gracenote-ripping-cds-on-windows</loc>
   </url>
   <url>
@@ -863,6 +878,9 @@
   </url>
   <url>
     <loc>https://7fff.com/2015/01/moving-from-wordpress-to-middleman-part-i</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2010/12/3rd-party-logins-use-twitter-not-facebook</loc>
   </url>
   <url>
     <loc>https://7fff.com/2007/10/listening-to-john-resig-at-jquerycamp</loc>
@@ -1000,9 +1018,6 @@
     <loc>https://7fff.com/2013/02/os-x-puppet-and-boxen-and-installing-new-software-versions-from-dmgs-virtualbox-for-me</loc>
   </url>
   <url>
-    <loc>https://7fff.com/2010/12/3rd-party-logins-use-twitter-not-facebook</loc>
-  </url>
-  <url>
     <loc>https://7fff.com/2013/04/jeff-gothelf-lean-ux-book-review</loc>
   </url>
   <url>
@@ -1138,13 +1153,16 @@
     <loc>https://7fff.com/2010/12/linkedin-groups-low-quality-discussions</loc>
   </url>
   <url>
-    <loc>https://7fff.com/2008/03/norman-s-law</loc>
+    <loc>https://7fff.com/2011/02/application-delivery-on-mobile-devices-app-store-native-vs-browser-html5</loc>
   </url>
   <url>
-    <loc>https://7fff.com/2008/03/black-postcards-book-review</loc>
+    <loc>https://7fff.com/2014/01/user-prioritization-of-bug-issue-tickets</loc>
   </url>
   <url>
-    <loc>https://7fff.com/2007/10/kendall-square-the-turkey</loc>
+    <loc>https://7fff.com/2007/08/the-google</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2011/02/page-numbers-for-the-kindle-thank-god</loc>
   </url>
   <url>
     <loc>https://7fff.com/2012/07/the-most-important-social-network-github</loc>
@@ -1213,16 +1231,13 @@
     <loc>https://7fff.com/2017/02/ronald-reagan-a-graphic-biography-book-review</loc>
   </url>
   <url>
-    <loc>https://7fff.com/2011/02/application-delivery-on-mobile-devices-app-store-native-vs-browser-html5</loc>
+    <loc>https://7fff.com/2011/07/use-of-the-word-bind-in-javascript-libraries</loc>
   </url>
   <url>
-    <loc>https://7fff.com/2014/01/user-prioritization-of-bug-issue-tickets</loc>
+    <loc>https://7fff.com/search</loc>
   </url>
   <url>
-    <loc>https://7fff.com/2007/08/the-google</loc>
-  </url>
-  <url>
-    <loc>https://7fff.com/2011/02/page-numbers-for-the-kindle-thank-god</loc>
+    <loc>https://7fff.com/2010/03/goodbye-alex-chilton-1950-2010</loc>
   </url>
   <url>
     <loc>https://7fff.com/2018/03/hansen-great-at-work-how-top-performers-do-less-work-better-and-achieve-more-book-review</loc>
@@ -1253,6 +1268,9 @@
   </url>
   <url>
     <loc>https://7fff.com/2009/06/trip-on-the-empire-builder-what-i-m-taking</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2026/10/vulture-s-secret-history-of-television</loc>
   </url>
   <url>
     <loc>https://7fff.com/2009/08/how-to-embed-jruby-1-9-into-a-java-class</loc>
@@ -1286,5 +1304,14 @@
   </url>
   <url>
     <loc>https://7fff.com/2008/01/does-this-mean-i-don-t-have-to-pay-taxes</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2008/03/norman-s-law</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2008/03/black-postcards-book-review</loc>
+  </url>
+  <url>
+    <loc>https://7fff.com/2007/10/kendall-square-the-turkey</loc>
   </url>
 </urlset>
